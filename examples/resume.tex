@@ -11,7 +11,6 @@
 %
 % Template license:
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-%
 
 
 %-------------------------------------------------------------------------------
@@ -21,12 +20,64 @@
 \documentclass[11pt, a4paper]{awesome-cv}
 
 % Configure page margins with geometry
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\geometry{left=1.8cm, top=1.5cm, right=1.8cm, bottom=2.2cm, footskip=1cm}
+
+% Improve line breaking and prevent overfull boxes
+\sloppy
+\setlength{\emergencystretch}{3em}
+
+% Custom spacing adjustments
+\renewcommand{\acvSectionTopSkip}{-2mm}
+
+% Prevent duplicate contact info in PDF metadata and text layer
+\makeatletter
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle={Brandon Gottshall - Software Engineer},
+    pdfauthor={Brandon Gottshall},
+    pdfsubject={Resume},
+    pdfkeywords={Software Engineer, Full Stack Developer, TypeScript, React, Node.js, AWS, GCP, Docker, CI/CD},
+    pdfcreator={XeLaTeX with Awesome-CV}
+  }
+}
+\makeatother
+\renewcommand{\acvSectionContentTopSkip}{2mm}
+
+% Custom spacing for cvitems (bullet points)
+\renewenvironment{cvitems}{%
+  \vspace{-8pt}%
+  \begin{justify}
+  \begin{itemize}[leftmargin=2ex, topsep=2pt, itemsep=1pt, partopsep=0pt, parsep=0pt]%
+    \setlength{\parskip}{0pt}%
+    \renewcommand{\labelitemi}{\bullet}%
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{8pt}%
+}
+
+% Color the first word of section titles
+\makeatletter
+\renewcommand{\@sectioncolor}[1]{%
+  \ifbool{acvSectionColorHighlight}{%
+    \@tempcnta=1\relax
+    \@tfor\@tempa:=#1\do{%
+      \ifnum\@tempcnta=1\relax
+        \color{awesome}\@tempa%
+      \else
+        \ifx\@tempa\@empty\else\ifx\@tempa~ \color{text}\@tempa\expandafter\@gobble\else\color{text}#1\fi\fi%
+        \expandafter\@gobbletwo
+      \fi
+      \global\advance\@tempcnta\@ne
+    }%
+  }{#1}%
+}
+\makeatother
 
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-red}
+% \colorlet{awesome}{awesome-skyblue}
 % Uncomment if you would like to specify your own color
 % \definecolor{awesome}{HTML}{3E6D9C}
 
@@ -51,46 +102,60 @@
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
 % \photo[rectangle,edge,right]{./examples/profile}
-\name{Byungjin}{Park}
-\position{Site Reliability Engineer{\enskip\cdotp\enskip}Software Architect}
-\address{235, World Cup buk-ro, Mapo-gu, Seoul, 03936, Republic of Korea}
+\name{Brandon}{Gottshall}
+\position{Software Engineer}
+\address{Adel, GA 31620}
 
-\mobile{(+82) 10-9030-1843}
-\email{posquit0.bj@gmail.com}
-%\dateofbirth{January 1st, 1970}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
-% \gitlab{gitlab-id}
-% \stackoverflow{SO-id}{SO-name}
-% \twitter{@twit}
-% \skype{skype-id}
-% \reddit{reddit-id}
-% \medium{madium-id}
-% \kaggle{kaggle-id}
-% \hackerrank{hackerrank-id}
-% \telegram{telegram-username}
-% \googlescholar{googlescholar-id}{name-to-display}
-%% \firstname and \lastname will be used
-% \googlescholar{googlescholar-id}{}
-% \extrainfo{extra information}
+% Format contact info for better ATS parsing with unique display text
+\mobile{+1 229-234-7471}
+\email{blgottshall@gmail.com}
+\homepage{brandongottshall.com}
+\github{Brandon-Gottshall}
+\linkedin{Brandon-Gottshall}
 
-\quote{``Be the change that you want to see in the world."}
+\quote{``I build reliable software, websites, and tech solutions to streamline operations and drive measurable business impact."}
 
 
 %-------------------------------------------------------------------------------
 \begin{document}
 
+% Prevent duplicate contact info in text layer
+\pdfstringdefDisableCommands{%
+  \def\href#1#2{#2}%
+  \def\https{https://}%
+  \def\http{http://}%
+}
+
+% Remove footer completely to prevent duplicate contact info
+\renewcommand{\makecvfooter}[3]{} % Empty footer
+
+% Set up ATS-friendly footer with just page number
+\fancypagestyle{plain}{%
+    \fancyhf{} % Clear all header and footer fields
+    \renewcommand{\headrulewidth}{0pt} % Remove header rule if present
+    \fancyfoot[C]{\thepage} % Only show page number in the center
+}
+
+% Redefine headersocialstyle to show only essential contact info
+\renewcommand{\headersocialstyle}[1]{%
+  \fontsize{7.5pt}{1em}\headerfont\color{text}%
+  \begin{tabular}{@{}l@{}}
+    \faEnvelope\hspace{0.5em}\href{mailto:blgottshall@gmail.com}{blgottshall@gmail.com} \\
+    \faMobile\hspace{0.5em}+1 229-234-7471 \\
+    \faGithub\hspace{0.5em}\href{https://github.com/Brandon-Gottshall}{Brandon-Gottshall} \\
+    \faLinkedin\hspace{0.5em}\href{https://www.linkedin.com/in/Brandon-Gottshall}{Brandon-Gottshall}
+  \end{tabular}%
+}
+
 % Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader[C]
 
-% Print the footer with 3 arguments(<left>, <center>, <right>)
-% Leave any of these blank if they are not needed
-\makecvfooter
-  {\today}
-  {Byungjin Park~~~·~~~Résumé}
-  {\thepage}
+% No need for separate footer since we're showing contact info in header
+\makecvfooter{}{}{}
+
+% Remove footer from first page
+\thispagestyle{empty}
 
 
 %-------------------------------------------------------------------------------
@@ -99,14 +164,9 @@
 %-------------------------------------------------------------------------------
 \input{resume/summary.tex}
 \input{resume/experience.tex}
-\input{resume/honors.tex}
-\input{resume/certificates.tex}
-% \input{resume/presentation.tex}
-% \input{resume/writing.tex}
-% \input{resume/committees.tex}
 \input{resume/education.tex}
-% \input{resume/extracurricular.tex}
-
+\input{resume/certifications.tex}
+\input{resume/skills.tex}
 
 %-------------------------------------------------------------------------------
 \end{document}
