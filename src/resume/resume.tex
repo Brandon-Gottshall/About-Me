@@ -1,23 +1,18 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template for CV/Resume
+% Awesome CV LaTeX Template for Resume
 %
-% This template has been downloaded from:
-% https://github.com/posquit0/Awesome-CV
-%
-% Author:
-% Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
-%
-% Template license:
-% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+% This template has been adapted from Awesome-CV
+% Original template: https://github.com/posquit0/Awesome-CV
+% Modified by: Brandon Gottshall
+% License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
 
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{awesome-cv}
+\documentclass[11pt, a4paper]{../../src/common/awesome-cv}
 
 % Configure page margins with geometry
 \geometry{left=1.8cm, top=1.5cm, right=1.8cm, bottom=2.2cm, footskip=1cm}
@@ -115,7 +110,6 @@
 
 \quote{``I build reliable software, websites, and tech solutions to streamline operations and drive measurable business impact."}
 
-
 %-------------------------------------------------------------------------------
 \begin{document}
 
@@ -138,12 +132,12 @@
 
 % Redefine headersocialstyle to show only essential contact info
 \renewcommand{\headersocialstyle}[1]{%
-  \fontsize{7.5pt}{1em}\headerfont\color{text}%
+  \fontsize{8pt}{1em}\headerfont\color{text}%
   \begin{tabular}{@{}l@{}}
     \faEnvelope\hspace{0.5em}\href{mailto:blgottshall@gmail.com}{blgottshall@gmail.com} \\
     \faMobile\hspace{0.5em}+1 229-234-7471 \\
-    \faGithub\hspace{0.5em}\href{https://github.com/Brandon-Gottshall}{Brandon-Gottshall} \\
-    \faLinkedin\hspace{0.5em}\href{https://www.linkedin.com/in/Brandon-Gottshall}{Brandon-Gottshall}
+    \faGithub\hspace{0.5em}\href{https://github.com/Brandon-Gottshall}{github.com/Brandon-Gottshall} \\
+    \faLinkedin\hspace{0.5em}\href{https://www.linkedin.com/in/Brandon-Gottshall}{linkedin.com/in/Brandon-Gottshall}
   \end{tabular}%
 }
 
@@ -159,14 +153,14 @@
 
 
 %-------------------------------------------------------------------------------
-%	CV/RESUME CONTENT
-%	Each section is imported separately, open each file in turn to modify content
+%\tRESUME CONTENT - Concise and targeted for job applications
 %-------------------------------------------------------------------------------
-\input{resume/summary.tex}
-\input{resume/experience.tex}
-\input{resume/education.tex}
-\input{resume/certifications.tex}
-\input{resume/skills.tex}
+\input{../common/sections/summary.tex}        % 2-3 sentence professional summary
+\input{../common/sections/experience.tex}     % Focus on last 10-15 years of experience
+\input{../common/sections/education.tex}      % Degrees and relevant education
+\input{../common/sections/skills.tex}         % Technical skills (tailored to job description)
+% \input{../common/sections/projects.tex}    % Key projects with impact metrics
+\input{../common/sections/certifications.tex} % Relevant professional certifications
 
 %-------------------------------------------------------------------------------
 \end{document}

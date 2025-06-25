@@ -1,126 +1,97 @@
-<h1 align="center">
-  <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
-    <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
-  </a>
-  <br />
-  Awesome CV
-</h1>
+# Brandon Gottshall
 
-<p align="center">
-  LaTeX template for your outstanding job application
-</p>
+> Software Engineer & Technology Enthusiast
 
-<div align="center">
-  <a href="https://www.paypal.me/posquit0">
-    <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg" />
-  </a>
-  <a href="https://github.com/posquit0/Awesome-CV/actions/workflows/main.yml">
-    <img alt="GitHub Actions" src="https://github.com/posquit0/Awesome-CV/actions/workflows/main.yml/badge.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
-    <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf">
-    <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf">
-    <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
-  </a>
-</div>
+[![Email](https://img.shields.io/badge/Email-blgottshall%40gmail.com-blue?style=flat-square&logo=gmail)](mailto:blgottshall@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/brandon-gottshall)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white)](https://github.com/Brandon-Gottshall)
 
-<br />
+## 👋 About Me
 
-## What is Awesome CV?
+I'm a passionate software engineer with expertise in full-stack development, cloud architecture, and building scalable applications. I love solving complex problems and continuously learning new technologies to stay at the forefront of the industry.
 
-**Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
+### 📋 Table of Contents
 
+- [About Me](#-about-me)
+- [Technical Skills](#️-technical-skills)
+- [Currently Learning](#-currently-learning)
+- [Projects](#-projects)
+<!-- - [Blog Posts](#-blog-posts) -->
+- [Get In Touch](#-get-in-touch)
+- [GitHub Stats](#-github-stats)
 
-## Donate
+## 🔍 Currently Learning
 
-Please help keep this project alive! Donations are welcome and will go towards further development of this project.
+- Advanced TypeScript patterns
+- Cloud architecture best practices
+- Performance optimization techniques
 
-    PayPal: paypal.me/posquit0
+### 🛠️ Technical Skills
 
-*Thank you for your support!*
+- **Languages**: TypeScript, JavaScript, Python, Java, SQL
+- **Frontend**: React, Next.js, Redux, HTML5, CSS3, Tailwind CSS
+- **Backend**: Node.js, Express, NestJS, Django, Spring Boot
+- **Cloud & DevOps**: AWS, GCP, Docker, Kubernetes, Terraform, CI/CD
+- **Databases**: PostgreSQL, MongoDB, Redis, DynamoDB
+- **Other**: GraphQL, REST APIs, Microservices, Serverless
 
-## Preview
+### 📄 Professional Documents
 
-#### Résumé
+- [Resume](output/resume.pdf)
+- [CV](output/cv.pdf)
+- [Cover Letter Template](output/cover-letter.pdf)
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
+## 📄 Résumé Preview
 
 | Page. 1 | Page. 2 |
 |:---:|:---:|
-| [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)  | [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) |
+| [![Resume Page 1](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/Resume-1.png)](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/Resume-1.png) | [![Resume Page 2](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/Resume-2.png)](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/Resume-2.png) |
 
-#### Cover Letter
+## 📄 CV Preview
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
+| Page. 1 | Page. 2 |
+|:---:|:---:|
+| [![CV Page 1](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/CV-1.png)](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/CV-1.png) | [![CV Page 2](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/CV-2.png)](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/CV-2.png) |
+
+### Cover Letter Preview
 
 | Without Sections | With Sections |
 |:---:|:---:|
 | [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
 
+## 🚀 Projects
 
-## Quick Start
+Here are some of my notable projects:
 
-* [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
-* [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
+- **Project One** - Brief description of the project and your role.
+- **Project Two** - Brief description of the project and technologies used.
+- **Project Three** - Brief description of the impact or results.
 
-**_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
+<!-- ## 📚 Blog Posts
 
+I occasionally write about technology and software development. Check out my latest articles:
 
-## How to Use
+- [Post Title One](https://your-blog-url.com/post-one)
+- [Post Title Two](https://your-blog-url.com/post-two) -->
 
-#### Requirements
+## 📫 Get In Touch
 
-A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
-You can [install TeX from upstream](https://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
+- 📧 [blgottshall@gmail.com](mailto:blgottshall@gmail.com)
+- 💼 [LinkedIn](https://linkedin.com/in/brandon-gottshall)
+- 🐦 [Twitter](https://twitter.com/yourhandle)
+- 🌐 [Website](https://yourwebsite.com)
 
-If you don't want to install the dependencies on your system, this can also be obtained via [Docker](https://docker.com).
+## 📊 GitHub Stats
 
-#### Usage
+[![Brandon's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Brandon-Gottshall&show_icons=true&theme=radical&rank_icon=github)](https://github.com/Brandon-Gottshall)
 
-At a command prompt, run
+> Disclaimer: These stats are currently generated based only on the **public** repositories of my GitHub profile. I plan to deploy my own instance of the GitHub Readme Stats API in the near future, however I can't be bothered at this very moment. 🤷‍♂️
 
-```bash
-xelatex {your-cv}.tex
-```
+## 🙏 Acknowledgements
 
-Or using docker:
+This project uses the [Awesome CV](https://github.com/posquit0/Awesome-CV) template created by [Claud D. Park](http://www.posquit0.com), which is licensed under the [LaTeX Project Public License (LPPL) v1.3c](LICENCE).
 
-```bash
-docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc thomasweise/texlive make
-```
+## 📜 License
 
-In either case, this should result in the creation of ``{your-cv}.pdf``
-
-
-## Credit
-
-[**LaTeX**](https://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
-
-[**LaTeX FontAwesome**](https://github.com/furl/latex-fontawesome) is bindings for FontAwesome icons to be used in XeLaTeX.
-
-[**Roboto**](https://github.com/google/roboto) is the default font on Android and ChromeOS, and the recommended font for Google’s visual language, Material Design.
-
-[**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
-
-
-## Contact
-
-You are free to take my `.tex` file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
-
-If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc://irc.freenode.net/posquit0) and ask away. Click [here](https://kiwiirc.com/client/irc.freenode.net/posquit0) to connect.
-
-Good luck!
-
-
-## Maintainers
-- [posquit0](https://github.com/posquit0)
-- [OJFord](https://github.com/OJFord)
-
-
-## See Also
-
-* [Awesome Identity](https://github.com/posquit0/hugo-awesome-identity) - A single-page Hugo theme to introduce yourself.
+- The LaTeX template files are licensed under the [LaTeX Project Public License (LPPL) v1.3c](LICENCE).
+- The content of the CV/Resume and other personal files are licensed under the [MIT License](LICENSE).

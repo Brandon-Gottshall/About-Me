@@ -1,0 +1,109 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+%
+% This template has been adapted from Awesome-CV
+% Original template: https://github.com/posquit0/Awesome-CV
+% Modified by: Brandon Gottshall
+% License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{../../src/common/awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm}
+
+% Color for highlights (match with resume/cv)
+\colorlet{awesome}{awesome-red}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% Change the social information separator
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+% Custom commands for cover letter
+\newcommand{\letterskip}{\vspace{1.5em}}
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{Brandon}{Gottshall}
+\position{Software Engineer}
+\address{Your Street, City, State ZIP Code}
+
+\mobile{(XXX) XXX-XXXX}
+\email{blgottshall@gmail.com}
+\github{Brandon-Gottshall}
+\linkedin{brandon-gottshall}
+\homepage{brandongottshall.com}
+
+% Uncomment to include a photo
+% \photo[circle,edge,right]{path/to/photo}
+
+%-------------------------------------------------------------------------------
+% LETTER INFORMATION
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+  {Hiring Manager}
+  {Company Name\\
+  Company Address\\
+  City, State ZIP Code}
+
+% The date (default is today)
+\letterdate{\today}
+
+% The title of the letter
+\lettertitle{Application for [Position Name] Position}
+
+% How the letter is opened
+\letteropening{Dear Hiring Manager,}
+
+% How the letter is closed
+\letterclosing{Sincerely,}
+
+% Any enclosures with the letter
+\letterenclosure[Attached]{Resume}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal information
+\makecvheader[R]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+\makecvfooter
+  {\today}
+  {Brandon Gottshall~~~·~~~Cover Letter}
+  {}
+
+% Print the title with above letter information
+\makelettertitle
+
+%-------------------------------------------------------------------------------
+% LETTER BODY
+%-------------------------------------------------------------------------------
+
+% Opening paragraph - State the position you're applying for and how you found it
+I am excited to apply for the [Position Name] position at [Company Name]. With [X] years of experience in [relevant field/industry], I am confident in my ability to contribute effectively to your team. My background in [relevant skills/experience] aligns well with the requirements for this role, and I am eager to bring my expertise to your organization.
+
+% Middle paragraphs - Highlight relevant experience and achievements
+At [Current/Most Recent Company], I [describe relevant experience and achievements]. For example, I [specific accomplishment with metrics if possible]. This experience has equipped me with [specific skills] that would be valuable in the [Position Name] role at [Company Name].
+
+In my previous position at [Previous Company], I [describe relevant experience]. This experience has given me the opportunity to develop strong [relevant skills] and [specific achievements]. I am particularly proud of [specific project or accomplishment] which resulted in [quantifiable outcome].
+
+% Closing paragraph - Show enthusiasm and request for interview
+I am impressed by [specific aspect of the company or role] and am excited about the opportunity to contribute to [specific team/project] at [Company Name]. I am confident that my skills in [specific skills] and my passion for [relevant interest] would make me a valuable addition to your team.
+
+Thank you for considering my application. I would welcome the opportunity to discuss how my background, skills, and enthusiasm align with the needs of [Company Name]. I am available at your convenience for an interview and look forward to the possibility of contributing to your team.
+
+% Close the letter
+\makeletterclosing
+
+\end{document}
