@@ -1,22 +1,28 @@
-.PHONY: examples
+.PHONY: all clean
 
+# Compiler
 CC = xelatex
-EXAMPLES_DIR = examples
-RESUME_DIR = examples/resume
-CV_DIR = examples/cv
-RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
-CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
 
-examples: $(foreach x, coverletter cv resume, $x.pdf)
+# Directories
+SRC_DIR = src/resume
+OUTPUT_DIR = output
 
-resume.pdf: $(EXAMPLES_DIR)/resume.tex $(RESUME_SRCS)
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+# Source files
+RESUME_TEX = $(SRC_DIR)/resume.tex
+RESUME_PDF = $(OUTPUT_DIR)/resume.pdf
 
-cv.pdf: $(EXAMPLES_DIR)/cv.tex $(CV_SRCS)
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+# Ensure output directory exists
+$(shell mkdir -p $(OUTPUT_DIR))
 
-coverletter.pdf: $(EXAMPLES_DIR)/coverletter.tex
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+# Default target
+all: resume
 
+# Build resume
+resume: $(RESUME_PDF)
+
+$(RESUME_PDF): $(RESUME_TEX)
+	cd $(SRC_DIR) && $(CC) -output-directory=../../$(OUTPUT_DIR) -interaction=nonstopmode -halt-on-error $(notdir $<)
+
+# Clean up
 clean:
-	rm -rf $(EXAMPLES_DIR)/*.pdf
+	rm -rf $(OUTPUT_DIR)/*.pdf $(OUTPUT_DIR)/*.aux $(OUTPUT_DIR)/*.log $(OUTPUT_DIR)/*.out
