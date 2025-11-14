@@ -53,14 +53,14 @@ cover_letter:
     paper_size: "a4paper"
     font_size: "11pt"
     margins:
-      left: "2cm"
+      left: "1.8cm"  # Match resume margins
       top: "1.5cm"
-      right: "2cm"
-      bottom: "2cm"
-      footskip: ".5cm"
-    color: "awesome-red"
+      right: "1.8cm"  # Match resume margins
+      bottom: "2.2cm"  # Match resume margins
+      footskip: "1cm"  # Match resume footskip
+    color: "awesome-skyblue"  # Match leadership resume color
     section_color_highlight: true
-    header_alignment: "R"
+    header_alignment: "C"  # Center-aligned like leadership resume
   defaults:
     recipient_name: "Hiring Manager"
     company_name: "Company Name"

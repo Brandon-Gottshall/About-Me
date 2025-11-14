@@ -30,179 +30,29 @@
 % Custom commands for cover letter
 \newcommand{\letterskip}{\vspace{1.5em}}
 
-% Custom header layout with websites on separate lines
-<@ if contact.homepage2 @>
-\def\@homepage2{<<contact.homepage2>>}
-% Patch makecvheader to exclude homepage from first line and add websites separately
-\makeatletter
-% Store original makecvheader
-\let\old@makecvheader\makecvheader
-% Redefine makecvheader to customize social header
-\renewcommand{\makecvheader}[1][C]{%
-  \newcommand*{\drawphoto}{%
-    \ifthenelse{\isundefined{\@photo}}{}{%
-      \newlength{\photodim}
-      \ifthenelse{\equal{\@photoshape}{circle}}%
-        {\setlength{\photodim}{1.3cm}}%
-        {\setlength{\photodim}{1.8cm}}%
-      \ifthenelse{\equal{\@photoedge}{edge}}%
-        {\def\@photoborder{darkgray}}%
-        {\def\@photoborder{none}}%
-      \begin{tikzpicture}%
-        \node[\@photoshape, draw=\@photoborder, line width=0.3mm, inner sep=\photodim, fill overzoom image=\@photo] () {};
-      \end{tikzpicture}
-    }%
-  }
-  \newlength{\headertextwidth}
-  \newlength{\headerphotowidth}
-  \ifthenelse{\isundefined{\@photo}}{
-    \setlength{\headertextwidth}{\textwidth}
-    \setlength{\headerphotowidth}{0cm}
-  }{%
-    \setlength{\headertextwidth}{0.76\textwidth}
-    \setlength{\headerphotowidth}{0.24\textwidth}
-  }%
-  \begin{minipage}[c]{\headerphotowidth}%
-    \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
-  \end{minipage}
-  \begin{minipage}[c]{\headertextwidth}
-    \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
-    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
-    \\[\acvHeaderAfterNameSkip]%
-    \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
-    \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
-    % First line: mobile, email, github, linkedin (exclude homepage)
-    \headersocialstyle{%
-      \newbool{isstart}%
-      \setbool{isstart}{true}%
-      \ifthenelse{\isundefined{\@mobile}}%
-        {}%
-        {%
-          \href{\@teluri}{\faMobile\acvHeaderIconSep\@mobile}%
-          \setbool{isstart}{false}%
-        }%
-      \ifthenelse{\isundefined{\@email}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
-        }%
-      \ifthenelse{\isundefined{\@github}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
-        }%
-      \ifthenelse{\isundefined{\@linkedin}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedin\acvHeaderIconSep\@linkedin}%
-        }%
-    }%
-    % Second line: homepage with house icon
-    \ifthenelse{\isundefined{\@homepage}}{}{%
-      \\[\acvHeaderAfterAddressSkip]%
-      \headersocialstyle{%
-        \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
-      }%
-    }%
-    % Divider line
-    \ifthenelse{\isundefined{\@homepage2}}{}{%
-      \\[0.3em]%
-      \rule{\headertextwidth}{0.4pt}%
-      \\[0.3em]%
-      % Third line: homepage2 with briefcase icon
-      \headersocialstyle{%
-        \href{http://\@homepage2}{\faBriefcase\acvHeaderIconSep\@homepage2}%
-      }%
-    }%
-  \end{minipage}
+% Redefine headersocialstyle to match leadership resume format
+% Show contact info in tabular format like the resume
+\renewcommand{\headersocialstyle}[1]{%
+  \fontsize{8pt}{1em}\headerfont\color{text}%
+  \begin{tabular}{@{}l@{}}
+    \faEnvelope\hspace{0.5em}\href{mailto:<<contact.email>>}{ <<contact.email>> } \\
+    \faMobile\hspace{0.5em}{ <<contact.mobile>> } \\
+    \faGithub\hspace{0.5em}\href{https://github.com/<<contact.github>>}{github.com/<<contact.github>>} \\
+    \faLinkedin\hspace{0.5em}\href{https://www.linkedin.com/in/<<contact.linkedin>>}{linkedin.com/in/<<contact.linkedin>>}<@ if contact.homepage @> \\
+    \faHome\hspace{0.5em}\href{http://<<contact.homepage>>}{<<contact.homepage>>}<@ endif @><@ if contact.homepage2 @> \\
+    \faBriefcase\hspace{0.5em}\href{http://<<contact.homepage2>>}{<<contact.homepage2>>}<@ endif @>
+  \end{tabular}%
 }
-\makeatother
-<@ else @>
-% If no second homepage, just move homepage to second line
-\makeatletter
-\let\old@makecvheader\makecvheader
-\renewcommand{\makecvheader}[1][C]{%
-  \newcommand*{\drawphoto}{%
-    \ifthenelse{\isundefined{\@photo}}{}{%
-      \newlength{\photodim}
-      \ifthenelse{\equal{\@photoshape}{circle}}%
-        {\setlength{\photodim}{1.3cm}}%
-        {\setlength{\photodim}{1.8cm}}%
-      \ifthenelse{\equal{\@photoedge}{edge}}%
-        {\def\@photoborder{darkgray}}%
-        {\def\@photoborder{none}}%
-      \begin{tikzpicture}%
-        \node[\@photoshape, draw=\@photoborder, line width=0.3mm, inner sep=\photodim, fill overzoom image=\@photo] () {};
-      \end{tikzpicture}
-    }%
-  }
-  \newlength{\headertextwidth}
-  \newlength{\headerphotowidth}
-  \ifthenelse{\isundefined{\@photo}}{
-    \setlength{\headertextwidth}{\textwidth}
-    \setlength{\headerphotowidth}{0cm}
-  }{%
-    \setlength{\headertextwidth}{0.76\textwidth}
-    \setlength{\headerphotowidth}{0.24\textwidth}
-  }%
-  \begin{minipage}[c]{\headerphotowidth}%
-    \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
-  \end{minipage}
-  \begin{minipage}[c]{\headertextwidth}
-    \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
-    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
-    \\[\acvHeaderAfterNameSkip]%
-    \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
-    \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
-    % First line: mobile, email, github, linkedin (exclude homepage)
-    \headersocialstyle{%
-      \newbool{isstart}%
-      \setbool{isstart}{true}%
-      \ifthenelse{\isundefined{\@mobile}}%
-        {}%
-        {%
-          \href{\@teluri}{\faMobile\acvHeaderIconSep\@mobile}%
-          \setbool{isstart}{false}%
-        }%
-      \ifthenelse{\isundefined{\@email}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
-        }%
-      \ifthenelse{\isundefined{\@github}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
-        }%
-      \ifthenelse{\isundefined{\@linkedin}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedin\acvHeaderIconSep\@linkedin}%
-        }%
-    }%
-    % Second line: homepage with house icon
-    \ifthenelse{\isundefined{\@homepage}}{}{%
-      \\[\acvHeaderAfterAddressSkip]%
-      \headersocialstyle{%
-        \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
-      }%
-    }%
-  \end{minipage}
-}
-\makeatother
-<@ endif @>
 
 %-------------------------------------------------------------------------------
 % PERSONAL INFORMATION
 %-------------------------------------------------------------------------------
 \name{ <<name.first>> }{ <<name.last>> }
+<@ if variant_id == 'academic_music' @>
+\position{ Blazin' Brigade Section Leader Candidate • Low Brass • Marine Corps Veteran }
+<@ else @>
 \position{ <<position.resume>> }
+<@ endif @>
 \address{ <<address>> }
 
 \mobile{ <<contact.mobile>> }
@@ -226,10 +76,21 @@
 \letterdate{\today}
 
 % The title of the letter
+<@ if variant_id == 'academic_music' @>
+\lettertitle{Application for Blazin' Brigade Section Leader -- Low Brass}
+<@ else @>
 \lettertitle{Application for <<position_name>> Position}
+<@ endif @>
 
-% How the letter is opened
+% How the letter is opened (insert Re line for academic_music variant)
+<@ if variant_id == 'academic_music' @>
+\letteropening{
+  \textcolor{awesome}{\textbf{Re: Blazin' Brigade Section Leader Application}}\\[0.6em]
+  <<letter_opening>>
+}
+<@ else @>
 \letteropening{ <<letter_opening>> }
+<@ endif @>
 
 % How the letter is closed
 \letterclosing{ <<letter_closing>> }
@@ -244,6 +105,9 @@
 <@ if header_alignment @>\makecvheader[<<header_alignment>>]
 <@ else @>\makecvheader
 <@ endif @>
+
+% Tighten spacing between header and letter content slightly
+\vspace{-0.3em}
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 <@ if variant_id == 'academic_music' @>
@@ -260,13 +124,6 @@
 
 % Print the title with above letter information
 \makelettertitle
-
-% Add Re: line for context
-<@ if variant_id == 'academic_music' @>
-\vspace{-0.5em}
-\textbf{Re: Application for Section Leader -- Low Brass}\\
-\vspace{0.5em}
-<@ endif @>
 
 %-------------------------------------------------------------------------------
 % LETTER BODY

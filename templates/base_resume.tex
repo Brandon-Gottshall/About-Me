@@ -125,7 +125,9 @@
     \faEnvelope\hspace{0.5em}\href{mailto:<<contact.email>>}{ <<contact.email>> } \\
     \faMobile\hspace{0.5em}{ <<contact.mobile>> } \\
     \faGithub\hspace{0.5em}\href{https://github.com/<<contact.github>>}{github.com/<<contact.github>>} \\
-    \faLinkedin\hspace{0.5em}\href{https://www.linkedin.com/in/<<contact.linkedin>>}{linkedin.com/in/<<contact.linkedin>>}
+    \faLinkedin\hspace{0.5em}\href{https://www.linkedin.com/in/<<contact.linkedin>>}{linkedin.com/in/<<contact.linkedin>>}<@ if contact.homepage @> \\
+    \faHome\hspace{0.5em}\href{http://<<contact.homepage>>}{<<contact.homepage>>}<@ endif @><@ if contact.homepage2 @> \\
+    \faBriefcase\hspace{0.5em}\href{http://<<contact.homepage2>>}{<<contact.homepage2>>}<@ endif @>
   \end{tabular}%
 }
 
