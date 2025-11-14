@@ -25,7 +25,7 @@ LEADERSHIP_RESUME_PDF = $(OUTPUT_DIR)/leadership_resume.pdf
 $(shell mkdir -p $(OUTPUT_DIR) $(GENERATED_DIR))
 
 # Default target - build all documents
-all: resume cv cover-letter
+all: resume cv cover-letter leadership-resume
 
 # Generate LaTeX files from YAML data
 generate:

@@ -27,6 +27,9 @@
 % Change the social information separator
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
+% Reduce spacing between first and last name in header (more reduction for tighter spacing)
+\renewcommand{\acvHeaderNameDelim}{\kern-0.15em\space}
+
 % Custom commands for cover letter
 \newcommand{\letterskip}{\vspace{1.5em}}
 
@@ -35,17 +38,21 @@
 %-------------------------------------------------------------------------------
 \name{ <<name.first>> }{ <<name.last>> }
 <@ if variant_id == 'academic_music' @>
-\position{ Blazin' Brigade Section Leader Candidate • Low Brass • Marine Corps Veteran }
+\position{ Blazin' Brigade Section Leader Candidate • Low Brass • Marine~Corps Veteran }
 <@ else @>
 \position{ <<position.resume>> }
 <@ endif @>
 \address{ <<address>> }
 
+<@ if contact_line @>
+\contactline{ <<contact_line>> }
+<@ else @>
 \mobile{ <<contact.mobile>> }
 \email{ <<contact.email>> }
 \github{ <<contact.github>> }
 \linkedin{ <<contact.linkedin>> }
 \homepage{ <<contact.homepage>> }
+<@ endif @>
 
 % Uncomment to include a photo
 % \photo[circle,edge,right]{path/to/photo}
@@ -81,8 +88,10 @@
 % How the letter is closed
 \letterclosing{ <<letter_closing>> }
 
-% Any enclosures with the letter
+% Any enclosures with the letter (exclude for academic_music variant)
+<@ if variant_id != 'academic_music' @>
 \letterenclosure[Attached]{Resume}
+<@ endif @>
 
 %-------------------------------------------------------------------------------
 \begin{document}

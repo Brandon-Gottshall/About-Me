@@ -880,11 +880,20 @@ def generate_document(
                 "letter_closing", defaults.get("letter_closing", "Sincerely,")
             )
 
+        # Use contact_line for academic_music variant (like leadership resume)
+        contact_line = None
+        if variant_id == "academic_music":
+            contact_line = personal.get("contact_line", {}).get(
+                "leadership_resume",
+                personal.get("contact_line", {}).get("resume", ""),
+            )
+
         content = template.render(
             name=personal["name"],
             position=personal["position"],
             address=personal["address"],
             contact=personal["contact"],
+            contact_line=contact_line,
             font_size=config_doc["settings"]["font_size"],
             paper_size=config_doc["settings"]["paper_size"],
             margins=config_doc["settings"]["margins"],
@@ -979,7 +988,7 @@ def main():
     if len(sys.argv) > 1:
         doc_types = sys.argv[1:]
     else:
-        doc_types = ["resume", "cv", "cover_letter"]
+        doc_types = ["resume", "cv", "cover_letter", "leadership_resume"]
 
     # Map command-line names to config keys
     doc_type_map = {
