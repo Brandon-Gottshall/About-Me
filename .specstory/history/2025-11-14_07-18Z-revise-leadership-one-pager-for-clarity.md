@@ -5650,3 +5650,176 @@ cd /Volumes/EmmaSSD/Development/personal/about-me && python3 scripts/generate.py
 
 ---
 
+_**User (2025-11-14 01:51Z)**_
+
+Change the phone number to 229 507 3499
+
+
+
+Change the email to bgottshall@valdosta.edu
+
+---
+
+_**Agent (model gpt-5.1-codex-high, mode Agent)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="apply_patch">
+<details>
+<summary>Tool use: **apply_patch**</summary>
+
+
+Parameters:
+
+```json
+{
+  &quot;relativeWorkspacePath&quot;: &quot;/Volumes/EmmaSSD/Development/personal/about-me/content/core/personal.yaml&quot;
+}
+```
+Additional data:
+
+```json
+{
+  &quot;codeblockId&quot;: &quot;a2de4493-69fa-4145-bc44-96cfbc86ec0a&quot;
+}
+```
+Result:
+
+```json
+{
+  &quot;diff&quot;: {
+    &quot;chunks&quot;: [
+      {
+        &quot;diffString&quot;: &quot;  \n  contact:\n-   mobile: \&quot;+1 229-234-7471\&quot;\n-   email: \&quot;blgottshall@gmail.com\&quot;\n+   mobile: \&quot;+1 229-507-3499\&quot;\n+   email: \&quot;bgottshall@valdosta.edu\&quot;\n    homepage: \&quot;brandongottshall.com\&quot;\n    homepage2: \&quot;moonsoutmedia.com\&quot;&quot;,
+        &quot;oldStart&quot;: 12,
+        &quot;newStart&quot;: 12,
+        &quot;oldLines&quot;: 6,
+        &quot;newLines&quot;: 6,
+        &quot;linesRemoved&quot;: 2,
+        &quot;linesAdded&quot;: 2
+      }
+    ],
+    &quot;editor&quot;: &quot;EDITOR_AI&quot;
+  },
+  &quot;shouldAutoFixLints&quot;: true,
+  &quot;resultForModel&quot;: &quot;Success. Updated the following files:\nM /Volumes/EmmaSSD/Development/personal/about-me/content/core/personal.yaml&quot;,
+  &quot;contentsAfterEdit&quot;: &quot;name:\n  first: Brandon\n  last: Gottshall\n\nposition:\n  resume: \&quot;Software Engineer • Marine Corps Veteran\&quot;\n  cv: &#39;Senior Software Engineer \\&amp; Cloud Architect&#39;\n  leadership_resume: \&quot;Blazin&#39; Brigade Section Leader Candidate • Low Brass • Marine Corps Veteran\&quot;\n\naddress: \&quot;Adel, GA 31620\&quot;\naddress_cv: \&quot;Adel, GA 31620, United States\&quot;\n\ncontact:\n  mobile: \&quot;+1 229-507-3499\&quot;\n  email: \&quot;bgottshall@valdosta.edu\&quot;\n  homepage: \&quot;brandongottshall.com\&quot;\n  homepage2: \&quot;moonsoutmedia.com\&quot;\n  github: \&quot;Brandon-Gottshall\&quot;\n  linkedin: \&quot;Brandon-Gottshall\&quot;\n\ncontact_line:\n  leadership_resume: &#39;Adel, GA \\textbullet{} (229) 234-7471 \\textbullet{} blgottshall@gmail.com \\textbullet{} brandongottshall.com \\textbullet{} linkedin.com/in/Brandon-Gottshall&#39;\n\nquote:\n  resume: &#39;\&quot;I build reliable software, websites, and tech solutions to streamline operations and drive measurable business impact.\&quot;&#39;\n  cv: \&quot;Results-driven software engineer with over 10 years of experience in full-stack development, cloud architecture, and technical leadership. Specialized in building scalable, maintainable applications with a focus on performance and user experience.\&quot;\n  leadership_resume: \&quot;\&quot;\n\n&quot;
+}
+```
+User decision: **accepted**
+
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="unknown" data-tool-name="apply_patch">
+<details>
+<summary>Tool use: **apply_patch**</summary>
+
+
+Parameters:
+
+```json
+{
+  &quot;relativeWorkspacePath&quot;: &quot;/Volumes/EmmaSSD/Development/personal/about-me/content/core/personal.yaml&quot;
+}
+```
+Additional data:
+
+```json
+{
+  &quot;codeblockId&quot;: &quot;3f94de8e-1e69-4bf7-8a07-c30a22d3cd59&quot;
+}
+```
+Result:
+
+```json
+{
+  &quot;diff&quot;: {
+    &quot;chunks&quot;: [
+      {
+        &quot;diffString&quot;: &quot;  \n  contact_line:\n-   leadership_resume: &#39;Adel, GA \\textbullet{} (229) 234-7471 \\textbullet{} blgottshall@gmail.com \\textbullet{} brandongottshall.com \\textbullet{} linkedin.com/in/Brandon-Gottshall&#39;\n+   leadership_resume: &#39;Adel, GA \\textbullet{} (229) 507-3499 \\textbullet{} bgottshall@valdosta.edu \\textbullet{} brandongottshall.com \\textbullet{} linkedin.com/in/Brandon-Gottshall&#39;\n  \n  quote:&quot;,
+        &quot;oldStart&quot;: 20,
+        &quot;newStart&quot;: 20,
+        &quot;oldLines&quot;: 5,
+        &quot;newLines&quot;: 5,
+        &quot;linesRemoved&quot;: 1,
+        &quot;linesAdded&quot;: 1
+      }
+    ],
+    &quot;editor&quot;: &quot;EDITOR_AI&quot;
+  },
+  &quot;shouldAutoFixLints&quot;: true,
+  &quot;resultForModel&quot;: &quot;Success. Updated the following files:\nM /Volumes/EmmaSSD/Development/personal/about-me/content/core/personal.yaml&quot;,
+  &quot;contentsAfterEdit&quot;: &quot;name:\n  first: Brandon\n  last: Gottshall\n\nposition:\n  resume: \&quot;Software Engineer • Marine Corps Veteran\&quot;\n  cv: &#39;Senior Software Engineer \\&amp; Cloud Architect&#39;\n  leadership_resume: \&quot;Blazin&#39; Brigade Section Leader Candidate • Low Brass • Marine Corps Veteran\&quot;\n\naddress: \&quot;Adel, GA 31620\&quot;\naddress_cv: \&quot;Adel, GA 31620, United States\&quot;\n\ncontact:\n  mobile: \&quot;+1 229-507-3499\&quot;\n  email: \&quot;bgottshall@valdosta.edu\&quot;\n  homepage: \&quot;brandongottshall.com\&quot;\n  homepage2: \&quot;moonsoutmedia.com\&quot;\n  github: \&quot;Brandon-Gottshall\&quot;\n  linkedin: \&quot;Brandon-Gottshall\&quot;\n\ncontact_line:\n  leadership_resume: &#39;Adel, GA \\textbullet{} (229) 507-3499 \\textbullet{} bgottshall@valdosta.edu \\textbullet{} brandongottshall.com \\textbullet{} linkedin.com/in/Brandon-Gottshall&#39;\n\nquote:\n  resume: &#39;\&quot;I build reliable software, websites, and tech solutions to streamline operations and drive measurable business impact.\&quot;&#39;\n  cv: \&quot;Results-driven software engineer with over 10 years of experience in full-stack development, cloud architecture, and technical leadership. Specialized in building scalable, maintainable applications with a focus on performance and user experience.\&quot;\n  leadership_resume: \&quot;\&quot;\n\n&quot;
+}
+```
+User decision: **accepted**
+
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="bash" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **command** • Run command: cd /Volumes/EmmaSSD/Development/personal/about-me && python3 scripts/generate.py leadership-resume</summary>
+
+```bash
+cd /Volumes/EmmaSSD/Development/personal/about-me && python3 scripts/generate.py leadership-resume
+```
+
+```
+Generated: /Volumes/EmmaSSD/Development/personal/about-me/generated/leadership_resume.tex
+
+```
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="bash" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **command** • Run command: cd /Volumes/EmmaSSD/Development/personal/about-me && python3 scripts/build.py leadership-resume</summary>
+
+```bash
+cd /Volumes/EmmaSSD/Development/personal/about-me && python3 scripts/build.py leadership-resume
+```
+
+```
+Generating LaTeX files...
+Running: /Users/brandon/.asdf/installs/python/3.13.1t/bin/python3 /Volumes/EmmaSSD/Development/personal/about-me/scripts/generate.py leadership-resume
+
+Building leadership resume...
+Running: xelatex -output-directory /Volumes/EmmaSSD/Development/personal/about-me/output -interaction=nonstopmode -halt-on-error leadership_resume.tex
+Running: xelatex -output-directory /Volumes/EmmaSSD/Development/personal/about-me/output -interaction=nonstopmode -halt-on-error leadership_resume.tex
+✓ Leadership resume built successfully: /Volumes/EmmaSSD/Development/personal/about-me/output/leadership_resume.pdf
+
+```
+</details>
+</tool-use>
+
+---
+
+Contact info is now updated everywhere:
+
+```13:22:content/core/personal.yaml
+contact:
+  mobile: "+1 229-507-3499"
+  email: "bgottshall@valdosta.edu"
+  homepage: "brandongottshall.com"
+  homepage2: "moonsoutmedia.com"
+  github: "Brandon-Gottshall"
+  linkedin: "Brandon-Gottshall"
+
+contact_line:
+  leadership_resume: 'Adel, GA \textbullet{} (229) 507-3499 \textbullet{} bgottshall@valdosta.edu \textbullet{} brandongottshall.com \textbullet{} linkedin.com/in/Brandon-Gottshall'
+```
+
+Regenerated and rebuilt the leadership resume (`python3 scripts/generate.py leadership-resume`, `python3 scripts/build.py leadership-resume`), so the PDF now shows the new number and valdosta.edu email in the header. Let me know if you need the same applied to the resume/CV variants.
+
+---
+
