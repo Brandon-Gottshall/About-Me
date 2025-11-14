@@ -93,16 +93,26 @@ def escape_latex(text):
 
     # Escape standalone backslashes (not part of protected commands or escape sequences)
     # Protect escape sequences first (like \&, \%, etc.)
-    escape_sequences = [r"\&", r"\%", r"\$", r"\#", r"\_", r"\{", r"\}", r"\textasciicircum{}", r"\textasciitilde{}"]
+    escape_sequences = [
+        r"\&",
+        r"\%",
+        r"\$",
+        r"\#",
+        r"\_",
+        r"\{",
+        r"\}",
+        r"\textasciicircum{}",
+        r"\textasciitilde{}",
+    ]
     protected_escapes = []
     for i, esc in enumerate(escape_sequences):
         marker = f"ESCAPESEQX{i}X"
         protected_escapes.append((marker, esc))
         result = result.replace(esc, marker)
-    
+
     # Now escape remaining standalone backslashes
     result = result.replace("\\", r"\textbackslash{}")
-    
+
     # Restore protected escape sequences
     for marker, esc in protected_escapes:
         result = result.replace(marker, esc)
