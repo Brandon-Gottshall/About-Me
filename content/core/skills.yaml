@@ -22,18 +22,33 @@ professional:
   - category: "Military Skills"
     items: "Quality Assurance, Maintenance Management, Technical Training, Safety Compliance, Risk Assessment"
 
-# Leadership resume specific skills (compressed technical, emphasized leadership)
+# Leadership resume specific skills (narrative strengths + certifications)
 leadership_resume:
-  technical:
-    - category: "Technical"
-      items: "React, TypeScript, modern web development; experienced in building tools and systems to support teams"
-  professional:
-    - category: "Leadership"
-      items: "Team Leadership, Mentoring, Project Management, Strategic Planning, Decision Making"
-    - category: "Communication"
-      items: "Technical Instruction, Documentation, Client Relations, Team Collaboration, Public Speaking"
-    - category: "Problem Solving"
-      items: "Critical Thinking, Troubleshooting, Root Cause Analysis, Process Improvement"
-    - category: "Military Skills"
-      items: "Quality Assurance, Maintenance Management, Technical Training, Safety Compliance, Risk Assessment"
+  strengths:
+    - category: "Leadership & Ensemble"
+      items:
+        - "leading from the front"
+        - "low brass section leadership"
+        - "running sectionals"
+        - "enforcing standards"
+        - "building cohesion and accountability"
+    - category: "Instruction & Mentoring"
+      items:
+        - "one-on-one coaching"
+        - "breaking down complex skills"
+        - "designing practice plans"
+        - "project-based learning"
+        - "constructive feedback"
+    - category: "Operational & Systems"
+      items:
+        - "SOP design"
+        - "readiness management"
+        - "quality control mindset"
+        - "safety and risk awareness"
+        - "comfortable creating simple tools/resources to support teams"
+  certifications:
+    - category: "Nebula Academy"
+      items: "Accredited Technology Instructor (2023--2025)"
+    - category: "U.S. Department of Defense"
+      items: "Secret Security Clearance (2015--2019)"
 

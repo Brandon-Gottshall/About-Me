@@ -30,20 +30,6 @@
 % Custom commands for cover letter
 \newcommand{\letterskip}{\vspace{1.5em}}
 
-% Redefine headersocialstyle to match leadership resume format
-% Show contact info in tabular format like the resume
-\renewcommand{\headersocialstyle}[1]{%
-  \fontsize{8pt}{1em}\headerfont\color{text}%
-  \begin{tabular}{@{}l@{}}
-    \faEnvelope\hspace{0.5em}\href{mailto:<<contact.email>>}{ <<contact.email>> } \\
-    \faMobile\hspace{0.5em}{ <<contact.mobile>> } \\
-    \faGithub\hspace{0.5em}\href{https://github.com/<<contact.github>>}{github.com/<<contact.github>>} \\
-    \faLinkedin\hspace{0.5em}\href{https://www.linkedin.com/in/<<contact.linkedin>>}{linkedin.com/in/<<contact.linkedin>>}<@ if contact.homepage @> \\
-    \faHome\hspace{0.5em}\href{http://<<contact.homepage>>}{<<contact.homepage>>}<@ endif @><@ if contact.homepage2 @> \\
-    \faBriefcase\hspace{0.5em}\href{http://<<contact.homepage2>>}{<<contact.homepage2>>}<@ endif @>
-  \end{tabular}%
-}
-
 %-------------------------------------------------------------------------------
 % PERSONAL INFORMATION
 %-------------------------------------------------------------------------------

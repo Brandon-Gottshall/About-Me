@@ -11,34 +11,22 @@ categories:
         start_date: "Junior Year"
         end_date: "Senior Year"
         items:
-          - "Led the low brass section during rehearsals, performances, and marching band operations."
-          - "Ran sectionals, coordinated drill corrections, and maintained musical and marching standards."
-          - "Accounted for section members during practices, games, and events."
-          - "Supported newer players with fundamentals, drill corrections, and confidence-building feedback during rehearsals and games."
+          - "Led the low brass section through rehearsals, performances, and marching operations."
+          - "Ran sectionals, coordinated drill corrections, and enforced musical and marching standards."
+          - "Tracked attendance and readiness for every rehearsal, game, and competition."
+          - "Coached newer players on fundamentals, tone, and confidence in game-day environments."
 
   - name: "Military Leadership"
     entries:
-      - title: "Deployment Leadership — Operation Inherent Resolve"
-        organization: "United States Marine Corps"
-        location: "Deployed"
-        start_date: ""
-        end_date: ""
-        items:
-          - "Deployed in support of Operation Inherent Resolve, providing critical power redundancy and electrical systems continuity for Marines operating in-theater."
-          - "Maintained consistent power for camp shelter and climate control units, preserving readiness in high-risk environments."
-          - "Ensured uninterrupted power supply for mission-essential systems under austere and high-risk conditions."
-          - "Contributed to forward-deployed sustainment operations, directly supporting mission readiness."
-
       - title: "Corporal — Quality Control NCO"
         organization: "United States Marine Corps"
         location: "MCAS Cherry Point, NC"
         start_date: "Feb 2019"
         end_date: "Aug 2019"
         items:
-          - "Maintained equipment readiness for life-sustaining utilities and engineering equipment worth more than $7M, enforcing strict Marine Corps compliance standards, and coaching Marines to uphold strict standards."
-          - "Authored and implemented SOPs that reduced rework rates and improved repair accuracy."
-          - "Trained and coached junior Marines in QC procedures and safety protocols."
-          - "Compiled performance data and reports for command leadership, conducting regular meetings with external leadership entities representing my section."
+          - "Maintained readiness and compliance for $7M+ in utilities engineering assets, coaching junior Marines through inspections and safety checks."
+          - "Authored and enforced QC SOPs that cut rework and kept repairs audit-ready."
+          - "Briefed command teams on performance metrics, representing the shop in readiness reviews."
 
       - title: "Corporal — Assistant Maintenance Chief"
         organization: "United States Marine Corps"
@@ -46,34 +34,30 @@ categories:
         start_date: "Apr 2018"
         end_date: "Feb 2019"
         items:
-          - "Managed operational scheduling for critical life-support equipment, maximizing readiness and uptime."
-          - "Coordinated parts requisitions and repair contracts for over $7M in supported assets."
-          - "Supervised and trained technicians; oversaw maintenance scheduling and spare-parts inventory."
-          - "Provided daily direction to shop personnel and ensured timely completion of priority repairs, conducting regular meetings with external leadership entities representing my section."
+          - "Scheduled and prioritized life-support equipment repairs to keep expeditionary sites mission-ready."
+          - "Coordinated parts requisitions and vendor contracts for $7M+ worth of gear."
+          - "Led daily stand-ups and on-the-job coaching for technicians to close priority work orders."
+
+      - title: "Deployment Leadership — Operation Inherent Resolve"
+        organization: "United States Marine Corps"
+        location: "Deployed"
+        date_range: "2017"
+        items:
+          - "Deployed to run redundant power for forward sustainment sites supporting Operation Inherent Resolve."
+          - "Kept shelter, climate-control, and mission systems online under austere, high-risk conditions."
+          - "Trained Marines on preventative maintenance and emergency recovery drills to preserve readiness."
 
   - name: "Business & Technical Leadership"
     entries:
-      - title: "Technical Lead & Co-Founder"
-        organization: "Effortless Development"
-        location: "Brooklyn, NY"
-        start_date: "Jan 2020"
-        end_date: "Jul 2022"
-        items:
-          - "Directed strategic technical, architectural, and operational decisions for a growing engineering agency."
-          - "Led and mentored cross-functional teams of developers, designers, and project contributors."
-          - "Designed and delivered scalable software solutions across web and mobile ecosystems (Next.js, React, Flutter)."
-          - "Oversaw client communications, sales consultations, and successful project delivery cycles."
-
       - title: "Accredited Technology Instructor"
         organization: "Nebula Academy"
         location: "Remote"
-        start_date: "2023"
-        end_date: "2024"
+        start_date: "Oct 2023"
+        end_date: "Mar 2025"
         items:
-          - "Designed and taught curricula for Power Platform, Python, and Web Development using adult-learning and cognitive-science principles."
-          - "Built structured learning environments using LMS platforms and hands-on coding environments."
-          - "Led classroom sessions and project-based evaluations for professional, adult, and K–12 learners."
-          - "Coached learners to solve problems independently, reinforcing process over perfection to build confidence and autonomy."
+          - "Designed and delivered Power Platform, Python, and web curricula anchored in adult-learning frameworks."
+          - "Mentored cohorts of professionals and K–12 learners through project critiques and code reviews."
+          - "Built LMS- and sandbox-based practice environments with structured assessments."
 
       - title: "Technical Director (Software Engineering)"
         organization: "Moons Out Media"
@@ -81,10 +65,17 @@ categories:
         start_date: "Mar 2025"
         end_date: "Present"
         items:
-          - "Defined and executed the company's software engineering roadmap, aligning technical strategy with creative and business objectives."
-          - "Architected scalable web applications, APIs, and internal tools using TypeScript, Next.js, Python, and Vercel infrastructure."
-          - "Designed and managed high-availability on-prem and cloud infrastructure for media production and streaming."
-          - "Built AI-driven workflows to automate client deliverables and internal processes."
-          - "Instituted engineering culture: CI/CD pipelines, code review standards, performance monitoring."
-          - "Mentored junior engineers and established team development practices."
+          - "Set the engineering roadmap and SOPs for a media-tech studio, aligning stack choices with creative goals."
+          - "Architected TypeScript/Next.js platforms and automation tooling that supported production teams."
+          - "Mentored junior engineers while enforcing code review, CI/CD, and monitoring practices."
+
+      - title: "Technical Lead & Co-Founder"
+        organization: "Effortless Development"
+        location: "Brooklyn, NY"
+        start_date: "Jan 2020"
+        end_date: "Jul 2022"
+        items:
+          - "Co-founded a distributed agency, owning technical scoping, staffing, and delivery for client builds."
+          - "Led pods of developers and designers through stand-ups, retros, and QA rituals."
+          - "Handled client communication end-to-end, translating needs into repeatable delivery processes."
 
