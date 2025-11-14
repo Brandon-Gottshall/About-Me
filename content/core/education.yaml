@@ -2,25 +2,17 @@ entries:
   - degree: "Software Engineering Immersive"
     institution: "General Assembly"
     location: "New York, NY"
-    start_date: "Dec 2019"
-    end_date: "Mar 2020"
-    items:
-      - "Completed 500+ hour full-stack software engineering program focusing on modern web development"
-      - "Built multiple full-stack applications using JavaScript, React, Node.js, Express, and PostgreSQL"
+    start_date: "2019"
+    end_date: "2020"
 
   - degree: "Computer Science (12 Credits)"
     institution: "Brooklyn College, CUNY"
     location: "Brooklyn, NY"
-    start_date: "2018"
-    end_date: "2019"
-    items:
-      - "Coursework in Computer Science and Mathematics"
+    date_range: "Fall 2021"
 
   - degree: "General Studies"
     institution: "American InterContinental University"
     location: "Chandler, AZ"
-    start_date: "2013"
-    end_date: "2014"
-    items:
-      - "Completed general education requirements"
+    start_date: "2016"
+    end_date: "2017"
 

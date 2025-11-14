@@ -75,14 +75,13 @@ leadership_resume:
     - leadership
     - education
     - skills
-    - certifications
   settings:
     paper_size: "a4paper"
     font_size: "11pt"
     margins:
       left: "1.8cm"
       top: "1.5cm"
-      right: "1.8cm"
+      right: "2.2cm"
       bottom: "2.2cm"
       footskip: "1cm"
     color: "awesome-skyblue"

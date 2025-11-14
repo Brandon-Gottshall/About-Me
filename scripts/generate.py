@@ -124,14 +124,30 @@ def escape_latex(text):
     return result
 
 
+def format_date_range(start_date, end_date):
+    """Return a clean date range string without extra separators."""
+    if start_date and end_date:
+        return f"{start_date} - {end_date}"
+    if start_date:
+        return start_date
+    if end_date:
+        return end_date
+    return ""
+
+
 def format_cventry(entry, entry_type="experience"):
     """Format a single cventry for LaTeX."""
     if entry_type == "experience":
         title = escape_latex(entry.get("title", ""))
         organization = escape_latex(entry.get("organization", ""))
         location = escape_latex(entry.get("location", ""))
-        start_date = escape_latex(entry.get("start_date", ""))
-        end_date = escape_latex(entry.get("end_date", ""))
+        if entry.get("date_range"):
+            date_range = escape_latex(entry["date_range"])
+        else:
+            date_range = format_date_range(
+                escape_latex(entry.get("start_date", "")),
+                escape_latex(entry.get("end_date", "")),
+            )
 
         items = ""
         if entry.get("items"):
@@ -147,15 +163,20 @@ def format_cventry(entry, entry_type="experience"):
     {{{title}}} % Job title
     {{{organization}}} % Organization
     {{{location}}} % Location
-    {{{start_date} - {end_date}}} % Date(s)
+    {{{date_range}}} % Date(s)
     {items}"""
 
     elif entry_type == "education":
         degree = escape_latex(entry.get("degree", ""))
         institution = escape_latex(entry.get("institution", ""))
         location = escape_latex(entry.get("location", ""))
-        start_date = escape_latex(entry.get("start_date", ""))
-        end_date = escape_latex(entry.get("end_date", ""))
+        if entry.get("date_range"):
+            date_range = escape_latex(entry["date_range"])
+        else:
+            date_range = format_date_range(
+                escape_latex(entry.get("start_date", "")),
+                escape_latex(entry.get("end_date", "")),
+            )
 
         items = ""
         if entry.get("items"):
@@ -171,14 +192,19 @@ def format_cventry(entry, entry_type="experience"):
     {{{degree}}} % Degree
     {{{institution}}} % Institution
     {{{location}}} % Location
-    {{{start_date} - {end_date}}} % Date(s)
+    {{{date_range}}} % Date(s)
     {items}"""
 
     elif entry_type == "certification":
         name = escape_latex(entry.get("name", ""))
         organization = escape_latex(entry.get("organization", ""))
-        start_date = escape_latex(entry.get("start_date", ""))
-        end_date = escape_latex(entry.get("end_date", ""))
+        if entry.get("date_range"):
+            date_range = escape_latex(entry["date_range"])
+        else:
+            date_range = format_date_range(
+                escape_latex(entry.get("start_date", "")),
+                escape_latex(entry.get("end_date", "")),
+            )
         location = escape_latex(entry.get("location", ""))
 
         items = ""
@@ -195,7 +221,7 @@ def format_cventry(entry, entry_type="experience"):
     {{{name}}} % Certification
     {{{organization}}} % Organization
     {{{location}}} % Location
-    {{{start_date} - {end_date}}} % Date(s)
+    {{{date_range}}} % Date(s)
     {items}"""
 
     elif entry_type == "project":
@@ -294,7 +320,16 @@ def format_cventry(entry, entry_type="experience"):
 def format_cvskill(category, items):
     """Format a cvskill entry."""
     category_escaped = escape_latex(category)
-    items_escaped = escape_latex(items)
+    if isinstance(items, (list, tuple)):
+        formatted_items = "; ".join(
+            escape_latex(item) for item in items if item
+        )
+        if formatted_items:
+            items_escaped = "\\textemdash{} " + formatted_items
+        else:
+            items_escaped = ""
+    else:
+        items_escaped = escape_latex(items)
     return f"""%---------------------------------------------------------
   \\cvskill
     {{{category_escaped}}} % Category
@@ -527,25 +562,40 @@ def generate_sections(content_core_dir, content_optional_dir, config, doc_type):
             sections.append(template.render(education_entries=entries))
 
         elif section_name == "skills":
-            template = env.get_template("skills.tex")
-            # Use leadership-specific skills if available and doc_type is leadership_resume
+            # Use a narrative Skills & Strengths layout for leadership resume
             if doc_type == "leadership_resume" and skills_data.get("leadership_resume"):
+                template = env.get_template("skills_leadership.tex")
                 leadership_skills = skills_data["leadership_resume"]
-                technical_skills = "\n".join(
+                strengths = []
+                for strength in leadership_skills.get("strengths", []):
+                    category = escape_latex(strength.get("category", ""))
+                    items = strength.get("items", [])
+                    if isinstance(items, (list, tuple)):
+                        items_text = ", ".join(
+                            escape_latex(item) for item in items if item
+                        )
+                    else:
+                        items_text = escape_latex(items)
+                    strengths.append(
+                        {
+                            "category": category,
+                            "items_text": items_text,
+                        }
+                    )
+                certification_entries = "\n".join(
                     [
-                        format_cvskill(skill["category"], skill["items"])
-                        for skill in leadership_skills.get("technical", [])
+                        format_cvskill(cert["category"], cert["items"])
+                        for cert in leadership_skills.get("certifications", [])
                     ]
                 )
-                professional_skills = ""
-                if leadership_skills.get("professional"):
-                    professional_skills = "\n".join(
-                        [
-                            format_cvskill(skill["category"], skill["items"])
-                            for skill in leadership_skills["professional"]
-                        ]
+                sections.append(
+                    template.render(
+                        strengths=strengths,
+                        certification_entries=certification_entries,
                     )
+                )
             else:
+                template = env.get_template("skills.tex")
                 technical_skills = "\n".join(
                     [
                         format_cvskill(skill["category"], skill["items"])
@@ -560,12 +610,12 @@ def generate_sections(content_core_dir, content_optional_dir, config, doc_type):
                             for skill in skills_data["professional"]
                         ]
                     )
-            sections.append(
-                template.render(
-                    technical_skills=technical_skills,
-                    professional_skills=professional_skills,
+                sections.append(
+                    template.render(
+                        technical_skills=technical_skills,
+                        professional_skills=professional_skills,
+                    )
                 )
-            )
 
         elif section_name == "certifications":
             template = env.get_template("certifications.tex")
@@ -701,6 +751,7 @@ def generate_document(
             position=personal["position"],
             address=personal["address"],
             contact=personal["contact"],
+            contact_line=personal.get("contact_line", {}).get("resume", ""),
             quote=personal["quote"],
             font_size=config_doc["settings"]["font_size"],
             paper_size=config_doc["settings"]["paper_size"],
@@ -877,6 +928,10 @@ def generate_document(
             position={"resume": position_text},  # Template expects 'resume' key
             address=personal["address"],
             contact=personal["contact"],
+            contact_line=personal.get("contact_line", {}).get(
+                "leadership_resume",
+                personal.get("contact_line", {}).get("resume", ""),
+            ),
             quote={"resume": quote_text},  # Template expects 'resume' key
             font_size=config_doc["settings"]["font_size"],
             paper_size=config_doc["settings"]["paper_size"],

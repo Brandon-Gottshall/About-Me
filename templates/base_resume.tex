@@ -87,16 +87,22 @@
 % \photo[rectangle,edge,right]{./examples/profile}
 \name{ <<name.first>> }{ <<name.last>> }
 \position{ <<position.resume>> }
+<@ if contact_line @>
+\contactline{ <<contact_line>> }
+<@ endif @>
 \address{ <<address>> }
 
-% Format contact info for better ATS parsing with unique display text
+<@ if not contact_line @>
 \mobile{ <<contact.mobile>> }
 \email{ <<contact.email>> }
 \homepage{ <<contact.homepage>> }
 \github{ <<contact.github>> }
 \linkedin{ <<contact.linkedin>> }
+<@ endif @>
 
+<@ if quote.resume @>
 \quote{ <<quote.resume>> }
+<@ endif @>
 
 %-------------------------------------------------------------------------------
 \begin{document}
@@ -116,19 +122,6 @@
     \fancyhf{} % Clear all header and footer fields
     \renewcommand{\headrulewidth}{0pt} % Remove header rule if present
     \fancyfoot[C]{\thepage} % Only show page number in the center
-}
-
-% Redefine headersocialstyle to show only essential contact info
-\renewcommand{\headersocialstyle}[1]{%
-  \fontsize{8pt}{1em}\headerfont\color{text}%
-  \begin{tabular}{@{}l@{}}
-    \faEnvelope\hspace{0.5em}\href{mailto:<<contact.email>>}{ <<contact.email>> } \\
-    \faMobile\hspace{0.5em}{ <<contact.mobile>> } \\
-    \faGithub\hspace{0.5em}\href{https://github.com/<<contact.github>>}{github.com/<<contact.github>>} \\
-    \faLinkedin\hspace{0.5em}\href{https://www.linkedin.com/in/<<contact.linkedin>>}{linkedin.com/in/<<contact.linkedin>>}<@ if contact.homepage @> \\
-    \faHome\hspace{0.5em}\href{http://<<contact.homepage>>}{<<contact.homepage>>}<@ endif @><@ if contact.homepage2 @> \\
-    \faBriefcase\hspace{0.5em}\href{http://<<contact.homepage2>>}{<<contact.homepage2>>}<@ endif @>
-  \end{tabular}%
 }
 
 % Print the header with above personal information

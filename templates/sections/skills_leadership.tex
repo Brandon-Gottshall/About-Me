@@ -1,0 +1,20 @@
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+\cvsection{Skills \& Strengths}
+
+<@ for strength in strengths @>
+\begin{cvparagraph}
+\textbf{<<strength.category>>} \textemdash{} <<strength.items_text>>
+\end{cvparagraph}
+
+<@ endfor @>
+
+\cvsection{Certifications}
+
+\begin{cvskills}
+
+<<certification_entries>>
+
+\end{cvskills}
+
