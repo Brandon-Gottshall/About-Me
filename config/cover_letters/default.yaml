@@ -1,0 +1,30 @@
+# Default Cover Letter Variant
+# Standard cover letter for tech/software positions
+
+variant_name: "Default"
+variant_id: "default"
+
+# Letter-specific metadata
+recipient_name: "Hiring Manager"
+company_name: "Company Name"
+company_address: |
+  Company Address
+  City, State ZIP Code
+position_name: "[Position Name]"
+letter_opening: "Dear Hiring Manager,"
+letter_closing: "Sincerely,"
+
+# Paragraph structure - ordered list of paragraph references
+paragraphs:
+  - type: "introduction"
+    source: "variant"
+    content_id: "standard_intro"
+  
+  - type: "experience"
+    source: "variant"
+    content_id: "standard_experience"
+  
+  - type: "closing"
+    source: "variant"
+    content_id: "standard_closing"
+

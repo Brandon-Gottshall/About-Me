@@ -1,0 +1,24 @@
+technical:
+  - category: "Languages"
+    items: "TypeScript, JavaScript, Python, Ruby, Dart, SQL, HTML5, CSS"
+  - category: "Frameworks"
+    items: "React, Next.js, Node.js, Express.js, Ruby on Rails, Flutter"
+  - category: "Cloud & DevOps"
+    items: "AWS, Google Cloud, Azure, Docker, Kubernetes, CI/CD, GitHub Actions"
+  - category: "Databases"
+    items: "PostgreSQL, MongoDB, Redis, Sequelize, Drizzle"
+  - category: "Tools"
+    items: "Git, Linux, VS Code, Postman, Thunder Client, Jira, Figma, Adobe Creative Suite"
+  - category: "Methodologies"
+    items: "Agile, Scrum, Test-Driven Development, DevOps, AI/ML Integration"
+
+professional:
+  - category: "Leadership"
+    items: "Team Leadership, Mentoring, Project Management, Strategic Planning, Decision Making"
+  - category: "Communication"
+    items: "Technical Instruction, Documentation, Client Relations, Team Collaboration, Public Speaking"
+  - category: "Problem Solving"
+    items: "Critical Thinking, Troubleshooting, Root Cause Analysis, Process Improvement"
+  - category: "Military Skills"
+    items: "Quality Assurance, Maintenance Management, Technical Training, Safety Compliance, Risk Assessment"
+

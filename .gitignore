@@ -21,3 +21,25 @@
 ## Mac OS X metadata files:
 *.DS_Store
 
+### Python ###
+## Python cache files:
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+### Generated Files ###
+## Generated LaTeX files (these are generated from YAML data):
+generated/
+
+## Build artifacts
+*.aux
+*.log
+*.out
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+## Note: The output/ directory contains generated PDFs which may or may not be tracked
+
