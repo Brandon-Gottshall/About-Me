@@ -22,3 +22,18 @@ professional:
   - category: "Military Skills"
     items: "Quality Assurance, Maintenance Management, Technical Training, Safety Compliance, Risk Assessment"
 
+# Leadership resume specific skills (compressed technical, emphasized leadership)
+leadership_resume:
+  technical:
+    - category: "Technical"
+      items: "React, TypeScript, modern web development; experienced in building tools and systems to support teams"
+  professional:
+    - category: "Leadership"
+      items: "Team Leadership, Mentoring, Project Management, Strategic Planning, Decision Making"
+    - category: "Communication"
+      items: "Technical Instruction, Documentation, Client Relations, Team Collaboration, Public Speaking"
+    - category: "Problem Solving"
+      items: "Critical Thinking, Troubleshooting, Root Cause Analysis, Process Improvement"
+    - category: "Military Skills"
+      items: "Quality Assurance, Maintenance Management, Technical Training, Safety Compliance, Risk Assessment"
+

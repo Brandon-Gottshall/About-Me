@@ -410,8 +410,8 @@ def format_cover_letter_body(paragraphs, substitutions=None):
 
         formatted_paragraphs.append(escaped)
 
-    # Join with double newline for paragraph breaks in LaTeX
-    return "\n\n".join(formatted_paragraphs)
+    # Join with \letterskip for consistent rhythm (matches resume section spacing)
+    return "\\letterskip\n\n".join(formatted_paragraphs)
 
 
 def generate_sections(content_core_dir, content_optional_dir, config, doc_type):
@@ -478,10 +478,33 @@ def generate_sections(content_core_dir, content_optional_dir, config, doc_type):
 
     for section_name in section_order:
         if section_name == "summary":
-            template = env.get_template("summary.tex")
-            sections.append(
-                template.render(summary_text=escape_latex(summary_data["text"]))
-            )
+            # Use different template title for leadership resume
+            if doc_type == "leadership_resume":
+                # Create a custom summary section with "Leadership Profile" title
+                summary_text = (
+                    summary_data.get("leadership_resume")
+                    if summary_data.get("leadership_resume")
+                    else summary_data["text"]
+                )
+                leadership_profile = f"""%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+\\cvsection{{Leadership Profile}}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
+\\begin{{cvparagraph}}
+{escape_latex(summary_text)}
+\\end{{cvparagraph}}
+"""
+                sections.append(leadership_profile)
+            else:
+                template = env.get_template("summary.tex")
+                sections.append(
+                    template.render(summary_text=escape_latex(summary_data["text"]))
+                )
 
         elif section_name == "experience":
             template = env.get_template("experience.tex")
@@ -505,20 +528,38 @@ def generate_sections(content_core_dir, content_optional_dir, config, doc_type):
 
         elif section_name == "skills":
             template = env.get_template("skills.tex")
-            technical_skills = "\n".join(
-                [
-                    format_cvskill(skill["category"], skill["items"])
-                    for skill in skills_data["technical"]
-                ]
-            )
-            professional_skills = ""
-            if skills_data.get("professional"):
-                professional_skills = "\n".join(
+            # Use leadership-specific skills if available and doc_type is leadership_resume
+            if doc_type == "leadership_resume" and skills_data.get("leadership_resume"):
+                leadership_skills = skills_data["leadership_resume"]
+                technical_skills = "\n".join(
                     [
                         format_cvskill(skill["category"], skill["items"])
-                        for skill in skills_data["professional"]
+                        for skill in leadership_skills.get("technical", [])
                     ]
                 )
+                professional_skills = ""
+                if leadership_skills.get("professional"):
+                    professional_skills = "\n".join(
+                        [
+                            format_cvskill(skill["category"], skill["items"])
+                            for skill in leadership_skills["professional"]
+                        ]
+                    )
+            else:
+                technical_skills = "\n".join(
+                    [
+                        format_cvskill(skill["category"], skill["items"])
+                        for skill in skills_data["technical"]
+                    ]
+                )
+                professional_skills = ""
+                if skills_data.get("professional"):
+                    professional_skills = "\n".join(
+                        [
+                            format_cvskill(skill["category"], skill["items"])
+                            for skill in skills_data["professional"]
+                        ]
+                    )
             sections.append(
                 template.render(
                     technical_skills=technical_skills,
