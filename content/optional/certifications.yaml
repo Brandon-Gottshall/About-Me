@@ -1,0 +1,27 @@
+entries:
+  - name: "Accredited Technology Instructor"
+    organization: "Nebula Academy"
+    start_date: "Jan 2023"
+    end_date: "Jan 2024"
+    location: ""
+    items:
+      - "Trained to design and deliver technology-focused instruction in corporate, K-12, and adult-education settings through the Academy's \"Educators\" program"
+      - "Applied adult-learning and cognitive-science principles to create engaging learning environments"
+      - "Developed and sequenced curriculum for Microsoft Power Platform, Python, and Web Development"
+      - "Leveraged educational technology platforms including LMS management and coding sandboxes"
+      - "Assessed learner outcomes through project-based evaluations and formative feedback"
+
+  - name: "Secret Security Clearance"
+    organization: "United States Department of Defense"
+    start_date: "Sep 2015"
+    end_date: "Sep 2019"
+    location: ""
+    items: []
+
+  - name: "EPA 608 Universal Certification"
+    organization: "U.S. Environmental Protection Agency"
+    start_date: "Jun 2018"
+    end_date: "Present"
+    location: ""
+    items: []
+

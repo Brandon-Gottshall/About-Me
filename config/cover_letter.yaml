@@ -1,0 +1,23 @@
+# Cover Letter Data
+# Override defaults from config.yaml for specific cover letters
+# Leave fields empty to use defaults from config.yaml
+
+recipient_name: "Hiring Manager"
+company_name: "Company Name"
+company_address: "Company Address\nCity, State ZIP Code"
+position_name: "[Position Name]"
+letter_opening: "Dear Hiring Manager,"
+letter_closing: "Sincerely,"
+
+# Letter body - customize for each application
+body: |
+  I am excited to apply for the [Position Name] position at [Company Name]. With [X] years of experience in [relevant field/industry], I am confident in my ability to contribute effectively to your team. My background in [relevant skills/experience] aligns well with the requirements for this role, and I am eager to bring my expertise to your organization.
+
+  At [Current/Most Recent Company], I [describe relevant experience and achievements]. For example, I [specific accomplishment with metrics if possible]. This experience has equipped me with [specific skills] that would be valuable in the [Position Name] role at [Company Name].
+
+  In my previous position at [Previous Company], I [describe relevant experience]. This experience has given me the opportunity to develop strong [relevant skills] and [specific achievements]. I am particularly proud of [specific project or accomplishment] which resulted in [quantifiable outcome].
+
+  I am impressed by [specific aspect of the company or role] and am excited about the opportunity to contribute to [specific team/project] at [Company Name]. I am confident that my skills in [specific skills] and my passion for [relevant interest] would make me a valuable addition to your team.
+
+  Thank you for considering my application. I would welcome the opportunity to discuss how my background, skills, and enthusiasm align with the needs of [Company Name]. I am available at your convenience for an interview and look forward to the possibility of contributing to your team.
+

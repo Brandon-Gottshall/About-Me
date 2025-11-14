@@ -1,0 +1,21 @@
+entries: []
+# Add your publication entries here when available
+# Example structure:
+# journal_articles:
+#   - authors: ["Author, A.", "Author, B.", "Author, C."]
+#     title: "Title of the article"
+#     journal: "Journal Name"
+#     volume: "Volume"
+#     issue: "Issue"
+#     pages: "page–page"
+#     year: "Year"
+#     doi: "xxxxxx"
+# conference_proceedings:
+#   - authors: ["Author, A.", "Author, B.", "Author, C."]
+#     title: "Title of the paper"
+#     conference: "Conference Name"
+#     pages: "page–page"
+#     publisher: "Publisher"
+#     year: "Year"
+#     doi: "xxxxxx"
+

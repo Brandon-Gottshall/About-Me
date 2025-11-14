@@ -1,0 +1,281 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+%
+% This template has been adapted from Awesome-CV
+% Original template: https://github.com/posquit0/Awesome-CV
+% Modified by: Brandon Gottshall
+% License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[<<font_size>>, <<paper_size>>]{../src/awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=<<margins.left>>, top=<<margins.top>>, right=<<margins.right>>, bottom=<<margins.bottom>>, footskip=<<margins.footskip>>}
+
+% Color for highlights (match with resume/cv)
+\colorlet{awesome}{<<color>>}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{<<section_color_highlight>>}
+
+% Change the social information separator
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+% Custom commands for cover letter
+\newcommand{\letterskip}{\vspace{1.5em}}
+
+% Custom header layout with websites on separate lines
+<@ if contact.homepage2 @>
+\def\@homepage2{<<contact.homepage2>>}
+% Patch makecvheader to exclude homepage from first line and add websites separately
+\makeatletter
+% Store original makecvheader
+\let\old@makecvheader\makecvheader
+% Redefine makecvheader to customize social header
+\renewcommand{\makecvheader}[1][C]{%
+  \newcommand*{\drawphoto}{%
+    \ifthenelse{\isundefined{\@photo}}{}{%
+      \newlength{\photodim}
+      \ifthenelse{\equal{\@photoshape}{circle}}%
+        {\setlength{\photodim}{1.3cm}}%
+        {\setlength{\photodim}{1.8cm}}%
+      \ifthenelse{\equal{\@photoedge}{edge}}%
+        {\def\@photoborder{darkgray}}%
+        {\def\@photoborder{none}}%
+      \begin{tikzpicture}%
+        \node[\@photoshape, draw=\@photoborder, line width=0.3mm, inner sep=\photodim, fill overzoom image=\@photo] () {};
+      \end{tikzpicture}
+    }%
+  }
+  \newlength{\headertextwidth}
+  \newlength{\headerphotowidth}
+  \ifthenelse{\isundefined{\@photo}}{
+    \setlength{\headertextwidth}{\textwidth}
+    \setlength{\headerphotowidth}{0cm}
+  }{%
+    \setlength{\headertextwidth}{0.76\textwidth}
+    \setlength{\headerphotowidth}{0.24\textwidth}
+  }%
+  \begin{minipage}[c]{\headerphotowidth}%
+    \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
+  \end{minipage}
+  \begin{minipage}[c]{\headertextwidth}
+    \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
+    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
+    \\[\acvHeaderAfterNameSkip]%
+    \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
+    \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
+    % First line: mobile, email, github, linkedin (exclude homepage)
+    \headersocialstyle{%
+      \newbool{isstart}%
+      \setbool{isstart}{true}%
+      \ifthenelse{\isundefined{\@mobile}}%
+        {}%
+        {%
+          \href{\@teluri}{\faMobile\acvHeaderIconSep\@mobile}%
+          \setbool{isstart}{false}%
+        }%
+      \ifthenelse{\isundefined{\@email}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
+        }%
+      \ifthenelse{\isundefined{\@github}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
+        }%
+      \ifthenelse{\isundefined{\@linkedin}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedin\acvHeaderIconSep\@linkedin}%
+        }%
+    }%
+    % Second line: homepage with house icon
+    \ifthenelse{\isundefined{\@homepage}}{}{%
+      \\[\acvHeaderAfterAddressSkip]%
+      \headersocialstyle{%
+        \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
+      }%
+    }%
+    % Divider line
+    \ifthenelse{\isundefined{\@homepage2}}{}{%
+      \\[0.3em]%
+      \rule{\headertextwidth}{0.4pt}%
+      \\[0.3em]%
+      % Third line: homepage2 with briefcase icon
+      \headersocialstyle{%
+        \href{http://\@homepage2}{\faBriefcase\acvHeaderIconSep\@homepage2}%
+      }%
+    }%
+  \end{minipage}
+}
+\makeatother
+<@ else @>
+% If no second homepage, just move homepage to second line
+\makeatletter
+\let\old@makecvheader\makecvheader
+\renewcommand{\makecvheader}[1][C]{%
+  \newcommand*{\drawphoto}{%
+    \ifthenelse{\isundefined{\@photo}}{}{%
+      \newlength{\photodim}
+      \ifthenelse{\equal{\@photoshape}{circle}}%
+        {\setlength{\photodim}{1.3cm}}%
+        {\setlength{\photodim}{1.8cm}}%
+      \ifthenelse{\equal{\@photoedge}{edge}}%
+        {\def\@photoborder{darkgray}}%
+        {\def\@photoborder{none}}%
+      \begin{tikzpicture}%
+        \node[\@photoshape, draw=\@photoborder, line width=0.3mm, inner sep=\photodim, fill overzoom image=\@photo] () {};
+      \end{tikzpicture}
+    }%
+  }
+  \newlength{\headertextwidth}
+  \newlength{\headerphotowidth}
+  \ifthenelse{\isundefined{\@photo}}{
+    \setlength{\headertextwidth}{\textwidth}
+    \setlength{\headerphotowidth}{0cm}
+  }{%
+    \setlength{\headertextwidth}{0.76\textwidth}
+    \setlength{\headerphotowidth}{0.24\textwidth}
+  }%
+  \begin{minipage}[c]{\headerphotowidth}%
+    \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
+  \end{minipage}
+  \begin{minipage}[c]{\headertextwidth}
+    \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
+    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
+    \\[\acvHeaderAfterNameSkip]%
+    \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
+    \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
+    % First line: mobile, email, github, linkedin (exclude homepage)
+    \headersocialstyle{%
+      \newbool{isstart}%
+      \setbool{isstart}{true}%
+      \ifthenelse{\isundefined{\@mobile}}%
+        {}%
+        {%
+          \href{\@teluri}{\faMobile\acvHeaderIconSep\@mobile}%
+          \setbool{isstart}{false}%
+        }%
+      \ifthenelse{\isundefined{\@email}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
+        }%
+      \ifthenelse{\isundefined{\@github}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
+        }%
+      \ifthenelse{\isundefined{\@linkedin}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedin\acvHeaderIconSep\@linkedin}%
+        }%
+    }%
+    % Second line: homepage with house icon
+    \ifthenelse{\isundefined{\@homepage}}{}{%
+      \\[\acvHeaderAfterAddressSkip]%
+      \headersocialstyle{%
+        \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
+      }%
+    }%
+  \end{minipage}
+}
+\makeatother
+<@ endif @>
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{ <<name.first>> }{ <<name.last>> }
+\position{ <<position.resume>> }
+\address{ <<address>> }
+
+\mobile{ <<contact.mobile>> }
+\email{ <<contact.email>> }
+\github{ <<contact.github>> }
+\linkedin{ <<contact.linkedin>> }
+\homepage{ <<contact.homepage>> }
+
+% Uncomment to include a photo
+% \photo[circle,edge,right]{path/to/photo}
+
+%-------------------------------------------------------------------------------
+% LETTER INFORMATION
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+  { <<recipient_name>> }
+  { <<company_name>> \\ <<company_address>> }
+
+% The date (default is today)
+\letterdate{\today}
+
+% The title of the letter
+\lettertitle{Application for <<position_name>> Position}
+
+% How the letter is opened
+\letteropening{ <<letter_opening>> }
+
+% How the letter is closed
+\letterclosing{ <<letter_closing>> }
+
+% Any enclosures with the letter
+\letterenclosure[Attached]{Resume}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal information
+<@ if header_alignment @>\makecvheader[<<header_alignment>>]
+<@ else @>\makecvheader
+<@ endif @>
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+<@ if variant_id == 'academic_music' @>
+\makecvfooter
+  {\today}
+  { \textbf{Cover Letter -- Blazin' Brigade Leadership Team} \\ \textbf{<<name.first>> <<name.last>>} }
+  {}
+<@ else @>
+\makecvfooter
+  {\today}
+  { <<name.first>> <<name.last>> ~~~·~~~Cover Letter }
+  {}
+<@ endif @>
+
+% Print the title with above letter information
+\makelettertitle
+
+% Add Re: line for context
+<@ if variant_id == 'academic_music' @>
+\vspace{-0.5em}
+\textbf{Re: Application for Section Leader -- Low Brass}\\
+\vspace{0.5em}
+<@ endif @>
+
+%-------------------------------------------------------------------------------
+% LETTER BODY
+%-------------------------------------------------------------------------------
+
+<<letter_body>>
+
+% Close the letter
+\makeletterclosing
+
+\end{document}
+

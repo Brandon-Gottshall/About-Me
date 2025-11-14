@@ -1,0 +1,91 @@
+# Document configuration - controls which sections appear in each document type
+
+resume:
+  sections:
+    - summary
+    - experience
+    - education
+    - skills
+    - certifications
+  settings:
+    paper_size: "a4paper"
+    font_size: "11pt"
+    margins:
+      left: "1.8cm"
+      top: "1.5cm"
+      right: "1.8cm"
+      bottom: "2.2cm"
+      footskip: "1cm"
+    color: "awesome-skyblue"  # or uncomment to use custom color
+    section_color_highlight: true
+    header_alignment: "C"  # C=center, L=left, R=right
+
+cv:
+  sections:
+    - summary
+    - experience
+    - education
+    - skills
+    - certifications
+    - projects
+    - publications
+    - presentations
+    - teaching
+    - volunteer
+    - languages
+    - references
+  settings:
+    paper_size: "a4paper"
+    font_size: "11pt"
+    margins:
+      left: "2cm"
+      top: "1.5cm"
+      right: "2cm"
+      bottom: "2cm"
+      footskip: "1cm"
+    color: "awesome-red"
+    section_color_highlight: true
+    header_alignment: ""  # empty = default
+
+cover_letter:
+  variant: "academic_music"  # Options: "default", "academic_music"
+  settings:
+    paper_size: "a4paper"
+    font_size: "11pt"
+    margins:
+      left: "2cm"
+      top: "1.5cm"
+      right: "2cm"
+      bottom: "2cm"
+      footskip: ".5cm"
+    color: "awesome-red"
+    section_color_highlight: true
+    header_alignment: "R"
+  defaults:
+    recipient_name: "Hiring Manager"
+    company_name: "Company Name"
+    company_address: "Company Address\nCity, State ZIP Code"
+    position_name: "[Position Name]"
+    letter_opening: "Dear Hiring Manager,"
+    letter_closing: "Sincerely,"
+
+leadership_resume:
+  sections:
+    - summary
+    - leadership
+    - education
+    - skills
+    - certifications
+  settings:
+    paper_size: "a4paper"
+    font_size: "11pt"
+    margins:
+      left: "1.8cm"
+      top: "1.5cm"
+      right: "1.8cm"
+      bottom: "2.2cm"
+      footskip: "1cm"
+    color: "awesome-skyblue"
+    section_color_highlight: true
+    header_alignment: "C"
+

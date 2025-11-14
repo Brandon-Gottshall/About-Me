@@ -1,0 +1,41 @@
+# Academic Music Leadership Cover Letter Variant
+# For positions like Blazin' Brigade Section Leader
+
+variant_name: "Academic Music Leadership"
+variant_id: "academic_music"
+
+# Letter-specific metadata
+recipient_name: "Blazin' Brigade Leadership Selection Committee"
+company_name: "Valdosta State University"
+company_address: |
+  Valdosta, GA
+position_name: "Section Leader"
+letter_opening: "Dear Selection Committee,"
+letter_closing: "Sincerely,"
+
+# Paragraph structure - ordered list of paragraph references
+paragraphs:
+  - type: "introduction"
+    source: "variant"
+    content_id: "opening_positioning"
+  
+  - type: "experience"
+    source: "variant"
+    content_id: "leadership_toolkit"
+  
+  - type: "experience"
+    source: "variant"
+    content_id: "mentorship_philosophy"
+  
+  - type: "personal"
+    source: "variant"
+    content_id: "musicianship_rebuild"
+  
+  - type: "vision"
+    source: "variant"
+    content_id: "leadership_vision"
+  
+  - type: "closing"
+    source: "variant"
+    content_id: "closing_statement"
+

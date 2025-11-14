@@ -1,0 +1,150 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Resume
+%
+% This template has been adapted from Awesome-CV
+% Original template: https://github.com/posquit0/Awesome-CV
+% Modified by: Brandon Gottshall
+% License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[<<font_size>>, <<paper_size>>]{../src/awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=<<margins.left>>, top=<<margins.top>>, right=<<margins.right>>, bottom=<<margins.bottom>>, footskip=<<margins.footskip>>}
+
+% Improve line breaking and prevent overfull boxes
+\sloppy
+\setlength{\emergencystretch}{3em}
+
+% Custom spacing adjustments
+\renewcommand{\acvSectionTopSkip}{-2mm}
+
+% Prevent duplicate contact info in PDF metadata and text layer
+\makeatletter
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle={ <<name.first>> <<name.last>> - <<position.resume>> },
+    pdfauthor={ <<name.first>> <<name.last>> },
+    pdfsubject={Resume},
+    pdfkeywords={Software Engineer, Full Stack Developer, TypeScript, React, Node.js, AWS, GCP, Docker, CI/CD},
+    pdfcreator={XeLaTeX with Awesome-CV}
+  }
+}
+\makeatother
+\renewcommand{\acvSectionContentTopSkip}{2mm}
+
+% Custom spacing for cvitems (bullet points)
+\renewenvironment{cvitems}{%
+  \vspace{-8pt}%
+  \begin{justify}
+  \begin{itemize}[leftmargin=2ex, topsep=2pt, itemsep=1pt, partopsep=0pt, parsep=0pt]%
+    \setlength{\parskip}{0pt}%
+    \renewcommand{\labelitemi}{\bullet}%
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{8pt}%
+}
+
+% Color the first word of section titles
+\makeatletter
+\renewcommand{\@sectioncolor}[1]{%
+  \ifbool{acvSectionColorHighlight}{%
+    \@tempcnta=1\relax
+    \@tfor\@tempa:=#1\do{%
+      \ifnum\@tempcnta=1\relax
+        \color{awesome}\@tempa%
+      \else
+        \ifx\@tempa\@empty\else\ifx\@tempa~ \color{text}\@tempa\expandafter\@gobble\else\color{text}#1\fi\fi%
+        \expandafter\@gobbletwo
+      \fi
+      \global\advance\@tempcnta\@ne
+    }%
+  }{#1}%
+}
+\makeatother
+
+% Color for highlights
+\colorlet{awesome}{<<color>>}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{<<section_color_highlight>>}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo[rectangle,edge,right]{./examples/profile}
+\name{ <<name.first>> }{ <<name.last>> }
+\position{ <<position.resume>> }
+\address{ <<address>> }
+
+% Format contact info for better ATS parsing with unique display text
+\mobile{ <<contact.mobile>> }
+\email{ <<contact.email>> }
+\homepage{ <<contact.homepage>> }
+\github{ <<contact.github>> }
+\linkedin{ <<contact.linkedin>> }
+
+\quote{ <<quote.resume>> }
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Prevent duplicate contact info in text layer
+\pdfstringdefDisableCommands{%
+  \def\href#1#2{#2}%
+  \def\https{https://}%
+  \def\http{http://}%
+}
+
+% Remove footer completely to prevent duplicate contact info
+\renewcommand{\makecvfooter}[3]{} % Empty footer
+
+% Set up ATS-friendly footer with just page number
+\fancypagestyle{plain}{%
+    \fancyhf{} % Clear all header and footer fields
+    \renewcommand{\headrulewidth}{0pt} % Remove header rule if present
+    \fancyfoot[C]{\thepage} % Only show page number in the center
+}
+
+% Redefine headersocialstyle to show only essential contact info
+\renewcommand{\headersocialstyle}[1]{%
+  \fontsize{8pt}{1em}\headerfont\color{text}%
+  \begin{tabular}{@{}l@{}}
+    \faEnvelope\hspace{0.5em}\href{mailto:<<contact.email>>}{ <<contact.email>> } \\
+    \faMobile\hspace{0.5em}{ <<contact.mobile>> } \\
+    \faGithub\hspace{0.5em}\href{https://github.com/<<contact.github>>}{github.com/<<contact.github>>} \\
+    \faLinkedin\hspace{0.5em}\href{https://www.linkedin.com/in/<<contact.linkedin>>}{linkedin.com/in/<<contact.linkedin>>}
+  \end{tabular}%
+}
+
+% Print the header with above personal information
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[<<header_alignment>>]
+
+% No need for separate footer since we're showing contact info in header
+\makecvfooter{}{}{}
+
+% Remove footer from first page
+\thispagestyle{empty}
+
+
+%-------------------------------------------------------------------------------
+%	RESUME CONTENT - Concise and targeted for job applications
+%-------------------------------------------------------------------------------
+<<sections>>
+
+%-------------------------------------------------------------------------------
+\end{document}
+

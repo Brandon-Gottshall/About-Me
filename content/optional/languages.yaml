@@ -1,0 +1,10 @@
+entries:
+  - language: "English"
+    proficiency: "Native or bilingual proficiency"
+  - language: "Spanish"
+    proficiency: "Professional working proficiency"
+  - language: "French"
+    proficiency: "Elementary proficiency"
+  - language: "German"
+    proficiency: "Beginner"
+

@@ -1,0 +1,86 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been adapted from Awesome-CV
+% Original template: https://github.com/posquit0/Awesome-CV
+% Modified by: Brandon Gottshall
+% License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[<<font_size>>, <<paper_size>>]{../src/awesome-cv}
+
+% Configure page margins with geometry - more space for comprehensive content
+\geometry{left=<<margins.left>>, top=<<margins.top>>, right=<<margins.right>>, bottom=<<margins.bottom>>, footskip=<<margins.footskip>>}
+
+% Color for highlights
+\colorlet{awesome}{<<color>>}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{<<section_color_highlight>>}
+
+% Change the social information separator
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+% Custom spacing adjustments for better readability
+\renewcommand{\acvSectionContentTopSkip}{3mm}
+\renewcommand{\acvSectionTopSkip}{2mm}
+
+% Improve line breaking and prevent overfull boxes
+\sloppy
+\setlength{\emergencystretch}{3em}
+
+% Custom commands for CV-specific formatting
+\newcommand{\cvitem}[2]{\begin{cvitems}\item[\textbf{#1:}] #2\end{cvitems}}
+
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo[rectangle,edge,right]{./examples/profile}
+\name{ <<name.first>> }{ <<name.last>> }
+\position{ <<position.cv>> }
+\address{ <<address_cv>> }
+
+\mobile{ <<contact.mobile>> }
+\email{ <<contact.email>> }
+\homepage{ <<contact.homepage>> }
+\github{ <<contact.github>> }
+\linkedin{ <<contact.linkedin>> }
+
+% Professional summary/objective
+\quote{ <<quote.cv>> }
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal information
+% Give optional argument to change alignment(C: center, L: left, R: right)
+<@ if header_alignment @>\makecvheader[<<header_alignment>>]
+<@ else @>\makecvheader
+<@ endif @>
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  { <<name.first>> <<name.last>> ~~~·~~~Curriculum Vitae }
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+% CV CONTENT - Comprehensive professional profile
+%-------------------------------------------------------------------------------
+<<sections>>
+
+
+%-------------------------------------------------------------------------------
+\end{document}
+

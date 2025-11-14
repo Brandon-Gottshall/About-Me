@@ -1,0 +1,34 @@
+%-------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%-------------------------------------------------------------------------------
+\cvsection{Publications}
+
+\begin{cvparagraph}
+<@ if journal_articles @>
+\subsection*{Journal Articles}
+\begin{enumerate}
+<@ for article in journal_articles @>
+    \item \textbf{<<article.authors[0]>>}, <@ for author in article.authors[1:] @><<author>><@ if not loop.last @>, <@ endif @><@ endfor @> (<<article.year>>). <<article.title>>. \textit{<<article.journal>>}, \textit{<<article.volume>>}(<<article.issue>>), <<article.pages>>. DOI: <<article.doi>>
+<@ endfor @>
+\end{enumerate}
+<@ endif @>
+
+<@ if conference_proceedings @>
+\subsection*{Conference Proceedings}
+\begin{enumerate}
+<@ for proc in conference_proceedings @>
+    \item \textbf{<<proc.authors[0]>>}, <@ for author in proc.authors[1:] @><<author>><@ if not loop.last @>, <@ endif @><@ endfor @> (<<proc.year>>). <<proc.title>>. In \textit{Proceedings of <<proc.conference>>} (pp. <<proc.pages>>). <<proc.publisher>>. DOI: <<proc.doi>>
+<@ endfor @>
+\end{enumerate}
+<@ endif @>
+
+<@ if preprints @>
+\subsection*{Preprints}
+\begin{enumerate}
+<@ for preprint in preprints @>
+    \item \textbf{<<preprint.authors[0]>>}, <@ for author in preprint.authors[1:] @><<author>><@ if not loop.last @>, <@ endif @><@ endfor @> (<<preprint.year>>). <<preprint.title>>. \textit{<<preprint.server>>}. <<preprint.doi_url>>
+<@ endfor @>
+\end{enumerate}
+<@ endif @>
+</cvparagraph>
+

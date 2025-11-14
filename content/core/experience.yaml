@@ -1,0 +1,72 @@
+entries:
+  - title: "Software Alchemist • Technical Director (Architecture and Software Engineering)"
+    organization: "Moons Out Labs @ Moons Out"
+    location: "Remote"
+    start_date: "Mar 2025"
+    end_date: "Present"
+    items:
+      - "Architected scalable web applications and internal tools using TypeScript, Next.js, Tailwind CSS, Python, and V0 on Vercel."
+      - "Developed AI-driven workflows and automations to streamline media production and client deliverables."
+      - "Designed and managed cloud-based and on-premise infrastructure for internal software and various sites. Utilized Docker, and cloud platforms (AWS/GCP/Vercel)."
+
+  - title: "Accredited Technology Instructor (Software Engineering)"
+    organization: "Nebula Academy"
+    location: "Remote"
+    start_date: "Oct 2022"
+    end_date: "Mar 2025"
+    items:
+      - "Credential Scope: Authorized to design and deliver technology-focused training programs for software engineering learners"
+      - "Instructional Expertise: Demonstrated proficiency in curriculum development, pedagogical best practices, and competency-based assessment"
+      - "Quality Assurance: Maintained standards for course effectiveness through iterative feedback, learning analytics, and continuous improvement"
+
+  - title: "Technical Lead and Co-Founder"
+    organization: "Effortless Development"
+    location: "Brooklyn, NY"
+    start_date: "Jan 2020"
+    end_date: "Jul 2022"
+    items:
+      - "Directed strategic technical and architectural decisions, guiding agency growth and service offerings."
+      - "Managed and mentored cross-functional teams of developers and designers."
+      - "Led scalable solution design across Next.js, React.js, Flutter, Tailwind CSS, and Dart."
+      - "Oversaw client engagements, sales consultations, and project delivery."
+
+  - title: "Software Engineering Fellow"
+    organization: "General Assembly"
+    location: "New York, NY"
+    start_date: "Dec 2019"
+    end_date: "Mar 2020"
+    items:
+      - "Completed a 12-week immersive training (400+ hours) in full-stack development: HTML, CSS, JavaScript, React, Ruby on Rails, Express, SQL."
+      - "Partnered with UX designers to implement accessibility enhancements on a Booking.com redesign project."
+      - "Engaged in agile, project-based development and collaborative team workflows."
+
+  - title: "Quality Control Non-Commissioned Officer"
+    organization: "United States Marine Corps"
+    location: "MCAS Cherry Point, NC"
+    start_date: "Feb 2019"
+    end_date: "Aug 2019"
+    items:
+      - "Conducted formal inspections and audits of aircraft electrical systems, enforcing Corps standards."
+      - "Developed and implemented SOPs that reduced rework rates and improved repair accuracy."
+      - "Coached junior Marines in quality control techniques; compiled performance reports for command."
+
+  - title: "Assistant Maintenance Chief"
+    organization: "United States Marine Corps"
+    location: "MCAS Cherry Point, NC"
+    start_date: "Apr 2018"
+    end_date: "Feb 2019"
+    items:
+      - "Scheduled and prioritized maintenance tasks for life-support systems, optimizing equipment availability."
+      - "Coordinated parts requisitions and repair contracts to minimize downtime of >$7M in assets."
+      - "Supervised and trained technicians; managed spare parts inventory and maintenance budgets."
+
+  - title: "Electrical Systems Technician"
+    organization: "United States Marine Corps"
+    location: "MCAS Cherry Point, NC"
+    start_date: "Sep 2015"
+    end_date: "Apr 2018"
+    items:
+      - "Performed preventive and corrective maintenance on generators, pumps, and power distribution systems."
+      - "Diagnosed electrical and mechanical malfunctions; logged work orders per technical manuals."
+      - "Assisted senior technicians and trained new Marines on maintenance procedures."
+

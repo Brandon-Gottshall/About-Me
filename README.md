@@ -16,9 +16,9 @@ I'm a passionate software engineer with expertise in full-stack development, clo
 - [Technical Skills](#️-technical-skills)
 - [Currently Learning](#-currently-learning)
 - [Projects](#-projects)
-<!-- - [Blog Posts](#-blog-posts) -->
 - [Get In Touch](#-get-in-touch)
 - [GitHub Stats](#-github-stats)
+- [CV/Resume Generator System](#cvresume-generator-system)
 
 ## 🔍 Currently Learning
 
@@ -39,25 +39,25 @@ I'm a passionate software engineer with expertise in full-stack development, clo
 
 - [Resume](output/resume.pdf)
 - [CV](output/cv.pdf)
-- [Cover Letter Template](output/cover-letter.pdf)
+- [Cover Letter Template](output/coverletter.pdf)
 
 ## 📄 Résumé Preview
 
 | Page. 1 | Page. 2 |
 |:---:|:---:|
-| [![Resume Page 1](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/Resume-1.png)](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/Resume-1.png) | [![Resume Page 2](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/Resume-2.png)](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/Resume-2.png) |
+| *Resume preview images will be generated after building* | *Resume preview images will be generated after building* |
 
 ## 📄 CV Preview
 
 | Page. 1 | Page. 2 |
 |:---:|:---:|
-| [![CV Page 1](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/CV-1.png)](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/CV-1.png) | [![CV Page 2](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/CV-2.png)](https://raw.githubusercontent.com/Brandon-Gottshall/Resume/main/CV-2.png) |
+| *CV preview images will be generated after building* | *CV preview images will be generated after building* |
 
 ### Cover Letter Preview
 
 | Without Sections | With Sections |
 |:---:|:---:|
-| [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
+| *Cover letter preview images will be generated after building* | *Cover letter preview images will be generated after building* |
 
 ## 🚀 Projects
 
@@ -66,13 +66,6 @@ Here are some of my notable projects:
 - **Project One** - Brief description of the project and your role.
 - **Project Two** - Brief description of the project and technologies used.
 - **Project Three** - Brief description of the impact or results.
-
-<!-- ## 📚 Blog Posts
-
-I occasionally write about technology and software development. Check out my latest articles:
-
-- [Post Title One](https://your-blog-url.com/post-one)
-- [Post Title Two](https://your-blog-url.com/post-two) -->
 
 ## 📫 Get In Touch
 
@@ -86,6 +79,161 @@ I occasionally write about technology and software development. Check out my lat
 [![Brandon's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Brandon-Gottshall&show_icons=true&theme=radical&rank_icon=github)](https://github.com/Brandon-Gottshall)
 
 > Disclaimer: These stats are currently generated based only on the **public** repositories of my GitHub profile. I plan to deploy my own instance of the GitHub Readme Stats API in the near future, however I can't be bothered at this very moment. 🤷‍♂️
+
+## CV/Resume Generator System
+
+This repository uses a data-driven generator system to create professional CV, Resume, and Cover Letter documents from centralized YAML data sources.
+
+### Features
+
+- **Single Source of Truth**: All personal information, experience, education, and skills are stored in YAML files
+- **Automated Generation**: Python scripts generate LaTeX files from templates and data
+- **Configurable Sections**: Enable/disable sections per document type via configuration
+- **Easy Updates**: Update your information in YAML files, regenerate, and rebuild
+
+### Project Structure
+
+```
+about-me/
+├── content/                       # CONTENT: Your personal/professional data
+│   ├── core/                      # REQUIRED: Core content for all documents
+│   │   ├── personal.yaml          # Name, contact, address
+│   │   ├── summary.yaml           # Professional summary
+│   │   ├── experience.yaml        # Work experience
+│   │   ├── education.yaml         # Education history
+│   │   └── skills.yaml            # Technical and professional skills
+│   └── optional/                   # OPTIONAL: Additional sections
+│       ├── certifications.yaml    # Certifications
+│       ├── projects.yaml          # Projects
+│       ├── languages.yaml         # Languages
+│       └── ...                    # Publications, presentations, etc.
+│
+├── config/                        # CONFIGURATION: Document settings
+│   ├── documents.yaml             # Which sections appear in resume vs CV
+│   └── cover_letter.yaml          # Cover letter defaults
+│
+├── templates/                     # TEMPLATES: LaTeX document templates
+│   ├── base_resume.tex            # Resume base template
+│   ├── base_cv.tex                # CV base template
+│   ├── base_cover_letter.tex      # Cover letter base template
+│   └── sections/                  # Section templates
+│
+├── generated/                     # GENERATED: Auto-generated LaTeX (gitignored)
+│   ├── resume.tex
+│   ├── cv.tex
+│   └── coverletter.tex
+│
+├── output/                        # OUTPUT: Final PDFs and build artifacts
+│   ├── resume.pdf
+│   ├── cv.pdf
+│   └── coverletter.pdf
+│
+├── src/                           # SOURCE: LaTeX class file
+│   └── awesome-cv.cls
+│
+├── scripts/                       # TOOLS: Generation and build scripts
+│   ├── generate.py
+│   └── build.py
+│
+└── docs/                          # DOCUMENTATION: Guides and examples
+    ├── QUICKSTART.md              # Quick start guide
+    ├── CONTENT_GUIDE.md           # How to update content
+    └── CUSTOMIZATION.md           # How to customize templates
+```
+
+### Prerequisites
+
+- Python 3.7+
+- XeLaTeX (for PDF compilation)
+- Python packages: `PyYAML`, `Jinja2`
+
+Install Python dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### Usage
+
+#### Generate LaTeX files from data
+
+```bash
+# Generate all documents
+make generate
+# or
+python3 scripts/generate.py
+
+# Generate specific document
+python3 scripts/generate.py resume
+python3 scripts/generate.py cv
+python3 scripts/generate.py cover-letter
+```
+
+#### Build PDFs
+
+```bash
+# Build all documents
+make all
+
+# Build specific document
+make resume
+make cv
+make cover-letter
+
+# Or use the build script directly
+python3 scripts/build.py resume
+python3 scripts/build.py cv
+python3 scripts/build.py cover-letter
+```
+
+#### Clean build artifacts
+
+```bash
+make clean
+```
+
+### Quick Start
+
+1. **Read the guide**: Start with [`docs/QUICKSTART.md`](docs/QUICKSTART.md)
+2. **Update content**: Edit files in `content/core/`
+3. **Configure**: Edit `config/documents.yaml` if needed
+4. **Generate**: Run `make all`
+
+### Updating Your Information
+
+**Core Content** (required):
+- `content/core/personal.yaml` - Personal information
+- `content/core/experience.yaml` - Work experience
+- `content/core/education.yaml` - Education history
+- `content/core/skills.yaml` - Skills
+- `content/core/summary.yaml` - Professional summary
+
+**Optional Content**:
+- `content/optional/certifications.yaml` - Certifications
+- `content/optional/projects.yaml` - Projects
+- `content/optional/languages.yaml` - Languages
+- And more in `content/optional/`
+
+**Configuration**:
+- `config/documents.yaml` - Control which sections appear in resume vs CV
+- `config/cover_letter.yaml` - Cover letter defaults
+
+After making changes:
+```bash
+make all  # Regenerates and rebuilds all documents
+```
+
+### Documentation
+
+- **[Quick Start Guide](docs/QUICKSTART.md)** - Get started in minutes
+- **[Content Guide](docs/CONTENT_GUIDE.md)** - How to update your content
+- **[Customization Guide](docs/CUSTOMIZATION.md)** - How to customize templates
+
+### Adding New Sections
+
+1. Add data to `content/optional/` (or create a new YAML file)
+2. Create a template in `templates/sections/`
+3. Update `config/documents.yaml` to include the section
+4. Update `scripts/generate.py` to handle the new section type
 
 ## 🙏 Acknowledgements
 
