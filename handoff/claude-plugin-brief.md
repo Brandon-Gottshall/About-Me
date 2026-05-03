@@ -14,17 +14,22 @@ private generation archives into a public thread.
 
 - Official source data lives in `content/`.
 - Document configuration lives in `config/`.
-- Generator/build/validation/export code lives in `document_pipeline/` with
-  compatibility wrappers in `scripts/`.
+- Generator/build/validation/export code lives in typed `document_pipeline/`
+  modules with compatibility wrappers in `scripts/` and a module CLI at
+  `python -m document_pipeline`.
 - Public official PDFs live in `output/`.
 - Static portfolio export lives in `exports/profile.json`.
 - Codex repo-local plugin lives in `plugins/document-generator/`.
+- Claude Code guardrails, commands, and skill notes live in `CLAUDE.md` and
+  `.claude/`.
+- Shared tailored-generation prompt templates live in
+  `prompts/document-generator/`.
 - Private custom-generation archive contract is documented in
   `docs/ARCHIVE_CONTRACT.md`.
 
 ## Claude Code Scope
 
-Build Claude-facing workflow support that mirrors the Codex plugin behavior:
+Maintain Claude-facing workflow support that mirrors the Codex plugin behavior:
 
 1. Inspect official profile data without inventing facts.
 2. Validate YAML and build official PDFs through repo commands.
@@ -44,10 +49,10 @@ Build Claude-facing workflow support that mirrors the Codex plugin behavior:
 
 ## Starter Prompt for Claude Thread
 
-You are working on Brandon Gottshall's `About-Me` repo. Build Claude Code support
-that mirrors the repo-local Codex `document-generator` plugin. Start by reading
-`AGENTS.md`, `PROVENANCE.md`, `docs/ARCHIVE_CONTRACT.md`, and
-`plugins/document-generator/skills/document-generator/SKILL.md`. Do not edit
+You are working on Brandon Gottshall's `About-Me` repo. Maintain Claude Code
+support that mirrors the repo-local Codex `document-generator` plugin. Start by
+reading `CLAUDE.md`, `AGENTS.md`, `PROVENANCE.md`, `docs/ARCHIVE_CONTRACT.md`,
+and `plugins/document-generator/skills/document-generator/SKILL.md`. Do not edit
 official content or publish/transmit private archive material unless explicitly
-approved. Focus on Claude-facing ergonomics for validation, generation,
-tailored drafts, and private archive provenance.
+approved. Focus on Claude-facing ergonomics for validation, generation, tailored
+drafts, and private archive provenance.

@@ -66,6 +66,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--run-id", default="")
     parser.add_argument("--job-description", default="")
     parser.add_argument("--source-notes", default="")
+    parser.add_argument(
+        "--tool",
+        default="",
+        help="Agent that produced the run (e.g. codex, claude). Falls back to ARCHIVE_AGENT_TOOL env, then 'codex'.",
+    )
+    parser.add_argument(
+        "--plugin",
+        default="document-generator",
+        help="Plugin or skill name recorded in the manifest.",
+    )
     return parser.parse_args()
 
 
@@ -83,6 +93,7 @@ def main() -> None:
     now = datetime.now(timezone.utc)
     run_id = args.run_id or f"{now:%Y-%m-%d}-{slugify(args.company)}-{slugify(args.role)}"
     run_root = archive_root / "runs" / f"{now:%Y}" / run_id
+    agent_tool = args.tool or os.environ.get("ARCHIVE_AGENT_TOOL", "") or "codex"
 
     input_paths = []
     input_paths.extend(
@@ -108,8 +119,8 @@ def main() -> None:
             "sourceUrl": args.source_url,
         },
         "agent": {
-            "tool": "Codex",
-            "plugin": "document-generator",
+            "tool": agent_tool,
+            "plugin": args.plugin,
         },
         "inputs": input_paths,
         "prompts": [],

@@ -7,7 +7,8 @@ career infrastructure, not a generic LaTeX theme.
 
 1. Read `PROVENANCE.md` before changing license, template, or output behavior.
 2. Validate YAML before generation: `make validate`.
-3. Generate through the documented pipeline only: `make generate` or `make all`.
+3. Generate through the documented pipeline only: `make generate`, `make all`,
+   or `python -m document_pipeline generate`.
 4. Run tests and privacy checks before committing: `make test` and
    `make privacy-scan`.
 5. Render PDFs when layout changed. Use `pdftoppm` and inspect pages for

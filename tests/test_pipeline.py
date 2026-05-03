@@ -5,12 +5,42 @@ from jsonschema import Draft202012Validator
 
 from document_pipeline.export import build_profile_export
 from document_pipeline.generator import escape_latex, format_date_range
+from document_pipeline.models import ProjectData
 from document_pipeline.privacy import scan_pdf_locations, scan_text_files
+from document_pipeline.renderer import normalize_doc_type
 from document_pipeline.validate import PROJECT_ROOT, validate_project
 
 
 def test_yaml_content_and_config_are_valid():
     assert validate_project(PROJECT_ROOT) == []
+
+
+def test_project_data_models_load_official_documents():
+    data = ProjectData.load(PROJECT_ROOT)
+    assert data.personal.name.first == "Brandon"
+    assert data.documents.resume.sections[0] == "summary"
+    assert data.documents.cover_letter.variant in {"default", "academic_music"}
+
+
+def test_document_type_aliases_are_normalized():
+    assert normalize_doc_type("cover-letter") == "cover_letter"
+    assert normalize_doc_type("leadership-resume") == "leadership_resume"
+    assert normalize_doc_type("resume") == "resume"
+
+
+def test_agent_workflow_files_are_present():
+    expected = [
+        "CLAUDE.md",
+        ".claude/skills/document-generator/SKILL.md",
+        ".claude/commands/validate.md",
+        ".claude/commands/build-official.md",
+        ".claude/commands/tailored-draft.md",
+        ".claude/commands/archive-run.md",
+        "prompts/document-generator/tailored-system.md",
+        "prompts/document-generator/tailored-task.md",
+        "prompts/document-generator/archive-checklist.md",
+    ]
+    assert all((PROJECT_ROOT / path).exists() for path in expected)
 
 
 def test_date_range_formatting():

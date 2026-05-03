@@ -48,8 +48,9 @@ def build_latex(tex_file, output_dir, num_passes=2):
     return True
 
 
-def main():
+def main(argv=None):
     """Main entry point."""
+    argv = list(sys.argv[1:] if argv is None else argv)
     script_dir = Path(__file__).parent
     project_root = script_dir.parent
     generated_dir = project_root / "generated"
@@ -61,7 +62,7 @@ def main():
     # Run generator first
     print("Generating LaTeX files...")
     generate_result = run_command(
-        [sys.executable, "-m", "document_pipeline.generator"] + sys.argv[1:],
+        [sys.executable, "-m", "document_pipeline.generator"] + argv,
         cwd=str(project_root),
     )
 
@@ -70,10 +71,7 @@ def main():
         sys.exit(1)
 
     # Determine which documents to build
-    if len(sys.argv) > 1:
-        doc_types = sys.argv[1:]
-    else:
-        doc_types = ["resume", "cv", "cover-letter"]
+    doc_types = argv or ["resume", "cv", "cover-letter", "leadership-resume"]
 
     # Build each document
     had_failure = False

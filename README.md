@@ -28,8 +28,8 @@ details stored in `content/core/personal.yaml`.
 | Source data | `content/core/`, `content/optional/`, `content/cover_letters/` | Canonical personal, professional, optional-section, and cover-letter text in YAML. |
 | Document configuration | `config/documents.yaml`, `config/cover_letters/` | Selects sections, margins, colors, cover-letter variants, and document defaults. |
 | LaTeX templates | `templates/`, `templates/sections/`, `src/awesome-cv.cls` | Defines the visual system and section-level rendering on top of Awesome CV. |
-| Pipeline package | `document_pipeline/` | Validates YAML, renders LaTeX, builds PDFs, scans privacy surfaces, and exports portfolio data. |
-| CLI wrappers | `scripts/`, `Makefile` | Stable commands for humans, agents, and future site automation. |
+| Pipeline package | `document_pipeline/` | Typed content loading, YAML validation, LaTeX rendering, PDF builds, privacy scans, and portfolio export. |
+| CLI surfaces | `python -m document_pipeline`, `scripts/`, `Makefile` | Stable commands for humans, agents, and future site automation. |
 | Agent workflow | `AGENTS.md`, `plugins/document-generator/` | Codex-facing workflow rules and prompts for official and tailored documents. |
 
 ```text
@@ -54,6 +54,14 @@ Generate LaTeX files from YAML:
 
 ```bash
 make generate
+```
+
+The package CLI exposes the same pipeline directly:
+
+```bash
+python3 -m document_pipeline generate
+python3 -m document_pipeline build resume
+python3 -m document_pipeline validate
 ```
 
 Validate content and configuration:
@@ -116,7 +124,7 @@ make verify
 |-- scripts/
 |   |-- generate.py            # YAML/template to LaTeX generation
 |   `-- build.py               # XeLaTeX build orchestration
-|-- document_pipeline/         # Package implementation for validation/generation/build/export
+|-- document_pipeline/         # Typed loading, rendering, validation, build, export, and CLI modules
 |-- schemas/                   # JSON Schemas for content, config, and archive manifests
 |-- plugins/document-generator/# Repo-local Codex plugin and prompt templates
 |-- exports/                   # Portfolio-ready static data
@@ -153,10 +161,10 @@ make verify
 The generator accepts both hyphenated and underscored document names:
 
 ```bash
-python3 scripts/generate.py resume
-python3 scripts/generate.py cv
-python3 scripts/generate.py cover-letter
-python3 scripts/generate.py leadership-resume
+python3 -m document_pipeline generate resume
+python3 -m document_pipeline generate cv
+python3 -m document_pipeline generate cover-letter
+python3 -m document_pipeline generate leadership-resume
 ```
 
 ## Documentation

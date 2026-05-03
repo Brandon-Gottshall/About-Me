@@ -56,6 +56,8 @@ The helper creates a run directory, copies inputs, records source commit, writes
 
 ## Prompt Templates
 
-- `prompts/tailored-system.md`
-- `prompts/tailored-task.md`
-- `prompts/archive-checklist.md`
+Shared between the Codex and Claude Code surfaces; edit in one place:
+
+- `../../../../prompts/document-generator/tailored-system.md`
+- `../../../../prompts/document-generator/tailored-task.md`
+- `../../../../prompts/document-generator/archive-checklist.md`
