@@ -43,3 +43,9 @@ generated/
 
 ## Note: The output/ directory contains generated PDFs which may or may not be tracked
 
+### Private generation archives ###
+## Raw job-specific generation runs belong in a private companion repo.
+.archive/
+archives/private/
+custom-generations/
+runs/

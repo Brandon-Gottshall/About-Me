@@ -1,0 +1,37 @@
+{
+  "runId": "2026-05-03-example-company-example-role",
+  "createdAt": "2026-05-03T00:00:00Z",
+  "sourceRepository": {
+    "url": "https://github.com/Brandon-Gottshall/About-Me",
+    "commit": "example"
+  },
+  "target": {
+    "company": "Example Company",
+    "role": "Example Role",
+    "sourceUrl": "https://example.com/job"
+  },
+  "agent": {
+    "tool": "Codex",
+    "mode": "sanitized example"
+  },
+  "inputs": [
+    "input/job-description.md"
+  ],
+  "prompts": [
+    "prompts/system.md",
+    "prompts/task.md"
+  ],
+  "selectedFacts": [
+    "selected-facts/profile-facts.yaml"
+  ],
+  "artifacts": [
+    "drafts/resume.md",
+    "drafts/cover-letter.md"
+  ],
+  "verification": {
+    "validation": "pass",
+    "build": "not-run",
+    "privacy": "sanitized"
+  },
+  "publication": "sanitized-public-example"
+}

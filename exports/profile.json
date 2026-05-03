@@ -1,0 +1,141 @@
+{
+  "generatedAt": "2026-05-03T20:18:37.144675+00:00",
+  "source": {
+    "repository": "https://github.com/Brandon-Gottshall/About-Me",
+    "contentRoot": "content",
+    "configRoot": "config"
+  },
+  "profile": {
+    "name": "Brandon Gottshall",
+    "position": {
+      "resume": "Software Engineer \u2022 Marine Corps Veteran",
+      "cv": "Senior Software Engineer & Cloud Architect",
+      "leadership_resume": "Blazin' Brigade Section Leader Candidate \u2022 Low Brass \u2022 Marine Corps Veteran"
+    },
+    "summary": {
+      "text": "Front-end engineer with 5+ years of React and TypeScript experience, skilled at crafting reusable component-driven UIs for remote-first teams. I've translated Figma designs into responsive, accessible interfaces, implemented Stripe-based workflows, and tuned performance using Chrome DevTools and Next.js dynamic imports. As the first dedicated front-ender alongside full-stack engineers, I champion clean code hygiene (Git/PR reviews, linting), collaborate in two-week sprints, and bring a designer's eye to deliver polished client-facing features that drive user productivity.",
+      "leadership_resume": "Marine Corps veteran, accredited technology instructor, and former low brass section leader with experience leading teams in high-pressure environments, training and mentoring learners from beginner to advanced, and building cohesive ensembles. Known for leading from the front, setting clear expectations, and using structured systems (SOPs, mentorship frameworks, and daily practice plans) to help people grow with confidence and accountability."
+    },
+    "contact": {
+      "homepage": "brandongottshall.com",
+      "github": "Brandon-Gottshall",
+      "linkedin": "Brandon-Gottshall"
+    },
+    "skills": {
+      "technical": [
+        {
+          "category": "Languages",
+          "items": "TypeScript, JavaScript, Python, Ruby, Dart, SQL, HTML5, CSS"
+        },
+        {
+          "category": "Frameworks",
+          "items": "React, Next.js, Node.js, Express.js, Ruby on Rails, Flutter"
+        },
+        {
+          "category": "Cloud & DevOps",
+          "items": "AWS, Google Cloud, Azure, Docker, Kubernetes, CI/CD, GitHub Actions"
+        },
+        {
+          "category": "Databases",
+          "items": "PostgreSQL, MongoDB, Redis, Sequelize, Drizzle"
+        },
+        {
+          "category": "Tools",
+          "items": "Git, Linux, VS Code, Postman, Thunder Client, Jira, Figma, Adobe Creative Suite"
+        },
+        {
+          "category": "Methodologies",
+          "items": "Agile, Scrum, Test-Driven Development, DevOps, AI/ML Integration"
+        }
+      ],
+      "professional": [
+        {
+          "category": "Leadership",
+          "items": "Team Leadership, Mentoring, Project Management, Strategic Planning, Decision Making"
+        },
+        {
+          "category": "Communication",
+          "items": "Technical Instruction, Documentation, Client Relations, Team Collaboration, Public Speaking"
+        },
+        {
+          "category": "Problem Solving",
+          "items": "Critical Thinking, Troubleshooting, Root Cause Analysis, Process Improvement"
+        },
+        {
+          "category": "Military Skills",
+          "items": "Quality Assurance, Maintenance Management, Technical Training, Safety Compliance, Risk Assessment"
+        }
+      ]
+    }
+  },
+  "documents": [
+    {
+      "id": "resume",
+      "label": "Resume",
+      "kind": "resume",
+      "path": "output/resume.pdf",
+      "preview": "docs/showcase/resume-page-1.png",
+      "publicPath": "output/resume.pdf",
+      "previewPath": "docs/showcase/resume-page-1.png",
+      "pages": 2,
+      "exists": true
+    },
+    {
+      "id": "cv",
+      "label": "CV",
+      "kind": "cv",
+      "path": "output/cv.pdf",
+      "preview": "docs/showcase/cv-page-1.png",
+      "publicPath": "output/cv.pdf",
+      "previewPath": "docs/showcase/cv-page-1.png",
+      "pages": 2,
+      "exists": true
+    },
+    {
+      "id": "leadership_resume",
+      "label": "Leadership Resume",
+      "kind": "resume",
+      "path": "output/leadership_resume.pdf",
+      "preview": "docs/showcase/leadership-resume-page-1.png",
+      "publicPath": "output/leadership_resume.pdf",
+      "previewPath": "docs/showcase/leadership-resume-page-1.png",
+      "pages": 2,
+      "exists": true
+    },
+    {
+      "id": "coverletter",
+      "label": "Cover Letter",
+      "kind": "cover_letter",
+      "path": "output/coverletter.pdf",
+      "preview": "docs/showcase/coverletter-page-1.png",
+      "publicPath": "output/coverletter.pdf",
+      "previewPath": "docs/showcase/coverletter-page-1.png",
+      "pages": 2,
+      "exists": true
+    }
+  ],
+  "documentConfig": {
+    "resume": [
+      "summary",
+      "experience",
+      "education",
+      "skills",
+      "certifications"
+    ],
+    "cv": [
+      "summary",
+      "experience",
+      "education",
+      "skills",
+      "certifications",
+      "languages",
+      "references"
+    ],
+    "leadership_resume": [
+      "summary",
+      "leadership",
+      "education",
+      "skills"
+    ]
+  }
+}

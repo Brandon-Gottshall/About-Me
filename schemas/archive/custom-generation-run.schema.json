@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Custom generation archive run",
+  "type": "object",
+  "required": ["runId", "createdAt", "sourceRepository", "target", "inputs", "prompts", "selectedFacts", "artifacts", "verification", "publication"],
+  "properties": {
+    "runId": {"type": "string", "minLength": 1},
+    "createdAt": {"type": "string"},
+    "sourceRepository": {
+      "type": "object",
+      "required": ["url", "commit"],
+      "properties": {
+        "url": {"type": "string"},
+        "commit": {"type": "string"}
+      }
+    },
+    "target": {
+      "type": "object",
+      "required": ["company", "role"],
+      "properties": {
+        "company": {"type": "string"},
+        "role": {"type": "string"},
+        "sourceUrl": {"type": "string"}
+      }
+    },
+    "agent": {"type": "object"},
+    "inputs": {"type": "array", "items": {"type": "string"}},
+    "prompts": {"type": "array", "items": {"type": "string"}},
+    "selectedFacts": {"type": "array", "items": {"type": "string"}},
+    "artifacts": {"type": "array", "items": {"type": "string"}},
+    "verification": {
+      "type": "object",
+      "required": ["validation", "build", "privacy"],
+      "properties": {
+        "validation": {"type": "string"},
+        "build": {"type": "string"},
+        "privacy": {"type": "string"}
+      }
+    },
+    "publication": {
+      "enum": ["private", "sanitized-public-example", "discarded"]
+    }
+  }
+}

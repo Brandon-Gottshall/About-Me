@@ -1,4 +1,4 @@
-.PHONY: all resume cv cover-letter leadership-resume clean generate
+.PHONY: all resume cv cover-letter leadership-resume clean generate validate export showcase privacy-scan test verify
 
 # Python interpreter
 PYTHON = python3
@@ -24,24 +24,47 @@ LEADERSHIP_RESUME_PDF = $(OUTPUT_DIR)/leadership_resume.pdf
 # Ensure directories exist
 $(shell mkdir -p $(OUTPUT_DIR) $(GENERATED_DIR))
 
-# Default target - build all documents
-all: resume cv cover-letter leadership-resume
+# Default target - build all documents and refresh public exports
+all: resume cv cover-letter leadership-resume showcase export
 
 # Generate LaTeX files from YAML data
 generate:
 	$(PYTHON) $(SCRIPTS_DIR)/generate.py
 
+# Validate YAML data and configuration
+validate:
+	$(PYTHON) $(SCRIPTS_DIR)/validate.py
+
+# Export portfolio-ready static data
+export:
+	$(PYTHON) $(SCRIPTS_DIR)/export.py
+
+# Render showcase preview images
+showcase:
+	$(PYTHON) $(SCRIPTS_DIR)/render_previews.py
+
+# Scan public surfaces for unexpected personal data
+privacy-scan:
+	$(PYTHON) $(SCRIPTS_DIR)/privacy_scan.py
+
+# Run lightweight automated tests
+test:
+	$(PYTHON) -m pytest
+
+# Full local verification
+verify: validate test all privacy-scan
+
 # Build resume
-resume: generate $(RESUME_PDF)
+resume: validate generate $(RESUME_PDF)
 
 # Build CV
-cv: generate $(CV_PDF)
+cv: validate generate $(CV_PDF)
 
 # Build cover letter
-cover-letter: generate $(COVER_LETTER_PDF)
+cover-letter: validate generate $(COVER_LETTER_PDF)
 
 # Build leadership resume
-leadership-resume: generate $(LEADERSHIP_RESUME_PDF)
+leadership-resume: validate generate $(LEADERSHIP_RESUME_PDF)
 
 # Build resume PDF
 $(RESUME_PDF): $(RESUME_TEX)

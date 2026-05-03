@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Publications",
+  "type": "object",
+  "properties": {
+    "entries": {"type": "array"},
+    "journal_articles": {"type": "array"},
+    "conference_proceedings": {"type": "array"},
+    "preprints": {"type": "array"}
+  }
+}

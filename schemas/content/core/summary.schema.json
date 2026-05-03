@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Summary content",
+  "type": "object",
+  "required": ["text"],
+  "properties": {
+    "text": {"type": "string", "minLength": 1},
+    "leadership_resume": {"type": "string"}
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "document-generator",
+  "version": "0.1.0",
+  "description": "Agent workflow support for Brandon Gottshall's YAML-driven document pipeline.",
+  "author": {
+    "name": "Brandon Gottshall",
+    "email": "bgottshall@valdosta.edu",
+    "url": "https://github.com/Brandon-Gottshall"
+  },
+  "homepage": "https://github.com/Brandon-Gottshall/About-Me",
+  "repository": "https://github.com/Brandon-Gottshall/About-Me",
+  "license": "MIT",
+  "keywords": [
+    "resume",
+    "cv",
+    "cover-letter",
+    "document-generation",
+    "yaml",
+    "latex",
+    "agents"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks.json",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "Document Generator",
+    "shortDescription": "Generate, validate, export, and archive Brandon's official documents.",
+    "longDescription": "Repository-local workflow support for Brandon Gottshall's resume, CV, cover-letter, portfolio-export, and tailored job-application document pipeline.",
+    "developerName": "Brandon Gottshall",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Automation"
+    ],
+    "websiteURL": "https://github.com/Brandon-Gottshall/About-Me",
+    "privacyPolicyURL": "https://github.com/Brandon-Gottshall/About-Me/blob/master/AGENTS.md",
+    "termsOfServiceURL": "https://github.com/Brandon-Gottshall/About-Me/blob/master/PROVENANCE.md",
+    "defaultPrompt": [
+      "Validate and rebuild my official documents.",
+      "Draft a tailored cover letter from a job post.",
+      "Archive this custom generation run privately."
+    ],
+    "brandColor": "#0969DA",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "screenshots": []
+  }
+}

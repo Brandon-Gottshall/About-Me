@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Document configuration",
+  "type": "object",
+  "required": ["resume", "cv", "cover_letter", "leadership_resume"],
+  "additionalProperties": false,
+  "properties": {
+    "resume": {"$ref": "#/$defs/sectionDocument"},
+    "cv": {"$ref": "#/$defs/sectionDocument"},
+    "leadership_resume": {"$ref": "#/$defs/sectionDocument"},
+    "cover_letter": {
+      "type": "object",
+      "required": ["variant", "settings", "defaults"],
+      "properties": {
+        "variant": {"type": "string", "minLength": 1},
+        "settings": {"$ref": "#/$defs/settings"},
+        "defaults": {"type": "object"}
+      }
+    }
+  },
+  "$defs": {
+    "sectionDocument": {
+      "type": "object",
+      "required": ["sections", "settings"],
+      "properties": {
+        "sections": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "minItems": 1
+        },
+        "settings": {"$ref": "#/$defs/settings"}
+      }
+    },
+    "settings": {
+      "type": "object",
+      "required": ["paper_size", "font_size", "margins", "color", "section_color_highlight", "header_alignment"],
+      "properties": {
+        "paper_size": {"type": "string"},
+        "font_size": {"type": "string"},
+        "margins": {
+          "type": "object",
+          "required": ["left", "top", "right", "bottom", "footskip"],
+          "properties": {
+            "left": {"type": "string"},
+            "top": {"type": "string"},
+            "right": {"type": "string"},
+            "bottom": {"type": "string"},
+            "footskip": {"type": "string"}
+          }
+        },
+        "color": {"type": "string"},
+        "section_color_highlight": {"type": "boolean"},
+        "header_alignment": {"type": "string"}
+      }
+    }
+  }
+}

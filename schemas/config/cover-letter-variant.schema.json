@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cover letter variant",
+  "type": "object",
+  "required": ["variant_name", "variant_id", "recipient_name", "company_name", "company_address", "position_name", "letter_opening", "letter_closing", "paragraphs"],
+  "properties": {
+    "variant_name": {"type": "string"},
+    "variant_id": {"type": "string"},
+    "recipient_name": {"type": "string"},
+    "company_name": {"type": "string"},
+    "company_address": {"type": "string"},
+    "position_name": {"type": "string"},
+    "letter_opening": {"type": "string"},
+    "letter_closing": {"type": "string"},
+    "paragraphs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "source", "content_id"],
+        "properties": {
+          "type": {"type": "string"},
+          "source": {"enum": ["variant", "shared"]},
+          "content_id": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

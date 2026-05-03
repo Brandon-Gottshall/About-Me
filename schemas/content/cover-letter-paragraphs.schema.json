@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cover letter paragraphs",
+  "type": "object",
+  "required": ["paragraphs"],
+  "properties": {
+    "paragraphs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["text"],
+        "properties": {
+          "text": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

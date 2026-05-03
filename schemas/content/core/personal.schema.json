@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Personal profile",
+  "type": "object",
+  "required": ["name", "position", "address", "address_cv", "contact", "quote"],
+  "properties": {
+    "name": {
+      "type": "object",
+      "required": ["first", "last"],
+      "properties": {
+        "first": {"type": "string"},
+        "last": {"type": "string"}
+      }
+    },
+    "position": {"type": "object"},
+    "address": {"type": "string"},
+    "address_cv": {"type": "string"},
+    "contact": {
+      "type": "object",
+      "required": ["mobile", "email", "homepage", "github", "linkedin"],
+      "properties": {
+        "mobile": {"type": "string"},
+        "email": {"type": "string"},
+        "homepage": {"type": "string"},
+        "homepage2": {"type": "string"},
+        "github": {"type": "string"},
+        "linkedin": {"type": "string"}
+      }
+    },
+    "contact_line": {"type": "object"},
+    "quote": {"type": "object"}
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Leadership categories",
+  "type": "object",
+  "required": ["categories"],
+  "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "entries"],
+        "properties": {
+          "name": {"type": "string"},
+          "entries": {"type": "array", "items": {"type": "object"}}
+        }
+      }
+    }
+  }
+}

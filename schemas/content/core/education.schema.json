@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Education entries",
+  "type": "object",
+  "required": ["entries"],
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["degree", "institution", "location"],
+        "properties": {
+          "degree": {"type": "string"},
+          "institution": {"type": "string"},
+          "location": {"type": "string"},
+          "start_date": {"type": "string"},
+          "end_date": {"type": "string"},
+          "date_range": {"type": "string"},
+          "items": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

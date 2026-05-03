@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Languages",
+  "type": "object",
+  "required": ["entries"],
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["language", "proficiency"],
+        "properties": {
+          "language": {"type": "string"},
+          "proficiency": {"type": "string"}
+        }
+      }
+    }
+  }
+}
