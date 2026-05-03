@@ -76,6 +76,7 @@ def main():
         doc_types = ["resume", "cv", "cover-letter"]
 
     # Build each document
+    had_failure = False
     for doc_type in doc_types:
         if doc_type == "resume":
             tex_file = generated_dir / "resume.tex"
@@ -85,8 +86,10 @@ def main():
                     print(f"✓ Resume built successfully: {output_dir / 'resume.pdf'}")
                 else:
                     print(f"✗ Resume build failed", file=sys.stderr)
+                    had_failure = True
             else:
                 print(f"Warning: {tex_file} not found. Run generator first.")
+                had_failure = True
 
         elif doc_type == "cv":
             tex_file = generated_dir / "cv.tex"
@@ -96,8 +99,10 @@ def main():
                     print(f"✓ CV built successfully: {output_dir / 'cv.pdf'}")
                 else:
                     print(f"✗ CV build failed", file=sys.stderr)
+                    had_failure = True
             else:
                 print(f"Warning: {tex_file} not found. Run generator first.")
+                had_failure = True
 
         elif doc_type == "cover-letter":
             tex_file = generated_dir / "coverletter.tex"
@@ -112,10 +117,13 @@ def main():
                             f"✗ Cover letter PDF not found at expected location",
                             file=sys.stderr,
                         )
+                        had_failure = True
                 else:
                     print(f"✗ Cover letter build failed", file=sys.stderr)
+                    had_failure = True
             else:
                 print(f"Warning: {tex_file} not found. Run generator first.")
+                had_failure = True
 
         elif doc_type in ["leadership-resume", "leadership_resume"]:
             tex_file = generated_dir / "leadership_resume.tex"
@@ -132,13 +140,20 @@ def main():
                             f"✗ Leadership resume PDF not found at expected location",
                             file=sys.stderr,
                         )
+                        had_failure = True
                 else:
                     print(f"✗ Leadership resume build failed", file=sys.stderr)
+                    had_failure = True
             else:
                 print(f"Warning: {tex_file} not found. Run generator first.")
+                had_failure = True
 
         else:
             print(f"Unknown document type: {doc_type}", file=sys.stderr)
+            had_failure = True
+
+    if had_failure:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

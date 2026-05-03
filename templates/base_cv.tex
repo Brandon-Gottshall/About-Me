@@ -38,6 +38,19 @@
 \sloppy
 \setlength{\emergencystretch}{3em}
 
+% Custom spacing for cvitems (bullet points)
+\renewenvironment{cvitems}{%
+  \vspace{-8pt}%
+  \begin{justify}
+  \begin{itemize}[leftmargin=2ex, topsep=2pt, itemsep=1pt, partopsep=0pt, parsep=0pt]%
+    \setlength{\parskip}{0pt}%
+    \renewcommand{\labelitemi}{\bullet}%
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{8pt}%
+}
+
 % Custom commands for CV-specific formatting
 \newcommand{\cvitem}[2]{\begin{cvitems}\item[\textbf{#1:}] #2\end{cvitems}}
 
@@ -86,4 +99,3 @@
 
 %-------------------------------------------------------------------------------
 \end{document}
-

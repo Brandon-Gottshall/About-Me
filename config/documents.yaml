@@ -27,11 +27,6 @@ cv:
     - education
     - skills
     - certifications
-    - projects
-    - publications
-    - presentations
-    - teaching
-    - volunteer
     - languages
     - references
   settings:
@@ -87,4 +82,3 @@ leadership_resume:
     color: "awesome-skyblue"
     section_color_highlight: true
     header_alignment: "C"
-
