@@ -49,3 +49,6 @@ generated/
 archives/private/
 custom-generations/
 runs/
+
+### Private Codex plugins ###
+plugins/document-generator/
