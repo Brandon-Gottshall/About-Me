@@ -15,7 +15,10 @@ def run_command(cmd, cwd=None, check=True):
     print(f"Running: {' '.join(cmd)}")
     result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
     if result.returncode != 0:
-        print(f"Error: {result.stderr}", file=sys.stderr)
+        if result.stderr:
+            print(result.stderr, file=sys.stderr)
+        if result.stdout:
+            print(result.stdout, file=sys.stderr)
         if check:
             sys.exit(result.returncode)
     return result
