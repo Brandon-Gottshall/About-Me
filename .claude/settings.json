@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "ARCHIVE_AGENT_TOOL": "claude"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(make validate)",
+      "Bash(make test)",
+      "Bash(make privacy-scan)",
+      "Bash(make verify)",
+      "Bash(make export)",
+      "Bash(make showcase)",
+      "Bash(make clean)",
+      "Bash(make generate)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(pdftoppm:*)",
+      "Bash(python -m document_pipeline:*)"
+    ],
+    "ask": [
+      "Bash(make all)",
+      "Bash(make resume)",
+      "Bash(make cv)",
+      "Bash(make cover-letter)",
+      "Bash(make leadership-resume)",
+      "Bash(python plugins/document-generator/scripts/archive_generation.py:*)",
+      "Bash(ARCHIVE_AGENT_TOOL=claude python plugins/document-generator/scripts/archive_generation.py:*)",
+      "Edit(content/**)",
+      "Edit(config/**)",
+      "Edit(PROVENANCE.md)",
+      "Edit(LICENSE)",
+      "Edit(LICENCE)"
+    ]
+  }
+}

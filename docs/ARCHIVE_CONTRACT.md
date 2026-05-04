@@ -68,6 +68,12 @@ Each `manifest.json` follows
 - validation, build, privacy, and final decision status
 - publication state: `private`, `sanitized-public-example`, or `discarded`
 
+The `agent.tool` field records which agent produced the run — `codex`, `claude`,
+or another short identifier. The `archive_generation.py` helper resolves it from
+the `--tool` flag, then the `ARCHIVE_AGENT_TOOL` environment variable, and
+defaults to `codex`. Future agents (Cursor, Aider, etc.) should follow the same
+pattern so manifests remain auditable across tools.
+
 ## Promotion Rules
 
 A run may be copied into a public sanitized example only after:
