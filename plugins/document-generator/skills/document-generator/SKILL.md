@@ -34,9 +34,10 @@ make privacy-scan
 
 1. Store the job description in the private archive target, not this public repo.
 2. Select source facts from `content/`; do not invent credentials or metrics.
-3. Draft tailored outputs in the private archive target first.
-4. If an artifact should become official, promote the source edits into `content/` and rebuild official PDFs.
-5. If an artifact should become a public example, sanitize it according to `docs/ARCHIVE_CONTRACT.md`.
+3. Cite selected facts as `content/<file>.yaml:<key>` or a more precise dotted key when needed.
+4. Draft tailored outputs in the private archive target first.
+5. If an artifact should become official, promote the source edits into `content/` and rebuild official PDFs.
+6. If an artifact should become a public example, sanitize it according to `docs/ARCHIVE_CONTRACT.md`.
 
 ## Archive Helper
 
@@ -69,3 +70,25 @@ Shared between the Codex and Claude Code surfaces; edit in one place:
 - `../../../../prompts/document-generator/tailored-system.md`
 - `../../../../prompts/document-generator/tailored-task.md`
 - `../../../../prompts/document-generator/archive-checklist.md`
+
+## Promotion Workflow
+
+Promotion is checklist-only by default. Do not copy content from a private run
+into this public repo unless Brandon explicitly approves the specific sanitized
+files to publish.
+
+1. Read `docs/ARCHIVE_CONTRACT.md`.
+2. Confirm the run is eligible for `sanitized-public-example` publication.
+3. Remove or summarize third-party job description text.
+4. Remove recruiter or company contact details unless already public.
+5. Limit Brandon's contact details to the same public fields already in
+   `output/`.
+6. Review prompts and notes for private strategy or sensitive reasoning.
+7. Produce a diff plan listing proposed public files and redactions.
+8. After Brandon approves the public example, apply the sanitized changes and run:
+
+```bash
+make validate
+make test
+make privacy-scan
+```

@@ -33,6 +33,6 @@ pipeline.
 
 The `document-generator` skill (under `.claude/skills/`) covers the official
 build, tailored-draft, and private-archive workflows. The
-`/validate`, `/build-official`, `/tailored-draft`, and `/archive-run` slash
-commands are the discoverable entry points. Read `AGENTS.md`,
+`/validate`, `/build-official`, `/tailored-draft`, `/archive-run`, and
+`/promote-example` slash commands are the discoverable entry points. Read `AGENTS.md`,
 `docs/ARCHIVE_CONTRACT.md`, and `PROVENANCE.md` before larger edits.

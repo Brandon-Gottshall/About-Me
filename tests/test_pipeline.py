@@ -40,6 +40,7 @@ def test_agent_workflow_files_are_present():
         ".claude/commands/build-official.md",
         ".claude/commands/tailored-draft.md",
         ".claude/commands/archive-run.md",
+        ".claude/commands/promote-example.md",
         "prompts/document-generator/tailored-system.md",
         "prompts/document-generator/tailored-task.md",
         "prompts/document-generator/archive-checklist.md",
@@ -70,6 +71,20 @@ def test_codex_plugin_manifest_points_to_about_me_repo():
         == f"{about_me_url}/blob/master/PROVENANCE.md"
     )
     assert "Brandon-Gottshall/document-generator" not in json.dumps(manifest)
+
+
+def test_claude_workflow_documents_archive_and_fact_citation_contracts():
+    skill = (PROJECT_ROOT / ".claude/skills/document-generator/SKILL.md").read_text()
+    tailored = (PROJECT_ROOT / ".claude/commands/tailored-draft.md").read_text()
+    archive = (PROJECT_ROOT / ".claude/commands/archive-run.md").read_text()
+    promote = (PROJECT_ROOT / ".claude/commands/promote-example.md").read_text()
+
+    assert "content/<file>.yaml:<key>" in skill
+    assert "content/<file>.yaml:<key>" in tailored
+    assert "CUSTOM_GENERATION_ARCHIVE_ROOT" in archive
+    assert "make validate" in archive
+    assert "docs/ARCHIVE_CONTRACT.md" in promote
+    assert "checklist-only by default" in promote
 
 
 def test_github_actions_use_node24_action_versions():

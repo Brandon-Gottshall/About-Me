@@ -7,9 +7,9 @@ This repository began as a fork of
 [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV), but it has been
 reworked into personal career infrastructure: structured YAML content feeds
 document-specific LaTeX templates, Python scripts generate `.tex` files, and
-XeLaTeX builds polished PDFs. It is also agent-ready: schemas, docs, and a
-repo-local Codex plugin define how LLMs should validate, generate, export, and
-privately archive tailored document runs.
+XeLaTeX builds polished PDFs. It is also agent-ready: schemas, docs, a
+repo-local Codex plugin, and Claude Code commands define how LLMs should
+validate, generate, export, and privately archive tailored document runs.
 
 ## Current Outputs
 
@@ -30,7 +30,7 @@ details stored in `content/core/personal.yaml`.
 | LaTeX templates | `templates/`, `templates/sections/`, `src/awesome-cv.cls` | Defines the visual system and section-level rendering on top of Awesome CV. |
 | Pipeline package | `document_pipeline/` | Typed content loading, YAML validation, LaTeX rendering, PDF builds, privacy scans, and portfolio export. |
 | CLI surfaces | `python -m document_pipeline`, `scripts/`, `Makefile` | Stable commands for humans, agents, and future site automation. |
-| Agent workflow | `AGENTS.md`, `plugins/document-generator/` | Codex-facing workflow rules and prompts for official and tailored documents. |
+| Agent workflow | `AGENTS.md`, `plugins/document-generator/`, `.claude/` | Codex and Claude workflow rules and prompts for official and tailored documents. |
 
 ```text
 YAML content + config
@@ -179,8 +179,9 @@ python3 -m document_pipeline generate leadership-resume
 ## Agent Workflows
 
 Agents should start with [AGENTS.md](AGENTS.md). The repo-local Codex plugin in
-`plugins/document-generator/` provides workflow instructions, prompt templates,
-and an archive helper for private job-specific generation runs.
+`plugins/document-generator/` and the Claude Code surface in `.claude/` provide
+workflow instructions, prompt templates, and an archive helper for private
+job-specific generation runs.
 
 Raw tailored runs belong in a private companion archive repo configured through
 `CUSTOM_GENERATION_ARCHIVE_ROOT`. This public repo contains only the archive

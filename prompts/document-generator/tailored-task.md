@@ -3,10 +3,12 @@ Create tailored resume, CV, or cover-letter drafts for the provided job descript
 
 Required output:
 - Job-fit interpretation.
-- Selected source facts from `content/`.
+- Selected source facts from `content/`, cited as `content/<file>.yaml:<key>`
+  or a more precise dotted key when needed.
 - Draft document content.
 - Suggested official source changes, if any.
 - Archive manifest metadata.
 - Validation/build/privacy status.
+- Explicit assertion that no facts were invented.
 
 Do not commit tailored drafts to the public repo unless Brandon explicitly asks to promote a sanitized example.

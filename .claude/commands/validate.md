@@ -2,6 +2,9 @@
 
 Run the local validation path for the official document pipeline.
 
+Use `.claude/skills/document-generator/SKILL.md` as the workflow source of
+truth. This command is the lightweight pre-build check.
+
 Steps:
 
 1. Run `make validate`.
