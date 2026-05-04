@@ -191,7 +191,8 @@ contract, schema, and sanitized example structure.
 `make export` writes `exports/profile.json`, which is the intended static input
 for Brandon's portfolio site. The export includes normalized profile data,
 public document metadata, PDF paths, and showcase preview paths without requiring
-the site to parse YAML directly.
+the site to parse YAML directly. See [Portfolio Export](docs/PORTFOLIO_EXPORT.md)
+for the integration contract and ownership rules.
 
 ## Provenance
 

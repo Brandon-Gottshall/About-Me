@@ -5,6 +5,7 @@ import subprocess
 import sys
 
 from jsonschema import Draft202012Validator
+import yaml
 
 from document_pipeline.export import build_profile_export
 from document_pipeline.generator import escape_latex, format_date_range
@@ -69,6 +70,27 @@ def test_codex_plugin_manifest_points_to_about_me_repo():
         == f"{about_me_url}/blob/master/PROVENANCE.md"
     )
     assert "Brandon-Gottshall/document-generator" not in json.dumps(manifest)
+
+
+def test_github_actions_use_node24_action_versions():
+    workflow = yaml.safe_load((PROJECT_ROOT / ".github/workflows/verify.yml").read_text())
+    steps = [
+        step
+        for job in workflow["jobs"].values()
+        for step in job["steps"]
+        if "uses" in step
+    ]
+    action_refs = {step["uses"] for step in steps}
+    assert "actions/checkout@v5" in action_refs
+    assert "actions/setup-python@v6" in action_refs
+    assert "actions/upload-artifact@v7" in action_refs
+    assert action_refs.isdisjoint(
+        {
+            "actions/checkout@v4",
+            "actions/setup-python@v5",
+            "actions/upload-artifact@v4",
+        }
+    )
 
 
 def test_archive_helper_writes_synthetic_run_outside_public_repo(tmp_path):
