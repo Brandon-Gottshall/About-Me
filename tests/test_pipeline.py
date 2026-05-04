@@ -1,5 +1,8 @@
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 
 from jsonschema import Draft202012Validator
 
@@ -41,6 +44,76 @@ def test_agent_workflow_files_are_present():
         "prompts/document-generator/archive-checklist.md",
     ]
     assert all((PROJECT_ROOT / path).exists() for path in expected)
+
+
+def test_codex_plugin_manifest_points_to_about_me_repo():
+    manifest = json.loads(
+        (
+            PROJECT_ROOT
+            / "plugins"
+            / "document-generator"
+            / ".codex-plugin"
+            / "plugin.json"
+        ).read_text()
+    )
+    about_me_url = "https://github.com/Brandon-Gottshall/About-Me"
+    assert manifest["homepage"] == about_me_url
+    assert manifest["repository"] == about_me_url
+    assert manifest["interface"]["websiteURL"] == about_me_url
+    assert (
+        manifest["interface"]["privacyPolicyURL"]
+        == f"{about_me_url}/blob/master/AGENTS.md"
+    )
+    assert (
+        manifest["interface"]["termsOfServiceURL"]
+        == f"{about_me_url}/blob/master/PROVENANCE.md"
+    )
+    assert "Brandon-Gottshall/document-generator" not in json.dumps(manifest)
+
+
+def test_archive_helper_writes_synthetic_run_outside_public_repo(tmp_path):
+    archive_root = tmp_path / "archive"
+    env = os.environ.copy()
+    env["CUSTOM_GENERATION_ARCHIVE_ROOT"] = str(archive_root)
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(
+                PROJECT_ROOT
+                / "plugins"
+                / "document-generator"
+                / "scripts"
+                / "archive_generation.py"
+            ),
+            "--company",
+            "Synthetic Company",
+            "--role",
+            "Synthetic Role",
+            "--source-url",
+            "https://example.invalid/jobs/synthetic-role",
+            "--tool",
+            "claude",
+        ],
+        cwd=PROJECT_ROOT,
+        env=env,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert str(PROJECT_ROOT) not in result.stdout
+    manifests = list(archive_root.glob("runs/*/*/manifest.json"))
+    assert len(manifests) == 1
+    manifest_path = manifests[0]
+    run_root = manifest_path.parent
+    manifest_path = run_root / "manifest.json"
+    assert manifest_path.exists()
+    manifest = json.loads(manifest_path.read_text())
+    assert manifest["agent"]["tool"] == "claude"
+    assert manifest["agent"]["plugin"] == "document-generator"
+    assert manifest["target"]["company"] == "Synthetic Company"
+    assert manifest["publication"] == "private"
 
 
 def test_date_range_formatting():

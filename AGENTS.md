@@ -45,3 +45,8 @@ make all
 make export
 make privacy-scan
 ```
+
+GitHub Actions runs lightweight validation, tests, LaTeX generation, export, and
+privacy scans on pushes and pull requests. Full PDF smoke builds are limited to
+pushes on `master` and manual workflow runs because XeLaTeX setup is heavier and
+PDF byte output can vary between environments.

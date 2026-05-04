@@ -50,5 +50,8 @@ archives/private/
 custom-generations/
 runs/
 
-### Private Codex plugins ###
-plugins/document-generator/
+### Plugin packaging residue ###
+## The repo-local document-generator plugin is tracked here. Nested checkout
+## metadata from the separate packaging repo should never be committed.
+plugins/document-generator/.git/
+plugins/document-generator/.gitignore
