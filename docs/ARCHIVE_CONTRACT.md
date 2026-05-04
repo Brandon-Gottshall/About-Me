@@ -14,6 +14,17 @@ export CUSTOM_GENERATION_ARCHIVE_ROOT=/path/to/private/about-me-generations
 ```
 
 Recommended private repo name: `Brandon-Gottshall/about-me-generations`.
+Brandon's local checkout is expected at
+`$HOME/Documents/GitHub/about-me-generations`.
+
+The private repo should provide its own setup and validation helpers. Current
+expected commands there:
+
+```bash
+source scripts/env.sh
+make validate
+make doctor
+```
 
 ## Run Directory Shape
 

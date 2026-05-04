@@ -43,7 +43,7 @@ make privacy-scan
 Use the plugin helper only after setting a private archive root:
 
 ```bash
-export CUSTOM_GENERATION_ARCHIVE_ROOT=/path/to/private/about-me-generations
+source "$HOME/Documents/GitHub/about-me-generations/scripts/env.sh"
 python plugins/document-generator/scripts/archive_generation.py \
   --company "Example Company" \
   --role "Example Role" \
@@ -53,6 +53,14 @@ python plugins/document-generator/scripts/archive_generation.py \
 The helper creates a run directory, copies inputs, records source commit, writes
 `manifest.json`, and validates it against
 `schemas/archive/custom-generation-run.schema.json`.
+
+After adding prompts, selected facts, drafts, generated artifacts, or
+verification notes, validate the private archive repo:
+
+```bash
+cd "$CUSTOM_GENERATION_ARCHIVE_ROOT"
+make validate
+```
 
 ## Prompt Templates
 
