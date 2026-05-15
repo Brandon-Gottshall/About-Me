@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ description }}" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="{{ canonical_url }}" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="{{ page_title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:url" content="{{ canonical_url }}" />
+  {% if pdf_filename %}
+  <link rel="alternate" type="application/pdf" href="{{ pdf_filename }}" />
+  {% endif %}
+  <style>
+{{ styles }}
+  </style>
+</head>
+<body>
+  <main class="rg-document rg-document--{{ doc_slug }}" lang="en">
+    <header class="rg-document__header">
+      <h1 class="rg-document__name">{{ full_name }}</h1>
+      {% if position %}
+      <p class="rg-document__position">{{ position }}</p>
+      {% endif %}
+      {% if contact_items %}
+      <ul class="rg-document__contact">
+        {% for item in contact_items %}
+        <li>{% if item.href %}<a href="{{ item.href }}">{{ item.label }}</a>{% else %}{{ item.label }}{% endif %}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% if quote %}
+      <blockquote class="rg-document__quote">{{ quote }}</blockquote>
+      {% endif %}
+    </header>
+{{ sections_html }}
+    <footer class="rg-document__footer">
+      <span>Generated {{ generated_at }} from <a href="{{ source_repo }}">About-Me</a>.</span>
+      {% if pdf_filename %}
+      <span><a href="{{ pdf_filename }}">Download PDF</a></span>
+      {% endif %}
+    </footer>
+  </main>
+</body>
+</html>

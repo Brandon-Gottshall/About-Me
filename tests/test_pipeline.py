@@ -7,8 +7,22 @@ import sys
 from jsonschema import Draft202012Validator
 import yaml
 
-from document_pipeline.export import build_profile_export
+from document_pipeline.export import (
+    build_documents_manifest,
+    build_profile_export,
+    write_documents_manifest,
+)
 from document_pipeline.generator import escape_latex, format_date_range
+from document_pipeline.html import (
+    html_escape_text,
+    normalize_latex_text,
+    skill_items_text,
+)
+from document_pipeline.html_renderer import (
+    HTML_DOCUMENT_TYPES,
+    DEFAULT_DOCUMENTS_BASE_URL,
+    render_html_documents,
+)
 from document_pipeline.models import ProjectData
 from document_pipeline.privacy import scan_pdf_locations, scan_text_files
 from document_pipeline.renderer import normalize_doc_type
@@ -206,3 +220,64 @@ def test_sanitized_archive_example_matches_schema():
     )
     errors = list(Draft202012Validator(schema).iter_errors(manifest))
     assert errors == []
+
+
+def test_html_helpers_strip_latex_artifacts():
+    assert normalize_latex_text(r"Cloud \& DevOps") == "Cloud & DevOps"
+    assert normalize_latex_text("Marine~Corps Veteran") == "Marine Corps Veteran"
+    assert normalize_latex_text(r"a \textbullet{} b") == "a • b"
+    assert html_escape_text(r"R\&D & growth") == "R&amp;D &amp; growth"
+    assert skill_items_text(["one", "", "two"]) == "one, two"
+    assert skill_items_text("solo") == "solo"
+
+
+def test_html_renderer_emits_expected_files(tmp_path):
+    paths = render_html_documents()
+    output_dir = PROJECT_ROOT / "output"
+    expected = {f"{doc_type}.html" for doc_type in HTML_DOCUMENT_TYPES}
+    actual = {path.name for path in paths}
+    assert expected == actual
+    for doc_type in HTML_DOCUMENT_TYPES:
+        html_path = output_dir / f"{doc_type}.html"
+        assert html_path.exists(), f"missing {html_path}"
+        text = html_path.read_text(encoding="utf-8")
+        # Self-contained styles, semantic markup, no stray LaTeX commands.
+        assert "<style>" in text
+        assert "<main" in text
+        assert "\\textbullet" not in text
+        assert "~Corps" not in text  # `~` from YAML must be non-breaking space
+
+
+def test_html_renderer_links_to_pdf_counterpart():
+    output_dir = PROJECT_ROOT / "output"
+    for doc_type in HTML_DOCUMENT_TYPES:
+        html_path = output_dir / f"{doc_type}.html"
+        text = html_path.read_text(encoding="utf-8")
+        assert f"{doc_type}.pdf" in text
+
+
+def test_documents_manifest_matches_portfolio_schema():
+    manifest = build_documents_manifest()
+    assert manifest["version"] == 1
+    assert manifest["generatedAt"].endswith("Z")
+    types_in_order = [document["type"] for document in manifest["documents"]]
+    assert types_in_order == ["resume", "cv"]
+    required = {"type", "title", "summary", "pdf", "html"}
+    for document in manifest["documents"]:
+        assert required <= set(document)
+        assert document["type"] in {"resume", "cv"}
+        assert document["pdf"].endswith(".pdf")
+        assert document["html"].endswith(".html")
+
+
+def test_documents_manifest_canonical_url_is_resolvable():
+    expected_base = "https://brandon-gottshall.github.io/About-Me"
+    assert DEFAULT_DOCUMENTS_BASE_URL == expected_base
+
+
+def test_write_documents_manifest_writes_to_output(tmp_path):
+    manifest_path = write_documents_manifest()
+    assert manifest_path.exists()
+    payload = json.loads(manifest_path.read_text())
+    assert payload["version"] == 1
+    assert len(payload["documents"]) == 2

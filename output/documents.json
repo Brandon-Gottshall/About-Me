@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "generatedAt": "2026-05-15T06:03:27.511753Z",
+  "documents": [
+    {
+      "type": "resume",
+      "title": "Resume",
+      "summary": "Concise software engineering resume covering current systems work, instruction, and prior leadership.",
+      "pdf": "resume.pdf",
+      "html": "resume.html"
+    },
+    {
+      "type": "cv",
+      "title": "Curriculum Vitae",
+      "summary": "Expanded curriculum vitae covering experience, education, skills, languages, and references.",
+      "pdf": "cv.pdf",
+      "html": "cv.html"
+    }
+  ]
+}
