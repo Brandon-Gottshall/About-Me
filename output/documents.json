@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "generatedAt": "2026-05-15T02:36:09.401721Z",
+  "documents": [
+    {
+      "type": "resume",
+      "title": "Resume",
+      "summary": "Concise professional resume for software engineering roles.",
+      "pdf": "resume.pdf",
+      "html": "resume.html"
+    },
+    {
+      "type": "cv",
+      "title": "CV",
+      "summary": "Expanded curriculum vitae with education and credentials.",
+      "pdf": "cv.pdf",
+      "html": "cv.html"
+    }
+  ]
+}

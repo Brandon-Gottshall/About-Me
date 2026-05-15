@@ -1,33 +1,67 @@
 #!/usr/bin/env python3
-"""
-Build automation script for LaTeX documents.
-Runs generator and compiles LaTeX documents to PDF.
-"""
+"""Generate documents and compile LaTeX outputs to PDF."""
 
-import os
 import subprocess
 import sys
 from pathlib import Path
 
 
+DOCUMENTS = {
+    "resume": {
+        "label": "Resume",
+        "build_name": "resume",
+        "tex": "resume.tex",
+        "pdf": "resume.pdf",
+    },
+    "cv": {
+        "label": "CV",
+        "build_name": "CV",
+        "tex": "cv.tex",
+        "pdf": "cv.pdf",
+    },
+    "cover-letter": {
+        "label": "Cover letter",
+        "build_name": "cover letter",
+        "tex": "coverletter.tex",
+        "pdf": "coverletter.pdf",
+    },
+    "leadership-resume": {
+        "label": "Leadership resume",
+        "build_name": "leadership resume",
+        "tex": "leadership_resume.tex",
+        "pdf": "leadership_resume.pdf",
+    },
+}
+
+DOCUMENT_ALIASES = {
+    "cover_letter": "cover-letter",
+    "leadership_resume": "leadership-resume",
+}
+
+DEFAULT_DOCUMENTS = ["resume", "cv", "cover-letter", "leadership-resume"]
+
+
+def normalize_doc_type(doc_type):
+    """Return the canonical build document name."""
+    return DOCUMENT_ALIASES.get(doc_type, doc_type)
+
+
 def run_command(cmd, cwd=None, check=True):
-    """Run a shell command and return the result."""
+    """Run a command and return the completed process."""
     print(f"Running: {' '.join(cmd)}")
     result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
     if result.returncode != 0:
         print(f"Error: {result.stderr}", file=sys.stderr)
         if check:
-            sys.exit(result.returncode)
+            raise SystemExit(result.returncode)
     return result
 
 
 def build_latex(tex_file, output_dir, num_passes=2):
-    """Build a LaTeX file to PDF."""
+    """Compile a LaTeX file to PDF."""
     tex_path = Path(tex_file)
-    tex_dir = tex_path.parent
 
-    # Change to generated directory for compilation (so relative paths work)
-    for i in range(num_passes):
+    for pass_index in range(num_passes):
         result = run_command(
             [
                 "xelatex",
@@ -37,108 +71,92 @@ def build_latex(tex_file, output_dir, num_passes=2):
                 "-halt-on-error",
                 tex_path.name,
             ],
-            cwd=str(tex_dir),
-            check=(i == num_passes - 1),  # Only fail on last pass
+            cwd=str(tex_path.parent),
+            check=(pass_index == num_passes - 1),
         )
 
         if result.returncode != 0:
-            print(f"LaTeX compilation failed on pass {i+1}", file=sys.stderr)
+            print(
+                f"LaTeX compilation failed on pass {pass_index + 1}",
+                file=sys.stderr,
+            )
             return False
 
     return True
 
 
+def run_generator(script_dir, project_root, generate_html, doc_args):
+    """Run the YAML generator before building or publishing outputs."""
+    if generate_html:
+        print("Generating HTML files...")
+        command = [sys.executable, str(script_dir / "generate.py"), "--html"]
+    else:
+        print("Generating LaTeX files...")
+        command = [sys.executable, str(script_dir / "generate.py")]
+
+    return run_command(command + doc_args, cwd=str(project_root))
+
+
+def build_document(doc_type, generated_dir, output_dir):
+    """Build one PDF document."""
+    canonical_type = normalize_doc_type(doc_type)
+    document = DOCUMENTS.get(canonical_type)
+    if not document:
+        print(f"Unknown document type: {doc_type}", file=sys.stderr)
+        return False
+
+    tex_file = generated_dir / document["tex"]
+    pdf_file = output_dir / document["pdf"]
+
+    if not tex_file.exists():
+        print(f"Warning: {tex_file} not found. Run generator first.")
+        return False
+
+    print(f"\nBuilding {document['build_name']}...")
+    if not build_latex(tex_file, output_dir):
+        print(f"✗ {document['label']} build failed", file=sys.stderr)
+        return False
+
+    if not pdf_file.exists():
+        print(
+            f"✗ {document['label']} PDF not found at expected location",
+            file=sys.stderr,
+        )
+        return False
+
+    print(f"✓ {document['label']} built successfully: {pdf_file}")
+    return True
+
+
 def main():
-    """Main entry point."""
+    """Build requested PDF files, or generate requested HTML files."""
     script_dir = Path(__file__).parent
     project_root = script_dir.parent
     generated_dir = project_root / "generated"
     output_dir = project_root / "output"
 
-    # Ensure output directory exists
+    generate_html = "--html" in sys.argv or "-h" in sys.argv
+    doc_args = [arg for arg in sys.argv[1:] if arg not in ("--html", "-h")]
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Run generator first
-    print("Generating LaTeX files...")
-    generate_result = run_command(
-        [sys.executable, str(script_dir / "generate.py")] + sys.argv[1:],
-        cwd=str(project_root),
-    )
-
+    generate_result = run_generator(script_dir, project_root, generate_html, doc_args)
     if generate_result.returncode != 0:
         print("Generator failed!", file=sys.stderr)
-        sys.exit(1)
+        raise SystemExit(1)
 
-    # Determine which documents to build
-    if len(sys.argv) > 1:
-        doc_types = sys.argv[1:]
-    else:
-        doc_types = ["resume", "cv", "cover-letter"]
+    if generate_html:
+        print("\n✓ HTML files generated successfully")
+        return
 
-    # Build each document
-    for doc_type in doc_types:
-        if doc_type == "resume":
-            tex_file = generated_dir / "resume.tex"
-            if tex_file.exists():
-                print(f"\nBuilding resume...")
-                if build_latex(tex_file, output_dir):
-                    print(f"✓ Resume built successfully: {output_dir / 'resume.pdf'}")
-                else:
-                    print(f"✗ Resume build failed", file=sys.stderr)
-            else:
-                print(f"Warning: {tex_file} not found. Run generator first.")
+    requested_docs = doc_args or DEFAULT_DOCUMENTS
+    failures = [
+        doc_type
+        for doc_type in requested_docs
+        if not build_document(doc_type, generated_dir, output_dir)
+    ]
 
-        elif doc_type == "cv":
-            tex_file = generated_dir / "cv.tex"
-            if tex_file.exists():
-                print(f"\nBuilding CV...")
-                if build_latex(tex_file, output_dir):
-                    print(f"✓ CV built successfully: {output_dir / 'cv.pdf'}")
-                else:
-                    print(f"✗ CV build failed", file=sys.stderr)
-            else:
-                print(f"Warning: {tex_file} not found. Run generator first.")
-
-        elif doc_type == "cover-letter":
-            tex_file = generated_dir / "coverletter.tex"
-            if tex_file.exists():
-                print(f"\nBuilding cover letter...")
-                if build_latex(tex_file, output_dir):
-                    cover_letter_pdf = output_dir / "coverletter.pdf"
-                    if cover_letter_pdf.exists():
-                        print(f"✓ Cover letter built successfully: {cover_letter_pdf}")
-                    else:
-                        print(
-                            f"✗ Cover letter PDF not found at expected location",
-                            file=sys.stderr,
-                        )
-                else:
-                    print(f"✗ Cover letter build failed", file=sys.stderr)
-            else:
-                print(f"Warning: {tex_file} not found. Run generator first.")
-
-        elif doc_type in ["leadership-resume", "leadership_resume"]:
-            tex_file = generated_dir / "leadership_resume.tex"
-            if tex_file.exists():
-                print(f"\nBuilding leadership resume...")
-                if build_latex(tex_file, output_dir):
-                    leadership_pdf = output_dir / "leadership_resume.pdf"
-                    if leadership_pdf.exists():
-                        print(
-                            f"✓ Leadership resume built successfully: {leadership_pdf}"
-                        )
-                    else:
-                        print(
-                            f"✗ Leadership resume PDF not found at expected location",
-                            file=sys.stderr,
-                        )
-                else:
-                    print(f"✗ Leadership resume build failed", file=sys.stderr)
-            else:
-                print(f"Warning: {tex_file} not found. Run generator first.")
-
-        else:
-            print(f"Unknown document type: {doc_type}", file=sys.stderr)
+    if failures:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

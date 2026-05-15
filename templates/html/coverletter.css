@@ -1,0 +1,4 @@
+/* Cover-letter-specific spacing. Shared visual language lives in document.css. */
+:root {
+    --document-spacing: 1.55em;
+}

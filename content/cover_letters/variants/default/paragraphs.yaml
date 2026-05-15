@@ -3,17 +3,14 @@
 paragraphs:
   standard_intro:
     text: |
-      I am excited to apply for the [Position Name] position at [Company Name]. With [X] years of experience in [relevant field/industry], I am confident in my ability to contribute effectively to your team. My background in [relevant skills/experience] aligns well with the requirements for this role, and I am eager to bring my expertise to your organization.
+      I am excited to apply for a software engineering role where reliable interfaces, clear systems, and practical automation matter. My background combines front-end and full-stack software development, technical instruction, and operational discipline from Marine Corps service.
 
   standard_experience:
     text: |
-      At [Current/Most Recent Company], I [describe relevant experience and achievements]. For example, I [specific accomplishment with metrics if possible]. This experience has equipped me with [specific skills] that would be valuable in the [Position Name] role at [Company Name].
+      In recent work, I have built TypeScript and Next.js applications, internal tools, and AI-assisted workflows that support production teams and client deliverables. I am comfortable translating design intent into responsive interfaces, working across cloud and deployment surfaces, and keeping documentation and delivery practices repeatable.
 
-      In my previous position at [Previous Company], I [describe relevant experience]. This experience has given me the opportunity to develop strong [relevant skills] and [specific achievements]. I am particularly proud of [specific project or accomplishment] which resulted in [quantifiable outcome].
-
-      I am impressed by [specific aspect of the company or role] and am excited about the opportunity to contribute to [specific team/project] at [Company Name]. I am confident that my skills in [specific skills] and my passion for [relevant interest] would make me a valuable addition to your team.
+      My teaching and leadership experience also shape how I work with teams. I value clear expectations, code review, steady communication, and helping others build confidence with unfamiliar tools.
 
   standard_closing:
     text: |
-      Thank you for considering my application. I would welcome the opportunity to discuss how my background, skills, and enthusiasm align with the needs of [Company Name]. I am available at your convenience for an interview and look forward to the possibility of contributing to your team.
-
+      Thank you for considering my application. I would welcome the opportunity to discuss how my background in software, instruction, and structured operations can support your team.

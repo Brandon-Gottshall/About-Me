@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><<name.first>> <<name.last>> - Cover Letter</title>
+    <link rel="icon" href="data:,">
+    <style>
+<<css_content>>
+    </style>
+</head>
+<body>
+    <div class="cover-letter-container">
+        <header class="cover-letter-header">
+            <div class="header-content <<header_alignment>>">
+                <h1 class="name">
+                    <span class="name-first"><<name.first>></span>
+                    <span class="name-last"><<name.last>></span>
+                </h1>
+                <p class="position"><<position.resume>></p>
+                <@ if contact_line @>
+                <p class="contact-line"><<contact_line>></p>
+                <@ endif @>
+                <@ if not contact_line @>
+                <div class="contact-info">
+                    <span class="address"><<address>></span>
+                    <span class="contact-separator">|</span>
+                    <span class="mobile"><<contact.mobile>></span>
+                    <span class="contact-separator">|</span>
+                    <a href="mailto:<<contact.email>>" class="email"><<contact.email>></a>
+                    <@ if contact.homepage @>
+                    <span class="contact-separator">|</span>
+                    <a href="https://<<contact.homepage>>" class="homepage"><<contact.homepage>></a>
+                    <@ endif @>
+                    <@ if contact.github @>
+                    <span class="contact-separator">|</span>
+                    <a href="https://github.com/<<contact.github>>" class="github">GitHub</a>
+                    <@ endif @>
+                    <@ if contact.linkedin @>
+                    <span class="contact-separator">|</span>
+                    <a href="https://linkedin.com/in/<<contact.linkedin>>" class="linkedin">LinkedIn</a>
+                    <@ endif @>
+                </div>
+                <@ endif @>
+            </div>
+        </header>
+
+        <main class="cover-letter-content">
+            <div class="letter-date">
+                <p><<date>></p>
+            </div>
+
+            <div class="recipient-info">
+                <p><<recipient_name>></p>
+                <p><<company_name>></p>
+                <div class="company-address">
+                    <<company_address>>
+                </div>
+            </div>
+
+            <div class="letter-opening">
+                <p><<letter_opening>></p>
+            </div>
+
+            <div class="letter-body">
+                <<letter_body>>
+            </div>
+
+            <div class="letter-closing">
+                <p><<letter_closing>></p>
+                <p class="signature-name"><<name.first>> <<name.last>></p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

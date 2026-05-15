@@ -16,6 +16,8 @@
 ## Vim & Emacs temp files:
 .*sw[op]
 *~
+.playwright-cli/
+tmp/
 
 ### Mac OS X ###
 ## Mac OS X metadata files:
@@ -42,4 +44,3 @@ generated/
 *.synctex.gz
 
 ## Note: The output/ directory contains generated PDFs which may or may not be tracked
-

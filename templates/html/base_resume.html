@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><<name.first>> <<name.last>> - <<document_title>></title>
+    <link rel="icon" href="data:,">
+    <style>
+<<css_content>>
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="resume-header">
+            <div class="header-content <<header_alignment>>">
+                <h1 class="name">
+                    <span class="name-first"><<name.first>></span>
+                    <span class="name-last"><<name.last>></span>
+                </h1>
+                <p class="position"><<position.resume>></p>
+                <@ if contact_line @>
+                <p class="contact-line"><<contact_line>></p>
+                <@ endif @>
+                <@ if not contact_line @>
+                <div class="contact-info">
+                    <span class="address"><<address>></span>
+                    <span class="contact-separator">|</span>
+                    <span class="mobile"><<contact.mobile>></span>
+                    <span class="contact-separator">|</span>
+                    <a href="mailto:<<contact.email>>" class="email"><<contact.email>></a>
+                    <@ if contact.homepage @>
+                    <span class="contact-separator">|</span>
+                    <a href="https://<<contact.homepage>>" class="homepage"><<contact.homepage>></a>
+                    <@ endif @>
+                    <@ if contact.github @>
+                    <span class="contact-separator">|</span>
+                    <a href="https://github.com/<<contact.github>>" class="github">GitHub</a>
+                    <@ endif @>
+                    <@ if contact.linkedin @>
+                    <span class="contact-separator">|</span>
+                    <a href="https://linkedin.com/in/<<contact.linkedin>>" class="linkedin">LinkedIn</a>
+                    <@ endif @>
+                </div>
+                <@ endif @>
+                <@ if quote.resume @>
+                <p class="quote"><<quote.resume>></p>
+                <@ endif @>
+            </div>
+        </header>
+
+        <main class="resume-content">
+<<sections>>
+        </main>
+    </div>
+</body>
+</html>

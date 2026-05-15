@@ -6,11 +6,9 @@ variant_id: "default"
 
 # Letter-specific metadata
 recipient_name: "Hiring Manager"
-company_name: "Company Name"
-company_address: |
-  Company Address
-  City, State ZIP Code
-position_name: "[Position Name]"
+company_name: "Prospective Employer"
+company_address: ""
+position_name: "Software Engineer"
 letter_opening: "Dear Hiring Manager,"
 letter_closing: "Sincerely,"
 
@@ -27,4 +25,3 @@ paragraphs:
   - type: "closing"
     source: "variant"
     content_id: "standard_closing"
-

@@ -1,11 +1,10 @@
-.PHONY: all resume cv cover-letter leadership-resume clean generate
+.PHONY: all resume cv cover-letter leadership-resume clean generate html html-resume html-cv html-cover-letter html-leadership-resume test syntax validate-yaml verify
 
 # Python interpreter
 PYTHON = python3
 
 # Directories
 SCRIPTS_DIR = scripts
-DATA_DIR = data
 GENERATED_DIR = generated
 OUTPUT_DIR = output
 
@@ -59,9 +58,39 @@ $(COVER_LETTER_PDF): $(COVER_LETTER_TEX)
 $(LEADERSHIP_RESUME_PDF): $(LEADERSHIP_RESUME_TEX)
 	$(PYTHON) $(SCRIPTS_DIR)/build.py leadership-resume
 
+# Generate HTML files
+html: html-resume html-cv html-cover-letter html-leadership-resume
+
+html-resume:
+	$(PYTHON) $(SCRIPTS_DIR)/build.py --html resume
+
+html-cv:
+	$(PYTHON) $(SCRIPTS_DIR)/build.py --html cv
+
+html-cover-letter:
+	$(PYTHON) $(SCRIPTS_DIR)/build.py --html cover-letter
+
+html-leadership-resume:
+	$(PYTHON) $(SCRIPTS_DIR)/build.py --html leadership-resume
+
+# Run regression tests
+test:
+	$(PYTHON) -m unittest tests/test_document_generator.py tests/test_generator_structure.py
+
+# Check Python syntax without running the generator
+syntax:
+	$(PYTHON) -m py_compile $(SCRIPTS_DIR)/generate.py $(SCRIPTS_DIR)/build.py $(SCRIPTS_DIR)/validate_yaml.py $(SCRIPTS_DIR)/document_generator/*.py tests/test_document_generator.py tests/test_generator_structure.py
+
+# Validate all config and content YAML files
+validate-yaml:
+	$(PYTHON) $(SCRIPTS_DIR)/validate_yaml.py
+
+# Full local verification path
+verify: test syntax validate-yaml all html
+
 # Clean up generated files and build artifacts
 clean:
-	rm -rf $(GENERATED_DIR)/*.tex $(OUTPUT_DIR)/*.pdf $(OUTPUT_DIR)/*.aux $(OUTPUT_DIR)/*.log $(OUTPUT_DIR)/*.out
+	rm -rf $(GENERATED_DIR)/*.tex $(OUTPUT_DIR)/*.pdf $(OUTPUT_DIR)/*.html $(OUTPUT_DIR)/*.json $(OUTPUT_DIR)/*.aux $(OUTPUT_DIR)/*.log $(OUTPUT_DIR)/*.out
 	find $(GENERATED_DIR) -name "*.aux" -delete 2>/dev/null || true
 	find $(GENERATED_DIR) -name "*.log" -delete 2>/dev/null || true
 	find $(GENERATED_DIR) -name "*.out" -delete 2>/dev/null || true

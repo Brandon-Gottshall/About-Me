@@ -1,0 +1,33 @@
+<section class="cv-section publications-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Publications</span>
+    </h2>
+    <div class="section-content">
+        <div class="publications">
+            <@ if journal_articles and journal_articles|length > 0 @>
+            <h3 class="publication-category">Journal Articles</h3>
+            <ul class="publication-list">
+                <@ for article in journal_articles @>
+                <li class="publication-item"><<article|e>></li>
+                <@ endfor @>
+            </ul>
+            <@ endif @>
+            <@ if conference_proceedings and conference_proceedings|length > 0 @>
+            <h3 class="publication-category">Conference Proceedings</h3>
+            <ul class="publication-list">
+                <@ for proceeding in conference_proceedings @>
+                <li class="publication-item"><<proceeding|e>></li>
+                <@ endfor @>
+            </ul>
+            <@ endif @>
+            <@ if preprints and preprints|length > 0 @>
+            <h3 class="publication-category">Preprints</h3>
+            <ul class="publication-list">
+                <@ for preprint in preprints @>
+                <li class="publication-item"><<preprint|e>></li>
+                <@ endfor @>
+            </ul>
+            <@ endif @>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandon Gottshall - Leadership Resume</title>
+    <link rel="icon" href="data:,">
+    <style>
+/* Shared HTML document theme aligned with the portfolio design system. */
+:root {
+    --portfolio-navy: #1A237E;
+    --portfolio-navy-darkest: #0B0E29;
+    --portfolio-cream: #E3DEC8;
+    --portfolio-cream-light: #F6F3E8;
+    --portfolio-tan: #D7CBA9;
+    --portfolio-red: #EF4444;
+    --portfolio-gray-dark: #2A2A2A;
+    --portfolio-gray: #4F4F4F;
+    --portfolio-border: rgba(26, 35, 126, 0.16);
+    --document-accent: var(--portfolio-red);
+    --document-background: var(--portfolio-cream);
+    --document-surface: #FFFDF6;
+    --document-text: var(--portfolio-navy-darkest);
+    --document-muted: var(--portfolio-gray);
+    --document-spacing: 1.5em;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: var(--document-background);
+}
+
+body {
+    background: var(--document-background);
+    color: var(--document-text);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11pt;
+    line-height: 1.58;
+}
+
+a {
+    color: var(--portfolio-navy);
+    text-decoration-color: rgba(239, 68, 68, 0.45);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--document-accent);
+    text-decoration-color: currentColor;
+}
+
+.resume-container,
+.cv-container,
+.cover-letter-container {
+    background: var(--document-surface);
+    border: 1px solid var(--portfolio-border);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(11, 14, 41, 0.13);
+    margin: 24px auto;
+    max-width: 210mm;
+    min-height: 297mm;
+    padding: 15mm 18mm 22mm;
+}
+
+.cv-container {
+    padding-left: 20mm;
+    padding-right: 20mm;
+}
+
+.resume-header,
+.cv-header,
+.cover-letter-header {
+    border-bottom: 2px solid var(--document-accent);
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.header-content.L {
+    text-align: left;
+}
+
+.header-content.R {
+    text-align: right;
+}
+
+.header-content.C {
+    text-align: center;
+}
+
+.name {
+    color: var(--portfolio-navy-darkest);
+    font-size: 2.2em;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 0.2em;
+}
+
+.name-first,
+.section-title-first {
+    color: var(--document-accent);
+}
+
+.name-last {
+    color: var(--portfolio-navy);
+}
+
+.position {
+    color: var(--document-muted);
+    font-size: 1.05em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+.contact-info,
+.contact-line,
+.quote,
+.letter-date,
+.references-note {
+    color: var(--document-muted);
+    font-size: 0.92em;
+}
+
+.contact-info,
+.contact-line {
+    margin-bottom: 0.5em;
+}
+
+.contact-separator {
+    color: rgba(11, 14, 41, 0.45);
+    margin: 0 0.45em;
+}
+
+.quote {
+    font-style: italic;
+    margin-top: 0.5em;
+}
+
+.resume-content,
+.cv-content {
+    margin-top: 1em;
+}
+
+.cover-letter-content {
+    margin-top: 2em;
+}
+
+.cv-section {
+    margin-bottom: var(--document-spacing);
+}
+
+.section-title {
+    color: var(--portfolio-navy);
+    font-size: 1.18em;
+    font-weight: 800;
+    letter-spacing: 0;
+    margin-bottom: 0.75em;
+    text-transform: uppercase;
+}
+
+.section-content {
+    margin-left: 0;
+}
+
+.cventry {
+    margin-bottom: 1.15em;
+    page-break-inside: avoid;
+}
+
+.cventry-header,
+.cventry-meta {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cventry-header {
+    margin-bottom: 0.25em;
+}
+
+.cventry-meta {
+    color: var(--document-muted);
+    font-size: 0.9em;
+    margin-bottom: 0.25em;
+}
+
+.cventry-title {
+    color: var(--portfolio-navy-darkest);
+    flex: 1;
+    font-size: 1em;
+    font-weight: 700;
+    min-width: 200px;
+}
+
+.cventry-org {
+    color: var(--portfolio-navy);
+    font-weight: 600;
+    margin-left: 0.5em;
+}
+
+.cventry-location {
+    margin-left: 0.5em;
+}
+
+.cventry-date {
+    color: var(--portfolio-navy);
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.cvitems {
+    margin-left: 1.35em;
+    margin-top: 0.5em;
+}
+
+.cvitems li {
+    margin-bottom: 0.32em;
+    text-align: left;
+}
+
+.summary-text,
+.publication-item,
+.letter-body {
+    text-align: left;
+}
+
+.summary-text {
+    line-height: 1.72;
+}
+
+.cvskill {
+    align-items: flex-start;
+    display: flex;
+    gap: 0.75em;
+    margin-bottom: 0.75em;
+}
+
+.cvskill-category {
+    color: var(--portfolio-navy-darkest);
+    flex: 0 0 120px;
+    font-weight: 700;
+}
+
+.cvskill-items,
+.strength-items {
+    color: var(--document-muted);
+    flex: 1;
+}
+
+.cvskill-items::before {
+    color: var(--document-accent);
+    content: "- ";
+    margin-right: 0.45em;
+}
+
+.publications {
+    margin-top: 0.5em;
+}
+
+.publication-category,
+.subsection-title {
+    color: var(--portfolio-navy-darkest);
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+}
+
+.publication-list {
+    list-style: none;
+    margin-left: 1em;
+}
+
+.publication-item {
+    margin-bottom: 0.55em;
+}
+
+.leadership-strengths {
+    margin-bottom: 1em;
+}
+
+.strength-item {
+    margin-bottom: 0.75em;
+}
+
+.strength-category {
+    color: var(--portfolio-navy-darkest);
+    font-weight: 700;
+}
+
+.letter-date {
+    margin-bottom: 2em;
+    text-align: right;
+}
+
+.recipient-info {
+    line-height: 1.6;
+    margin-bottom: 2em;
+}
+
+.recipient-info p {
+    margin-bottom: 0.3em;
+}
+
+.company-address {
+    margin-top: 0.5em;
+    white-space: pre-line;
+}
+
+.letter-opening {
+    margin-bottom: 1em;
+}
+
+.letter-body {
+    line-height: 1.78;
+    margin-bottom: 2em;
+}
+
+.letter-body p {
+    margin-bottom: 1em;
+}
+
+.letter-closing {
+    margin-top: 2em;
+}
+
+.signature-name {
+    margin-top: 3em;
+}
+
+@media print {
+    html,
+    body {
+        background: white;
+    }
+
+    .resume-container,
+    .cv-container,
+    .cover-letter-container {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .cv-section,
+    .cventry {
+        page-break-inside: avoid;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 10.5pt;
+    }
+
+    .resume-container,
+    .cv-container,
+    .cover-letter-container {
+        border-left: 0;
+        border-radius: 0;
+        border-right: 0;
+        margin: 0;
+        max-width: 100%;
+        min-height: auto;
+        padding: 1.25rem;
+    }
+
+    .name {
+        font-size: 1.85em;
+    }
+
+    .contact-separator {
+        display: inline-block;
+        margin: 0 0.25em;
+    }
+
+    .cventry-header,
+    .cventry-meta,
+    .cvskill {
+        flex-direction: column;
+        gap: 0.15em;
+    }
+
+    .cventry-date,
+    .cventry-location,
+    .cventry-org {
+        margin-left: 0;
+    }
+
+    .cvskill-category {
+        flex-basis: auto;
+    }
+}
+
+/* Resume-specific spacing. Shared visual language lives in document.css. */
+:root {
+    --document-spacing: 1.45em;
+}
+
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="resume-header">
+            <div class="header-content C">
+                <h1 class="name">
+                    <span class="name-first">Brandon</span>
+                    <span class="name-last">Gottshall</span>
+                </h1>
+                <p class="position">Blazin&#x27; Brigade Section Leader Candidate • Low Brass • Marine Corps Veteran</p>
+
+                <p class="contact-line">Adel, GA &bull; (229) 507-3499 &bull; bgottshall@valdosta.edu &bull; brandongottshall.com &bull; linkedin.com/in/Brandon-Gottshall</p>
+
+
+
+            </div>
+        </header>
+
+        <main class="resume-content">
+<section class="cv-section summary-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Leadership</span> Profile
+    </h2>
+    <div class="section-content">
+        <p class="summary-text">Marine Corps veteran, accredited technology instructor, and former low brass section leader with experience leading teams in high-pressure environments, training and mentoring learners from beginner to advanced, and building cohesive ensembles. Known for leading from the front, setting clear expectations, and using structured systems (SOPs, mentorship frameworks, and daily practice plans) to help people grow with confidence and accountability.</p>
+    </div>
+</section>
+<section class="cv-section leadership-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Leadership</span>
+    </h2>
+    <div class="section-content">
+        <div class="cventries">
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Section Leader — Low Brass</span>
+        <span class="cventry-org">High School Band Program</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location"></span>
+        <span class="cventry-date">Junior Year - Senior Year</span>
+      </div>
+<ul class="cvitems">
+      <li>Led the low brass section through rehearsals, performances, and marching operations.</li>
+      <li>Ran sectionals, coordinated drill corrections, and enforced musical and marching standards.</li>
+      <li>Tracked attendance and readiness for every rehearsal, game, and competition.</li>
+      <li>Coached newer players on fundamentals, tone, and confidence in game-day environments.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Corporal — Quality Control NCO</span>
+        <span class="cventry-org">United States Marine Corps</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">MCAS Cherry Point, NC</span>
+        <span class="cventry-date">Feb 2019 - Aug 2019</span>
+      </div>
+<ul class="cvitems">
+      <li>Maintained readiness and compliance for $7M+ in utilities engineering assets, coaching junior Marines through inspections and safety checks.</li>
+      <li>Authored and enforced QC SOPs that cut rework and kept repairs audit-ready.</li>
+      <li>Briefed command teams on performance metrics, representing the shop in readiness reviews.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Corporal — Assistant Maintenance Chief</span>
+        <span class="cventry-org">United States Marine Corps</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">MCAS Cherry Point, NC</span>
+        <span class="cventry-date">Apr 2018 - Feb 2019</span>
+      </div>
+<ul class="cvitems">
+      <li>Scheduled and prioritized life-support equipment repairs to keep expeditionary sites mission-ready.</li>
+      <li>Coordinated parts requisitions and vendor contracts for $7M+ worth of gear.</li>
+      <li>Led daily stand-ups and on-the-job coaching for technicians to close priority work orders.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Deployment Leadership — Operation Inherent Resolve</span>
+        <span class="cventry-org">United States Marine Corps</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Deployed</span>
+        <span class="cventry-date">2017</span>
+      </div>
+<ul class="cvitems">
+      <li>Deployed to run redundant power for forward sustainment sites supporting Operation Inherent Resolve.</li>
+      <li>Kept shelter, climate-control, and mission systems online under austere, high-risk conditions.</li>
+      <li>Trained Marines on preventative maintenance and emergency recovery drills to preserve readiness.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Accredited Technology Instructor</span>
+        <span class="cventry-org">Nebula Academy</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Remote</span>
+        <span class="cventry-date">Oct 2023 - Mar 2025</span>
+      </div>
+<ul class="cvitems">
+      <li>Designed and delivered Power Platform, Python, and web curricula anchored in adult-learning frameworks.</li>
+      <li>Mentored cohorts of professionals and K–12 learners through project critiques and code reviews.</li>
+      <li>Built LMS- and sandbox-based practice environments with structured assessments.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Technical Director (Software Engineering)</span>
+        <span class="cventry-org">Moons Out Media</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Remote</span>
+        <span class="cventry-date">Mar 2025 - Present</span>
+      </div>
+<ul class="cvitems">
+      <li>Set the engineering roadmap and SOPs for a media-tech studio, aligning stack choices with creative goals.</li>
+      <li>Architected TypeScript/Next.js platforms and automation tooling that supported production teams.</li>
+      <li>Mentored junior engineers while enforcing code review, CI/CD, and monitoring practices.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Technical Lead &amp; Co-Founder</span>
+        <span class="cventry-org">Effortless Development</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Brooklyn, NY</span>
+        <span class="cventry-date">Jan 2020 - Jul 2022</span>
+      </div>
+<ul class="cvitems">
+      <li>Co-founded a distributed agency, owning technical scoping, staffing, and delivery for client builds.</li>
+      <li>Led pods of developers and designers through stand-ups, retros, and QA rituals.</li>
+      <li>Handled client communication end-to-end, translating needs into repeatable delivery processes.</li>
+    </ul>
+    </div>
+        </div>
+    </div>
+</section>
+<section class="cv-section education-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Education</span>
+    </h2>
+    <div class="section-content">
+        <div class="cventries">
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Software Engineering Immersive</span>
+        <span class="cventry-org">General Assembly</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">New York, NY</span>
+        <span class="cventry-date">2019 - 2020</span>
+      </div>
+
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Computer Science (12 Credits)</span>
+        <span class="cventry-org">Brooklyn College, CUNY</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Brooklyn, NY</span>
+        <span class="cventry-date">Fall 2021</span>
+      </div>
+
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">General Studies</span>
+        <span class="cventry-org">American InterContinental University</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Chandler, AZ</span>
+        <span class="cventry-date">2016 - 2017</span>
+      </div>
+
+    </div>
+        </div>
+    </div>
+</section>
+<section class="cv-section skills-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Skills</span> & Strengths
+    </h2>
+    <div class="section-content">
+        <div class="leadership-strengths">
+
+            <div class="strength-item">
+                <strong class="strength-category">Leadership &amp; Ensemble:</strong>
+                <span class="strength-items">leading from the front, low brass section leadership, running sectionals, enforcing standards, building cohesion and accountability</span>
+            </div>
+
+            <div class="strength-item">
+                <strong class="strength-category">Instruction &amp; Mentoring:</strong>
+                <span class="strength-items">one-on-one coaching, breaking down complex skills, designing practice plans, project-based learning, constructive feedback</span>
+            </div>
+
+            <div class="strength-item">
+                <strong class="strength-category">Operational &amp; Systems:</strong>
+                <span class="strength-items">SOP design, readiness management, quality control mindset, safety and risk awareness, comfortable creating simple tools/resources to support teams</span>
+            </div>
+
+        </div>
+
+        <div class="certifications-subsection">
+            <h3 class="subsection-title">Certifications</h3>
+            <div class="cvskills">
+    <div class="cvskill">
+      <span class="cvskill-category">Nebula Academy</span>
+      <span class="cvskill-items">Accredited Technology Instructor (2023--2025)</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">U.S. Department of Defense</span>
+      <span class="cvskill-items">Secret Security Clearance (2015--2019)</span>
+    </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+        </main>
+    </div>
+</body>
+</html>

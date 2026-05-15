@@ -1,0 +1,400 @@
+/* Shared HTML document theme aligned with the portfolio design system. */
+:root {
+    --portfolio-navy: #1A237E;
+    --portfolio-navy-darkest: #0B0E29;
+    --portfolio-cream: #E3DEC8;
+    --portfolio-cream-light: #F6F3E8;
+    --portfolio-tan: #D7CBA9;
+    --portfolio-red: #EF4444;
+    --portfolio-gray-dark: #2A2A2A;
+    --portfolio-gray: #4F4F4F;
+    --portfolio-border: rgba(26, 35, 126, 0.16);
+    --document-accent: var(--portfolio-red);
+    --document-background: var(--portfolio-cream);
+    --document-surface: #FFFDF6;
+    --document-text: var(--portfolio-navy-darkest);
+    --document-muted: var(--portfolio-gray);
+    --document-spacing: 1.5em;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: var(--document-background);
+}
+
+body {
+    background: var(--document-background);
+    color: var(--document-text);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11pt;
+    line-height: 1.58;
+}
+
+a {
+    color: var(--portfolio-navy);
+    text-decoration-color: rgba(239, 68, 68, 0.45);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--document-accent);
+    text-decoration-color: currentColor;
+}
+
+.resume-container,
+.cv-container,
+.cover-letter-container {
+    background: var(--document-surface);
+    border: 1px solid var(--portfolio-border);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(11, 14, 41, 0.13);
+    margin: 24px auto;
+    max-width: 210mm;
+    min-height: 297mm;
+    padding: 15mm 18mm 22mm;
+}
+
+.cv-container {
+    padding-left: 20mm;
+    padding-right: 20mm;
+}
+
+.resume-header,
+.cv-header,
+.cover-letter-header {
+    border-bottom: 2px solid var(--document-accent);
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.header-content.L {
+    text-align: left;
+}
+
+.header-content.R {
+    text-align: right;
+}
+
+.header-content.C {
+    text-align: center;
+}
+
+.name {
+    color: var(--portfolio-navy-darkest);
+    font-size: 2.2em;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 0.2em;
+}
+
+.name-first,
+.section-title-first {
+    color: var(--document-accent);
+}
+
+.name-last {
+    color: var(--portfolio-navy);
+}
+
+.position {
+    color: var(--document-muted);
+    font-size: 1.05em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+.contact-info,
+.contact-line,
+.quote,
+.letter-date,
+.references-note {
+    color: var(--document-muted);
+    font-size: 0.92em;
+}
+
+.contact-info,
+.contact-line {
+    margin-bottom: 0.5em;
+}
+
+.contact-separator {
+    color: rgba(11, 14, 41, 0.45);
+    margin: 0 0.45em;
+}
+
+.quote {
+    font-style: italic;
+    margin-top: 0.5em;
+}
+
+.resume-content,
+.cv-content {
+    margin-top: 1em;
+}
+
+.cover-letter-content {
+    margin-top: 2em;
+}
+
+.cv-section {
+    margin-bottom: var(--document-spacing);
+}
+
+.section-title {
+    color: var(--portfolio-navy);
+    font-size: 1.18em;
+    font-weight: 800;
+    letter-spacing: 0;
+    margin-bottom: 0.75em;
+    text-transform: uppercase;
+}
+
+.section-content {
+    margin-left: 0;
+}
+
+.cventry {
+    margin-bottom: 1.15em;
+    page-break-inside: avoid;
+}
+
+.cventry-header,
+.cventry-meta {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cventry-header {
+    margin-bottom: 0.25em;
+}
+
+.cventry-meta {
+    color: var(--document-muted);
+    font-size: 0.9em;
+    margin-bottom: 0.25em;
+}
+
+.cventry-title {
+    color: var(--portfolio-navy-darkest);
+    flex: 1;
+    font-size: 1em;
+    font-weight: 700;
+    min-width: 200px;
+}
+
+.cventry-org {
+    color: var(--portfolio-navy);
+    font-weight: 600;
+    margin-left: 0.5em;
+}
+
+.cventry-location {
+    margin-left: 0.5em;
+}
+
+.cventry-date {
+    color: var(--portfolio-navy);
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.cvitems {
+    margin-left: 1.35em;
+    margin-top: 0.5em;
+}
+
+.cvitems li {
+    margin-bottom: 0.32em;
+    text-align: left;
+}
+
+.summary-text,
+.publication-item,
+.letter-body {
+    text-align: left;
+}
+
+.summary-text {
+    line-height: 1.72;
+}
+
+.cvskill {
+    align-items: flex-start;
+    display: flex;
+    gap: 0.75em;
+    margin-bottom: 0.75em;
+}
+
+.cvskill-category {
+    color: var(--portfolio-navy-darkest);
+    flex: 0 0 120px;
+    font-weight: 700;
+}
+
+.cvskill-items,
+.strength-items {
+    color: var(--document-muted);
+    flex: 1;
+}
+
+.cvskill-items::before {
+    color: var(--document-accent);
+    content: "- ";
+    margin-right: 0.45em;
+}
+
+.publications {
+    margin-top: 0.5em;
+}
+
+.publication-category,
+.subsection-title {
+    color: var(--portfolio-navy-darkest);
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+}
+
+.publication-list {
+    list-style: none;
+    margin-left: 1em;
+}
+
+.publication-item {
+    margin-bottom: 0.55em;
+}
+
+.leadership-strengths {
+    margin-bottom: 1em;
+}
+
+.strength-item {
+    margin-bottom: 0.75em;
+}
+
+.strength-category {
+    color: var(--portfolio-navy-darkest);
+    font-weight: 700;
+}
+
+.letter-date {
+    margin-bottom: 2em;
+    text-align: right;
+}
+
+.recipient-info {
+    line-height: 1.6;
+    margin-bottom: 2em;
+}
+
+.recipient-info p {
+    margin-bottom: 0.3em;
+}
+
+.company-address {
+    margin-top: 0.5em;
+    white-space: pre-line;
+}
+
+.letter-opening {
+    margin-bottom: 1em;
+}
+
+.letter-body {
+    line-height: 1.78;
+    margin-bottom: 2em;
+}
+
+.letter-body p {
+    margin-bottom: 1em;
+}
+
+.letter-closing {
+    margin-top: 2em;
+}
+
+.signature-name {
+    margin-top: 3em;
+}
+
+@media print {
+    html,
+    body {
+        background: white;
+    }
+
+    .resume-container,
+    .cv-container,
+    .cover-letter-container {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .cv-section,
+    .cventry {
+        page-break-inside: avoid;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 10.5pt;
+    }
+
+    .resume-container,
+    .cv-container,
+    .cover-letter-container {
+        border-left: 0;
+        border-radius: 0;
+        border-right: 0;
+        margin: 0;
+        max-width: 100%;
+        min-height: auto;
+        padding: 1.25rem;
+    }
+
+    .name {
+        font-size: 1.85em;
+    }
+
+    .contact-separator {
+        display: inline-block;
+        margin: 0 0.25em;
+    }
+
+    .cventry-header,
+    .cventry-meta,
+    .cvskill {
+        flex-direction: column;
+        gap: 0.15em;
+    }
+
+    .cventry-date,
+    .cventry-location,
+    .cventry-org {
+        margin-left: 0;
+    }
+
+    .cvskill-category {
+        flex-basis: auto;
+    }
+}

@@ -63,9 +63,9 @@ cover_letter:
     header_alignment: "C"  # Center-aligned like leadership resume
   defaults:
     recipient_name: "Hiring Manager"
-    company_name: "Company Name"
-    company_address: "Company Address\nCity, State ZIP Code"
-    position_name: "[Position Name]"
+    company_name: "Prospective Employer"
+    company_address: ""
+    position_name: "Software Engineer"
     letter_opening: "Dear Hiring Manager,"
     letter_closing: "Sincerely,"
 
@@ -87,4 +87,3 @@ leadership_resume:
     color: "awesome-skyblue"
     section_color_highlight: true
     header_alignment: "C"
-

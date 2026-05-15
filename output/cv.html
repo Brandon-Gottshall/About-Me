@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandon Gottshall - CV</title>
+    <link rel="icon" href="data:,">
+    <style>
+/* Shared HTML document theme aligned with the portfolio design system. */
+:root {
+    --portfolio-navy: #1A237E;
+    --portfolio-navy-darkest: #0B0E29;
+    --portfolio-cream: #E3DEC8;
+    --portfolio-cream-light: #F6F3E8;
+    --portfolio-tan: #D7CBA9;
+    --portfolio-red: #EF4444;
+    --portfolio-gray-dark: #2A2A2A;
+    --portfolio-gray: #4F4F4F;
+    --portfolio-border: rgba(26, 35, 126, 0.16);
+    --document-accent: var(--portfolio-red);
+    --document-background: var(--portfolio-cream);
+    --document-surface: #FFFDF6;
+    --document-text: var(--portfolio-navy-darkest);
+    --document-muted: var(--portfolio-gray);
+    --document-spacing: 1.5em;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: var(--document-background);
+}
+
+body {
+    background: var(--document-background);
+    color: var(--document-text);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11pt;
+    line-height: 1.58;
+}
+
+a {
+    color: var(--portfolio-navy);
+    text-decoration-color: rgba(239, 68, 68, 0.45);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--document-accent);
+    text-decoration-color: currentColor;
+}
+
+.resume-container,
+.cv-container,
+.cover-letter-container {
+    background: var(--document-surface);
+    border: 1px solid var(--portfolio-border);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(11, 14, 41, 0.13);
+    margin: 24px auto;
+    max-width: 210mm;
+    min-height: 297mm;
+    padding: 15mm 18mm 22mm;
+}
+
+.cv-container {
+    padding-left: 20mm;
+    padding-right: 20mm;
+}
+
+.resume-header,
+.cv-header,
+.cover-letter-header {
+    border-bottom: 2px solid var(--document-accent);
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.header-content.L {
+    text-align: left;
+}
+
+.header-content.R {
+    text-align: right;
+}
+
+.header-content.C {
+    text-align: center;
+}
+
+.name {
+    color: var(--portfolio-navy-darkest);
+    font-size: 2.2em;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 0.2em;
+}
+
+.name-first,
+.section-title-first {
+    color: var(--document-accent);
+}
+
+.name-last {
+    color: var(--portfolio-navy);
+}
+
+.position {
+    color: var(--document-muted);
+    font-size: 1.05em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+.contact-info,
+.contact-line,
+.quote,
+.letter-date,
+.references-note {
+    color: var(--document-muted);
+    font-size: 0.92em;
+}
+
+.contact-info,
+.contact-line {
+    margin-bottom: 0.5em;
+}
+
+.contact-separator {
+    color: rgba(11, 14, 41, 0.45);
+    margin: 0 0.45em;
+}
+
+.quote {
+    font-style: italic;
+    margin-top: 0.5em;
+}
+
+.resume-content,
+.cv-content {
+    margin-top: 1em;
+}
+
+.cover-letter-content {
+    margin-top: 2em;
+}
+
+.cv-section {
+    margin-bottom: var(--document-spacing);
+}
+
+.section-title {
+    color: var(--portfolio-navy);
+    font-size: 1.18em;
+    font-weight: 800;
+    letter-spacing: 0;
+    margin-bottom: 0.75em;
+    text-transform: uppercase;
+}
+
+.section-content {
+    margin-left: 0;
+}
+
+.cventry {
+    margin-bottom: 1.15em;
+    page-break-inside: avoid;
+}
+
+.cventry-header,
+.cventry-meta {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cventry-header {
+    margin-bottom: 0.25em;
+}
+
+.cventry-meta {
+    color: var(--document-muted);
+    font-size: 0.9em;
+    margin-bottom: 0.25em;
+}
+
+.cventry-title {
+    color: var(--portfolio-navy-darkest);
+    flex: 1;
+    font-size: 1em;
+    font-weight: 700;
+    min-width: 200px;
+}
+
+.cventry-org {
+    color: var(--portfolio-navy);
+    font-weight: 600;
+    margin-left: 0.5em;
+}
+
+.cventry-location {
+    margin-left: 0.5em;
+}
+
+.cventry-date {
+    color: var(--portfolio-navy);
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.cvitems {
+    margin-left: 1.35em;
+    margin-top: 0.5em;
+}
+
+.cvitems li {
+    margin-bottom: 0.32em;
+    text-align: left;
+}
+
+.summary-text,
+.publication-item,
+.letter-body {
+    text-align: left;
+}
+
+.summary-text {
+    line-height: 1.72;
+}
+
+.cvskill {
+    align-items: flex-start;
+    display: flex;
+    gap: 0.75em;
+    margin-bottom: 0.75em;
+}
+
+.cvskill-category {
+    color: var(--portfolio-navy-darkest);
+    flex: 0 0 120px;
+    font-weight: 700;
+}
+
+.cvskill-items,
+.strength-items {
+    color: var(--document-muted);
+    flex: 1;
+}
+
+.cvskill-items::before {
+    color: var(--document-accent);
+    content: "- ";
+    margin-right: 0.45em;
+}
+
+.publications {
+    margin-top: 0.5em;
+}
+
+.publication-category,
+.subsection-title {
+    color: var(--portfolio-navy-darkest);
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+}
+
+.publication-list {
+    list-style: none;
+    margin-left: 1em;
+}
+
+.publication-item {
+    margin-bottom: 0.55em;
+}
+
+.leadership-strengths {
+    margin-bottom: 1em;
+}
+
+.strength-item {
+    margin-bottom: 0.75em;
+}
+
+.strength-category {
+    color: var(--portfolio-navy-darkest);
+    font-weight: 700;
+}
+
+.letter-date {
+    margin-bottom: 2em;
+    text-align: right;
+}
+
+.recipient-info {
+    line-height: 1.6;
+    margin-bottom: 2em;
+}
+
+.recipient-info p {
+    margin-bottom: 0.3em;
+}
+
+.company-address {
+    margin-top: 0.5em;
+    white-space: pre-line;
+}
+
+.letter-opening {
+    margin-bottom: 1em;
+}
+
+.letter-body {
+    line-height: 1.78;
+    margin-bottom: 2em;
+}
+
+.letter-body p {
+    margin-bottom: 1em;
+}
+
+.letter-closing {
+    margin-top: 2em;
+}
+
+.signature-name {
+    margin-top: 3em;
+}
+
+@media print {
+    html,
+    body {
+        background: white;
+    }
+
+    .resume-container,
+    .cv-container,
+    .cover-letter-container {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .cv-section,
+    .cventry {
+        page-break-inside: avoid;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 10.5pt;
+    }
+
+    .resume-container,
+    .cv-container,
+    .cover-letter-container {
+        border-left: 0;
+        border-radius: 0;
+        border-right: 0;
+        margin: 0;
+        max-width: 100%;
+        min-height: auto;
+        padding: 1.25rem;
+    }
+
+    .name {
+        font-size: 1.85em;
+    }
+
+    .contact-separator {
+        display: inline-block;
+        margin: 0 0.25em;
+    }
+
+    .cventry-header,
+    .cventry-meta,
+    .cvskill {
+        flex-direction: column;
+        gap: 0.15em;
+    }
+
+    .cventry-date,
+    .cventry-location,
+    .cventry-org {
+        margin-left: 0;
+    }
+
+    .cvskill-category {
+        flex-basis: auto;
+    }
+}
+
+/* CV-specific spacing. Shared visual language lives in document.css. */
+:root {
+    --document-spacing: 1.75em;
+}
+
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="cv-header">
+            <div class="header-content ">
+                <h1 class="name">
+                    <span class="name-first">Brandon</span>
+                    <span class="name-last">Gottshall</span>
+                </h1>
+                <p class="position">Software Engineer and Data Science Student</p>
+                <div class="contact-info">
+                    <span class="address">Adel, GA 31620, United States</span>
+                    <span class="contact-separator">|</span>
+                    <span class="mobile">+1 229-507-3499</span>
+                    <span class="contact-separator">|</span>
+                    <a href="mailto:blgottshall@gmail.com" class="email">blgottshall@gmail.com</a>
+
+                    <span class="contact-separator">|</span>
+                    <a href="https://brandongottshall.com" class="homepage">brandongottshall.com</a>
+
+
+                    <span class="contact-separator">|</span>
+                    <a href="https://github.com/Brandon-Gottshall" class="github">GitHub</a>
+
+
+                    <span class="contact-separator">|</span>
+                    <a href="https://linkedin.com/in/Brandon-Gottshall" class="linkedin">LinkedIn</a>
+
+                </div>
+
+                <p class="quote">Software engineer with 5+ years of front-end and full-stack development experience, plus current data science coursework. Focused on reusable interfaces, repeatable systems, automation, and clear technical communication.</p>
+
+            </div>
+        </header>
+
+        <main class="cv-content">
+<section class="cv-section summary-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Professional</span> Summary
+    </h2>
+    <div class="section-content">
+        <p class="summary-text">Front-end engineer with 5+ years of React and TypeScript experience, skilled at crafting reusable component-driven UIs for remote-first teams. I&#x27;ve translated Figma designs into responsive, accessible interfaces, implemented Stripe-based workflows, and tuned performance using Chrome DevTools and Next.js dynamic imports. As the first dedicated front-ender alongside full-stack engineers, I champion clean code hygiene (Git/PR reviews, linting), collaborate in two-week sprints, and bring a designer&#x27;s eye to deliver polished client-facing features that drive user productivity.</p>
+    </div>
+</section>
+<section class="cv-section experience-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Experience</span>
+    </h2>
+    <div class="section-content">
+        <div class="cventries">
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Software Alchemist • Technical Director (Architecture and Software Engineering)</span>
+        <span class="cventry-org">Moons Out Labs @ Moons Out</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Remote</span>
+        <span class="cventry-date">Mar 2025 - Present</span>
+      </div>
+<ul class="cvitems">
+      <li>Architected scalable web applications and internal tools using TypeScript, Next.js, Tailwind CSS, Python, and V0 on Vercel.</li>
+      <li>Developed AI-driven workflows and automations to streamline media production and client deliverables.</li>
+      <li>Designed and managed cloud-based and on-premise infrastructure for internal software and various sites. Utilized Docker, and cloud platforms (AWS/GCP/Vercel).</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Accredited Technology Instructor (Software Engineering)</span>
+        <span class="cventry-org">Nebula Academy</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Remote</span>
+        <span class="cventry-date">Oct 2023 - Mar 2025</span>
+      </div>
+<ul class="cvitems">
+      <li>Credential Scope: Authorized to design and deliver technology-focused training programs for software engineering learners</li>
+      <li>Instructional Expertise: Demonstrated proficiency in curriculum development, pedagogical best practices, and competency-based assessment</li>
+      <li>Quality Assurance: Maintained standards for course effectiveness through iterative feedback, learning analytics, and continuous improvement</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Technical Lead and Co-Founder</span>
+        <span class="cventry-org">Effortless Development</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Brooklyn, NY</span>
+        <span class="cventry-date">Jan 2020 - Jul 2022</span>
+      </div>
+<ul class="cvitems">
+      <li>Directed strategic technical and architectural decisions, guiding agency growth and service offerings.</li>
+      <li>Managed and mentored cross-functional teams of developers and designers.</li>
+      <li>Led scalable solution design across Next.js, React.js, Flutter, Tailwind CSS, and Dart.</li>
+      <li>Oversaw client engagements, sales consultations, and project delivery.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Software Engineering Fellow</span>
+        <span class="cventry-org">General Assembly</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">New York, NY</span>
+        <span class="cventry-date">Dec 2019 - Mar 2020</span>
+      </div>
+<ul class="cvitems">
+      <li>Completed a 12-week immersive training (400+ hours) in full-stack development: HTML, CSS, JavaScript, React, Ruby on Rails, Express, SQL.</li>
+      <li>Partnered with UX designers to implement accessibility enhancements on a Booking.com redesign project.</li>
+      <li>Engaged in agile, project-based development and collaborative team workflows.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Quality Control Non-Commissioned Officer</span>
+        <span class="cventry-org">United States Marine Corps</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">MCAS Cherry Point, NC</span>
+        <span class="cventry-date">Feb 2019 - Aug 2019</span>
+      </div>
+<ul class="cvitems">
+      <li>Conducted formal inspections and audits of aircraft electrical systems, enforcing Corps standards.</li>
+      <li>Developed and implemented SOPs that reduced rework rates and improved repair accuracy.</li>
+      <li>Coached junior Marines in quality control techniques; compiled performance reports for command.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Assistant Maintenance Chief</span>
+        <span class="cventry-org">United States Marine Corps</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">MCAS Cherry Point, NC</span>
+        <span class="cventry-date">Apr 2018 - Feb 2019</span>
+      </div>
+<ul class="cvitems">
+      <li>Scheduled and prioritized maintenance tasks for life-support systems, optimizing equipment availability.</li>
+      <li>Coordinated parts requisitions and repair contracts to minimize downtime of &gt;$7M in assets.</li>
+      <li>Supervised and trained technicians; managed spare parts inventory and maintenance budgets.</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Electrical Systems Technician</span>
+        <span class="cventry-org">United States Marine Corps</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">MCAS Cherry Point, NC</span>
+        <span class="cventry-date">Sep 2015 - Apr 2018</span>
+      </div>
+<ul class="cvitems">
+      <li>Performed preventive and corrective maintenance on generators, pumps, and power distribution systems.</li>
+      <li>Diagnosed electrical and mechanical malfunctions; logged work orders per technical manuals.</li>
+      <li>Assisted senior technicians and trained new Marines on maintenance procedures.</li>
+    </ul>
+    </div>
+        </div>
+    </div>
+</section>
+<section class="cv-section education-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Education</span>
+    </h2>
+    <div class="section-content">
+        <div class="cventries">
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Software Engineering Immersive</span>
+        <span class="cventry-org">General Assembly</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">New York, NY</span>
+        <span class="cventry-date">2019 - 2020</span>
+      </div>
+
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Computer Science (12 Credits)</span>
+        <span class="cventry-org">Brooklyn College, CUNY</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Brooklyn, NY</span>
+        <span class="cventry-date">Fall 2021</span>
+      </div>
+
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">General Studies</span>
+        <span class="cventry-org">American InterContinental University</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location">Chandler, AZ</span>
+        <span class="cventry-date">2016 - 2017</span>
+      </div>
+
+    </div>
+        </div>
+    </div>
+</section>
+<section class="cv-section skills-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Skills</span>
+    </h2>
+    <div class="section-content">
+        <div class="cvskills">
+    <div class="cvskill">
+      <span class="cvskill-category">Languages</span>
+      <span class="cvskill-items">TypeScript, JavaScript, Python, Ruby, Dart, SQL, HTML5, CSS</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Frameworks</span>
+      <span class="cvskill-items">React, Next.js, Node.js, Express.js, Ruby on Rails, Flutter</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Cloud &amp; DevOps</span>
+      <span class="cvskill-items">AWS, Google Cloud, Azure, Docker, Kubernetes, CI/CD, GitHub Actions</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Databases</span>
+      <span class="cvskill-items">PostgreSQL, MongoDB, Redis, Sequelize, Drizzle</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Tools</span>
+      <span class="cvskill-items">Git, Linux, VS Code, Postman, Thunder Client, Jira, Figma, Adobe Creative Suite</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Methodologies</span>
+      <span class="cvskill-items">Agile, Scrum, Test-Driven Development, DevOps, AI/ML Integration</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Leadership</span>
+      <span class="cvskill-items">Team Leadership, Mentoring, Project Management, Strategic Planning, Decision Making</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Communication</span>
+      <span class="cvskill-items">Technical Instruction, Documentation, Client Relations, Team Collaboration, Public Speaking</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Problem Solving</span>
+      <span class="cvskill-items">Critical Thinking, Troubleshooting, Root Cause Analysis, Process Improvement</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Military Skills</span>
+      <span class="cvskill-items">Quality Assurance, Maintenance Management, Technical Training, Safety Compliance, Risk Assessment</span>
+    </div>
+        </div>
+    </div>
+</section>
+<section class="cv-section certifications-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Certifications</span>
+    </h2>
+    <div class="section-content">
+        <div class="cventries">
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Accredited Technology Instructor</span>
+        <span class="cventry-org">Nebula Academy</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location"></span>
+        <span class="cventry-date">Oct 2023 - Mar 2025</span>
+      </div>
+<ul class="cvitems">
+      <li>Trained to design and deliver technology-focused instruction in corporate, K-12, and adult-education settings through the Academy&#x27;s &quot;Educators&quot; program</li>
+      <li>Applied adult-learning and cognitive-science principles to create engaging learning environments</li>
+      <li>Developed and sequenced curriculum for Microsoft Power Platform, Python, and Web Development</li>
+      <li>Leveraged educational technology platforms including LMS management and coding sandboxes</li>
+      <li>Assessed learner outcomes through project-based evaluations and formative feedback</li>
+    </ul>
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">Secret Security Clearance</span>
+        <span class="cventry-org">United States Department of Defense</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location"></span>
+        <span class="cventry-date">Sep 2015 - Sep 2019</span>
+      </div>
+
+    </div>
+    <div class="cventry">
+      <div class="cventry-header">
+        <span class="cventry-title">EPA 608 Universal Certification</span>
+        <span class="cventry-org">U.S. Environmental Protection Agency</span>
+      </div>
+      <div class="cventry-meta">
+        <span class="cventry-location"></span>
+        <span class="cventry-date">Jun 2018 - Present</span>
+      </div>
+
+    </div>
+        </div>
+    </div>
+</section>
+<section class="cv-section languages-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Languages</span>
+    </h2>
+    <div class="section-content">
+        <div class="cvskills">
+    <div class="cvskill">
+      <span class="cvskill-category">English</span>
+      <span class="cvskill-items">Native or bilingual proficiency</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">Spanish</span>
+      <span class="cvskill-items">Professional working proficiency</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">French</span>
+      <span class="cvskill-items">Elementary proficiency</span>
+    </div>
+    <div class="cvskill">
+      <span class="cvskill-category">German</span>
+      <span class="cvskill-items">Beginner</span>
+    </div>
+        </div>
+    </div>
+</section>
+<section class="cv-section references-section">
+    <h2 class="section-title">
+        <span class="section-title-first">References</span>
+    </h2>
+    <div class="section-content">
+        <p class="references-note">Available upon request</p>
+    </div>
+</section>
+        </main>
+    </div>
+</body>
+</html>

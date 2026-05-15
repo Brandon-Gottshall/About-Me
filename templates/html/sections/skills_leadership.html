@@ -1,0 +1,23 @@
+<section class="cv-section skills-section">
+    <h2 class="section-title">
+        <span class="section-title-first">Skills</span> & Strengths
+    </h2>
+    <div class="section-content">
+        <div class="leadership-strengths">
+            <@ for strength in strengths @>
+            <div class="strength-item">
+                <strong class="strength-category"><<strength.category>>:</strong>
+                <span class="strength-items"><<strength.items_text>></span>
+            </div>
+            <@ endfor @>
+        </div>
+        <@ if certification_entries @>
+        <div class="certifications-subsection">
+            <h3 class="subsection-title">Certifications</h3>
+            <div class="cvskills">
+<<certification_entries>>
+            </div>
+        </div>
+        <@ endif @>
+    </div>
+</section>
