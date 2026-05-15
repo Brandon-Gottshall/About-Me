@@ -6,6 +6,7 @@ import argparse
 from collections.abc import Callable
 
 from document_pipeline import builder, export, privacy, showcase, validate
+from document_pipeline.html_renderer import render_html_documents
 from document_pipeline.renderer import generate_documents
 
 
@@ -22,8 +23,16 @@ def build_parser() -> argparse.ArgumentParser:
     build_parser_ = subcommands.add_parser("build", help="Build PDFs with XeLaTeX.")
     build_parser_.add_argument("documents", nargs="*")
 
+    html_parser = subcommands.add_parser(
+        "html", help="Render the public HTML document set into output/."
+    )
+    html_parser.add_argument("documents", nargs="*")
+
     subcommands.add_parser("validate", help="Validate YAML content and config.")
-    subcommands.add_parser("export", help="Write exports/profile.json.")
+    subcommands.add_parser(
+        "export",
+        help="Write exports/profile.json and output/documents.json.",
+    )
     subcommands.add_parser("showcase", help="Render showcase preview images.")
     subcommands.add_parser("privacy-scan", help="Scan public surfaces for private data.")
     return parser
@@ -44,6 +53,9 @@ def main(argv: list[str] | None = None) -> None:
         return
     if args.command == "build":
         builder.main(args.documents)
+        return
+    if args.command == "html":
+        render_html_documents(requested=args.documents or None)
         return
 
     handlers[args.command]()

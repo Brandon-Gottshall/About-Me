@@ -1,4 +1,13 @@
-"""Static portfolio export for the document pipeline."""
+"""Static portfolio export for the document pipeline.
+
+Produces two artefacts:
+
+- ``exports/profile.json`` — rich portfolio data consumed by the broader
+  portfolio site (existing contract).
+- ``output/documents.json`` — slim, version-pinned manifest published to
+  GitHub Pages and consumed by the portfolio's ``/documents`` route.
+  Matches the Zod schema in ``portfolio/src/types/documents.ts``.
+"""
 
 from __future__ import annotations
 
@@ -13,6 +22,7 @@ import yaml
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 EXPORT_DIR = PROJECT_ROOT / "exports"
+OUTPUT_DIR = PROJECT_ROOT / "output"
 
 
 DOCUMENTS = [
@@ -43,6 +53,33 @@ DOCUMENTS = [
         "kind": "cover_letter",
         "path": "output/coverletter.pdf",
         "preview": "docs/showcase/coverletter-page-1.png",
+    },
+]
+
+
+# Only documents in this list ship inside the public Pages manifest. Cover
+# letters stay PDF-only because they're tailored per recipient, and the
+# leadership resume isn't part of the public hire-me surface.
+PUBLIC_DOCUMENTS_MANIFEST = [
+    {
+        "type": "resume",
+        "title": "Resume",
+        "summary": (
+            "Concise software engineering resume covering current systems work, "
+            "instruction, and prior leadership."
+        ),
+        "pdf": "resume.pdf",
+        "html": "resume.html",
+    },
+    {
+        "type": "cv",
+        "title": "Curriculum Vitae",
+        "summary": (
+            "Expanded curriculum vitae covering experience, education, skills, "
+            "languages, and references."
+        ),
+        "pdf": "cv.pdf",
+        "html": "cv.html",
     },
 ]
 
@@ -143,9 +180,39 @@ def write_export(project_root: Path = PROJECT_ROOT) -> Path:
     return export_path
 
 
+def build_documents_manifest(generated_at: datetime | None = None) -> dict[str, Any]:
+    """Build the Pages-facing manifest consumed by the portfolio.
+
+    Schema is version-pinned. See portfolio/src/types/documents.ts for the
+    Zod definition (``aboutMeManifestSchema``).
+    """
+
+    when = generated_at or datetime.now(timezone.utc)
+    return {
+        "version": 1,
+        "generatedAt": when.isoformat().replace("+00:00", "Z"),
+        "documents": [dict(document) for document in PUBLIC_DOCUMENTS_MANIFEST],
+    }
+
+
+def write_documents_manifest(
+    project_root: Path = PROJECT_ROOT, generated_at: datetime | None = None
+) -> Path:
+    output_dir = project_root / "output"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    manifest_path = output_dir / "documents.json"
+    payload = build_documents_manifest(generated_at=generated_at)
+    with manifest_path.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, indent=2)
+        handle.write("\n")
+    return manifest_path
+
+
 def main() -> None:
     export_path = write_export()
+    manifest_path = write_documents_manifest()
     print(f"Exported portfolio data: {export_path}")
+    print(f"Wrote public documents manifest: {manifest_path}")
 
 
 if __name__ == "__main__":

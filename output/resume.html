@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brandon Gottshall — Resume</title>
+  <meta name="description" content="Concise software engineering resume." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://brandon-gottshall.github.io/About-Me/resume.html" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Brandon Gottshall — Resume" />
+  <meta property="og:description" content="Concise software engineering resume." />
+  <meta property="og:url" content="https://brandon-gottshall.github.io/About-Me/resume.html" />
+  
+  <link rel="alternate" type="application/pdf" href="resume.pdf" />
+  
+  <style>
+:root {
+  --rg-bg: #fdfcfa;
+  --rg-fg: #1f2933;
+  --rg-fg-muted: #4f5b66;
+  --rg-fg-soft: #738292;
+  --rg-rule: #d6d2c4;
+  --rg-accent: #0b3c5d;
+  --rg-accent-soft: rgba(11, 60, 93, 0.08);
+  --rg-line-height: 1.55;
+  --rg-page-max: 56rem;
+  --rg-font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --rg-font-serif: "Source Serif Pro", Georgia, "Times New Roman", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --rg-bg: #131a23;
+    --rg-fg: #f5efe2;
+    --rg-fg-muted: #c4cdd6;
+    --rg-fg-soft: #97a2af;
+    --rg-rule: #2a3340;
+    --rg-accent: #8ec2e3;
+    --rg-accent-soft: rgba(142, 194, 227, 0.12);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--rg-bg);
+  color: var(--rg-fg);
+  font-family: var(--rg-font-serif);
+  line-height: var(--rg-line-height);
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  display: block;
+}
+
+.rg-document {
+  max-width: var(--rg-page-max);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.rg-document__header {
+  border-bottom: 1px solid var(--rg-rule);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.rg-document__name {
+  font-family: var(--rg-font-sans);
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.35rem;
+  color: var(--rg-fg);
+}
+
+.rg-document__position {
+  font-family: var(--rg-font-sans);
+  font-size: 1.05rem;
+  color: var(--rg-fg-muted);
+  margin: 0 0 0.9rem;
+  font-weight: 500;
+}
+
+.rg-document__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  font-family: var(--rg-font-sans);
+  font-size: 0.92rem;
+  color: var(--rg-fg-soft);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rg-document__contact li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rg-document__contact a {
+  color: var(--rg-accent);
+  text-decoration: none;
+}
+
+.rg-document__contact a:hover,
+.rg-document__contact a:focus-visible {
+  text-decoration: underline;
+}
+
+.rg-document__quote {
+  margin: 1.1rem 0 0;
+  padding: 0 0 0 1rem;
+  border-left: 2px solid var(--rg-accent);
+  font-style: italic;
+  color: var(--rg-fg-muted);
+}
+
+.rg-section {
+  margin-top: 2.25rem;
+}
+
+.rg-section h2 {
+  font-family: var(--rg-font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rg-accent);
+  margin: 0 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rg-rule);
+}
+
+.rg-entry {
+  margin: 0 0 1.4rem;
+}
+
+.rg-entry__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.45rem;
+}
+
+.rg-entry__headline {
+  font-family: var(--rg-font-sans);
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--rg-fg);
+}
+
+.rg-entry__organization {
+  margin: 0;
+  color: var(--rg-fg-muted);
+  font-family: var(--rg-font-sans);
+  font-size: 0.95rem;
+}
+
+.rg-entry__meta {
+  margin: 0.15rem 0 0;
+  font-family: var(--rg-font-sans);
+  font-size: 0.84rem;
+  color: var(--rg-fg-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.rg-entry__meta time {
+  font-variant-numeric: tabular-nums;
+}
+
+.rg-entry__items {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--rg-fg);
+}
+
+.rg-entry__items li {
+  margin: 0.25rem 0;
+}
+
+.rg-skill-group {
+  margin: 0 0 1.2rem;
+}
+
+.rg-skill-group__heading {
+  font-family: var(--rg-font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rg-fg-soft);
+  margin: 0 0 0.4rem;
+}
+
+.rg-skill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) 3fr;
+  column-gap: 1rem;
+  row-gap: 0.45rem;
+}
+
+.rg-skill {
+  display: contents;
+}
+
+.rg-skill__category {
+  font-family: var(--rg-font-sans);
+  font-weight: 600;
+  color: var(--rg-fg-muted);
+}
+
+.rg-skill__items {
+  color: var(--rg-fg);
+}
+
+.rg-language-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) 3fr;
+  column-gap: 1rem;
+  row-gap: 0.4rem;
+}
+
+.rg-language {
+  display: contents;
+}
+
+.rg-language__name {
+  font-family: var(--rg-font-sans);
+  font-weight: 600;
+  color: var(--rg-fg-muted);
+}
+
+.rg-leadership-group {
+  margin-bottom: 1.5rem;
+}
+
+.rg-leadership-group__heading {
+  font-family: var(--rg-font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rg-fg-soft);
+  margin: 0 0 0.6rem;
+}
+
+.rg-empty,
+.rg-references {
+  color: var(--rg-fg-soft);
+  font-style: italic;
+}
+
+.rg-document__footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rg-rule);
+  font-family: var(--rg-font-sans);
+  font-size: 0.82rem;
+  color: var(--rg-fg-soft);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.rg-document__footer a {
+  color: var(--rg-accent);
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .rg-document {
+    max-width: none;
+    padding: 1.2cm 1.2cm 1cm;
+  }
+}
+
+@media (max-width: 38rem) {
+  .rg-document {
+    padding: 2rem 1.1rem 3rem;
+  }
+  .rg-document__name {
+    font-size: 1.7rem;
+  }
+  .rg-skill-list,
+  .rg-language-list {
+    grid-template-columns: 1fr;
+    row-gap: 0.15rem;
+  }
+  .rg-skill__category,
+  .rg-language__name {
+    margin-top: 0.4rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <main class="rg-document rg-document--resume" lang="en">
+    <header class="rg-document__header">
+      <h1 class="rg-document__name">Brandon Gottshall</h1>
+      
+      <p class="rg-document__position">Software Engineer • Marine Corps Veteran</p>
+      
+      
+      <ul class="rg-document__contact">
+        
+        <li><a href="https://brandongottshall.com">brandongottshall.com</a></li>
+        
+        <li><a href="mailto:bgottshall@valdosta.edu">bgottshall@valdosta.edu</a></li>
+        
+        <li>+1 229-507-3499</li>
+        
+        <li><a href="https://github.com/Brandon-Gottshall">github.com/Brandon-Gottshall</a></li>
+        
+        <li><a href="https://www.linkedin.com/in/Brandon-Gottshall">linkedin.com/in/Brandon-Gottshall</a></li>
+        
+      </ul>
+      
+      
+      <blockquote class="rg-document__quote">I build reliable software, websites, and tech solutions to streamline operations and drive measurable business impact.</blockquote>
+      
+    </header>
+    <section class="rg-section rg-section--summary" aria-labelledby="section-summary-title">
+      <h2 id="section-summary-title">Summary</h2>
+      <p>Front-end engineer with 5+ years of React and TypeScript experience, skilled at crafting reusable component-driven UIs for remote-first teams. I&#x27;ve translated Figma designs into responsive, accessible interfaces, implemented Stripe-based workflows, and tuned performance using Chrome DevTools and Next.js dynamic imports. As the first dedicated front-ender alongside full-stack engineers, I champion clean code hygiene (Git/PR reviews, linting), collaborate in two-week sprints, and bring a designer&#x27;s eye to deliver polished client-facing features that drive user productivity.</p>
+    </section>
+    <section class="rg-section rg-section--experience" aria-labelledby="section-experience-title">
+      <h2 id="section-experience-title">Experience</h2>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Software Alchemist • Technical Director (Architecture and Software Engineering)</h3>
+        <p class="rg-entry__organization">Moons Out Labs @ Moons Out</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Remote</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Mar 2025 – Present</time></p>
+        </header>
+        <ul class="rg-entry__items">
+          <li>Architected scalable web applications and internal tools using TypeScript, Next.js, Tailwind CSS, Python, and V0 on Vercel.</li>
+          <li>Developed AI-driven workflows and automations to streamline media production and client deliverables.</li>
+          <li>Designed and managed cloud-based and on-premise infrastructure for internal software and various sites. Utilized Docker, and cloud platforms (AWS/GCP/Vercel).</li>
+        </ul>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Accredited Technology Instructor (Software Engineering)</h3>
+        <p class="rg-entry__organization">Nebula Academy</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Remote</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Oct 2023 – Mar 2025</time></p>
+        </header>
+        <ul class="rg-entry__items">
+          <li>Credential Scope: Authorized to design and deliver technology-focused training programs for software engineering learners</li>
+          <li>Instructional Expertise: Demonstrated proficiency in curriculum development, pedagogical best practices, and competency-based assessment</li>
+          <li>Quality Assurance: Maintained standards for course effectiveness through iterative feedback, learning analytics, and continuous improvement</li>
+        </ul>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Technical Lead and Co-Founder</h3>
+        <p class="rg-entry__organization">Effortless Development</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Brooklyn, NY</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Jan 2020 – Jul 2022</time></p>
+        </header>
+        <ul class="rg-entry__items">
+          <li>Directed strategic technical and architectural decisions, guiding agency growth and service offerings.</li>
+          <li>Managed and mentored cross-functional teams of developers and designers.</li>
+          <li>Led scalable solution design across Next.js, React.js, Flutter, Tailwind CSS, and Dart.</li>
+          <li>Oversaw client engagements, sales consultations, and project delivery.</li>
+        </ul>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Software Engineering Fellow</h3>
+        <p class="rg-entry__organization">General Assembly</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">New York, NY</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Dec 2019 – Mar 2020</time></p>
+        </header>
+        <ul class="rg-entry__items">
+          <li>Completed a 12-week immersive training (400+ hours) in full-stack development: HTML, CSS, JavaScript, React, Ruby on Rails, Express, SQL.</li>
+          <li>Partnered with UX designers to implement accessibility enhancements on a Booking.com redesign project.</li>
+          <li>Engaged in agile, project-based development and collaborative team workflows.</li>
+        </ul>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Quality Control Non-Commissioned Officer</h3>
+        <p class="rg-entry__organization">United States Marine Corps</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">MCAS Cherry Point, NC</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Feb 2019 – Aug 2019</time></p>
+        </header>
+        <ul class="rg-entry__items">
+          <li>Conducted formal inspections and audits of aircraft electrical systems, enforcing Corps standards.</li>
+          <li>Developed and implemented SOPs that reduced rework rates and improved repair accuracy.</li>
+          <li>Coached junior Marines in quality control techniques; compiled performance reports for command.</li>
+        </ul>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Assistant Maintenance Chief</h3>
+        <p class="rg-entry__organization">United States Marine Corps</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">MCAS Cherry Point, NC</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Apr 2018 – Feb 2019</time></p>
+        </header>
+        <ul class="rg-entry__items">
+          <li>Scheduled and prioritized maintenance tasks for life-support systems, optimizing equipment availability.</li>
+          <li>Coordinated parts requisitions and repair contracts to minimize downtime of &gt;$7M in assets.</li>
+          <li>Supervised and trained technicians; managed spare parts inventory and maintenance budgets.</li>
+        </ul>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Electrical Systems Technician</h3>
+        <p class="rg-entry__organization">United States Marine Corps</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">MCAS Cherry Point, NC</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Sep 2015 – Apr 2018</time></p>
+        </header>
+        <ul class="rg-entry__items">
+          <li>Performed preventive and corrective maintenance on generators, pumps, and power distribution systems.</li>
+          <li>Diagnosed electrical and mechanical malfunctions; logged work orders per technical manuals.</li>
+          <li>Assisted senior technicians and trained new Marines on maintenance procedures.</li>
+        </ul>
+      </article>
+    </section>
+    <section class="rg-section rg-section--education" aria-labelledby="section-education-title">
+      <h2 id="section-education-title">Education</h2>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Software Engineering Immersive</h3>
+        <p class="rg-entry__organization">General Assembly</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">New York, NY</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">2019 – 2020</time></p>
+        </header>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Computer Science (12 Credits)</h3>
+        <p class="rg-entry__organization">Brooklyn College, CUNY</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Brooklyn, NY</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Fall 2021</time></p>
+        </header>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">General Studies</h3>
+        <p class="rg-entry__organization">American InterContinental University</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Chandler, AZ</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">2016 – 2017</time></p>
+        </header>
+      </article>
+    </section>
+    <section class="rg-section rg-section--skills" aria-labelledby="section-skills-title">
+      <h2 id="section-skills-title">Skills</h2>
+      <div class="rg-skill-group">
+      <h3 class="rg-skill-group__heading">Technical</h3>
+        <ul class="rg-skill-list">
+        <li class="rg-skill">
+          <span class="rg-skill__category">Languages</span>
+          <span class="rg-skill__items">TypeScript, JavaScript, Python, Ruby, Dart, SQL, HTML5, CSS</span>
+        </li>
+        <li class="rg-skill">
+          <span class="rg-skill__category">Frameworks</span>
+          <span class="rg-skill__items">React, Next.js, Node.js, Express.js, Ruby on Rails, Flutter</span>
+        </li>
+        <li class="rg-skill">
+          <span class="rg-skill__category">Cloud &amp; DevOps</span>
+          <span class="rg-skill__items">AWS, Google Cloud, Azure, Docker, Kubernetes, CI/CD, GitHub Actions</span>
+        </li>
+        <li class="rg-skill">
+          <span class="rg-skill__category">Databases</span>
+          <span class="rg-skill__items">PostgreSQL, MongoDB, Redis, Sequelize, Drizzle</span>
+        </li>
+        <li class="rg-skill">
+          <span class="rg-skill__category">Tools</span>
+          <span class="rg-skill__items">Git, Linux, VS Code, Postman, Thunder Client, Jira, Figma, Adobe Creative Suite</span>
+        </li>
+        <li class="rg-skill">
+          <span class="rg-skill__category">Methodologies</span>
+          <span class="rg-skill__items">Agile, Scrum, Test-Driven Development, DevOps, AI/ML Integration</span>
+        </li>
+        </ul>
+      </div>
+      <div class="rg-skill-group">
+      <h3 class="rg-skill-group__heading">Professional</h3>
+        <ul class="rg-skill-list">
+        <li class="rg-skill">
+          <span class="rg-skill__category">Leadership</span>
+          <span class="rg-skill__items">Team Leadership, Mentoring, Project Management, Strategic Planning, Decision Making</span>
+        </li>
+        <li class="rg-skill">
+          <span class="rg-skill__category">Communication</span>
+          <span class="rg-skill__items">Technical Instruction, Documentation, Client Relations, Team Collaboration, Public Speaking</span>
+        </li>
+        <li class="rg-skill">
+          <span class="rg-skill__category">Problem Solving</span>
+          <span class="rg-skill__items">Critical Thinking, Troubleshooting, Root Cause Analysis, Process Improvement</span>
+        </li>
+        <li class="rg-skill">
+          <span class="rg-skill__category">Military Skills</span>
+          <span class="rg-skill__items">Quality Assurance, Maintenance Management, Technical Training, Safety Compliance, Risk Assessment</span>
+        </li>
+        </ul>
+      </div>
+    </section>
+    <section class="rg-section rg-section--certifications" aria-labelledby="section-certifications-title">
+      <h2 id="section-certifications-title">Certifications</h2>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Accredited Technology Instructor</h3>
+        <p class="rg-entry__organization">Nebula Academy</p>
+        <p class="rg-entry__meta"><time class="rg-entry__date">Oct 2023 – Mar 2025</time></p>
+        </header>
+        <ul class="rg-entry__items">
+          <li>Trained to design and deliver technology-focused instruction in corporate, K-12, and adult-education settings through the Academy&#x27;s &quot;Educators&quot; program</li>
+          <li>Applied adult-learning and cognitive-science principles to create engaging learning environments</li>
+          <li>Developed and sequenced curriculum for Microsoft Power Platform, Python, and Web Development</li>
+          <li>Leveraged educational technology platforms including LMS management and coding sandboxes</li>
+          <li>Assessed learner outcomes through project-based evaluations and formative feedback</li>
+        </ul>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Secret Security Clearance</h3>
+        <p class="rg-entry__organization">United States Department of Defense</p>
+        <p class="rg-entry__meta"><time class="rg-entry__date">Sep 2015 – Sep 2019</time></p>
+        </header>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">EPA 608 Universal Certification</h3>
+        <p class="rg-entry__organization">U.S. Environmental Protection Agency</p>
+        <p class="rg-entry__meta"><time class="rg-entry__date">Jun 2018 – Present</time></p>
+        </header>
+      </article>
+    </section>
+    <footer class="rg-document__footer">
+      <span>Generated 2026-05-15 from <a href="https://github.com/Brandon-Gottshall/About-Me">About-Me</a>.</span>
+      
+      <span><a href="resume.pdf">Download PDF</a></span>
+      
+    </footer>
+  </main>
+</body>
+</html>

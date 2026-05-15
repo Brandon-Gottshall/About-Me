@@ -1,4 +1,4 @@
-.PHONY: all resume cv cover-letter leadership-resume clean generate validate export showcase privacy-scan test verify
+.PHONY: all resume cv cover-letter leadership-resume html clean generate validate export showcase privacy-scan test verify
 
 # Python interpreter
 PYTHON = python3
@@ -25,7 +25,11 @@ LEADERSHIP_RESUME_PDF = $(OUTPUT_DIR)/leadership_resume.pdf
 $(shell mkdir -p $(OUTPUT_DIR) $(GENERATED_DIR))
 
 # Default target - build all documents and refresh public exports
-all: resume cv cover-letter leadership-resume showcase export
+all: resume cv cover-letter leadership-resume html showcase export
+
+# Render the public HTML document set into output/.
+html:
+	$(PYTHON) -m document_pipeline html
 
 # Generate LaTeX files from YAML data
 generate:
@@ -85,6 +89,7 @@ $(LEADERSHIP_RESUME_PDF): $(LEADERSHIP_RESUME_TEX)
 # Clean up generated files and build artifacts
 clean:
 	rm -rf $(GENERATED_DIR)/*.tex $(OUTPUT_DIR)/*.pdf $(OUTPUT_DIR)/*.aux $(OUTPUT_DIR)/*.log $(OUTPUT_DIR)/*.out
+	rm -f $(OUTPUT_DIR)/*.html $(OUTPUT_DIR)/documents.json
 	find $(GENERATED_DIR) -name "*.aux" -delete 2>/dev/null || true
 	find $(GENERATED_DIR) -name "*.log" -delete 2>/dev/null || true
 	find $(GENERATED_DIR) -name "*.out" -delete 2>/dev/null || true
