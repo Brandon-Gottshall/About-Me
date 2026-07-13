@@ -1,13 +1,24 @@
 entries:
-  - title: "Software Alchemist • Technical Director (Architecture and Software Engineering)"
-    organization: "Moons Out Labs @ Moons Out"
+  - title: "Founder & Principal Engineer"
+    organization: "Scrutable"
+    location: "Adel, GA / Remote"
+    start_date: "Mar 2026"
+    end_date: "Present"
+    items:
+      - "Established an independent software, research, and systems practice operating under the Scrutable name since Jul 2026."
+      - "Designed a venture architecture spanning software products, technical services, media, and public-interest work."
+      - "Developed AI-enabled operational systems, research workflows, and product concepts, including ExecOS."
+      - "Consolidated independently developed software, intellectual property, and research into a unified product and services portfolio."
+
+  - title: "Technical Director & Software Engineer"
+    organization: "Moons Out Media / Moons Out Labs"
     location: "Remote"
     start_date: "Mar 2025"
-    end_date: "Present"
+    end_date: "Mar 2026"
     items:
       - "Architected scalable web applications and internal tools using TypeScript, Next.js, Tailwind CSS, Python, and V0 on Vercel."
       - "Developed AI-driven workflows and automations to streamline media production and client deliverables."
-      - "Designed and managed cloud-based and on-premise infrastructure for internal software and various sites. Utilized Docker, and cloud platforms (AWS/GCP/Vercel)."
+      - "Designed and managed cloud-based and on-premise infrastructure using Docker, AWS, Google Cloud, and Vercel."
 
   - title: "Accredited Technology Instructor (Software Engineering)"
     organization: "Nebula Academy"
@@ -69,4 +80,3 @@ entries:
       - "Performed preventive and corrective maintenance on generators, pumps, and power distribution systems."
       - "Diagnosed electrical and mechanical malfunctions; logged work orders per technical manuals."
       - "Assisted senior technicians and trained new Marines on maintenance procedures."
-
