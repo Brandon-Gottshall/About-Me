@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T06:00:26.751035+00:00",
+  "generatedAt": "2026-07-13T04:14:12.748328+00:00",
   "source": {
     "repository": "https://github.com/Brandon-Gottshall/About-Me",
     "contentRoot": "content",
@@ -8,12 +8,12 @@
   "profile": {
     "name": "Brandon Gottshall",
     "position": {
-      "resume": "Software Engineer \u2022 Marine Corps Veteran",
-      "cv": "Senior Software Engineer & Cloud Architect",
+      "resume": "Founder at Scrutable \u2022 Software Engineer \u2022 Marine Corps Veteran",
+      "cv": "Founder at Scrutable & Principal Engineer",
       "leadership_resume": "Blazin' Brigade Section Leader Candidate \u2022 Low Brass \u2022 Marine Corps Veteran"
     },
     "summary": {
-      "text": "Front-end engineer with 5+ years of React and TypeScript experience, skilled at crafting reusable component-driven UIs for remote-first teams. I've translated Figma designs into responsive, accessible interfaces, implemented Stripe-based workflows, and tuned performance using Chrome DevTools and Next.js dynamic imports. As the first dedicated front-ender alongside full-stack engineers, I champion clean code hygiene (Git/PR reviews, linting), collaborate in two-week sprints, and bring a designer's eye to deliver polished client-facing features that drive user productivity.",
+      "text": "Founder and principal engineer of Scrutable, an independent software, research, and systems practice. Software engineer and technical leader with experience building web applications, internal tools, AI-enabled workflows, and cloud infrastructure. Marine Corps veteran and former technology instructor with a background in quality assurance, operational systems, mentoring, and cross-functional leadership.",
       "leadership_resume": "Marine Corps veteran, accredited technology instructor, and former low brass section leader with experience leading teams in high-pressure environments, training and mentoring learners from beginner to advanced, and building cohesive ensembles. Known for leading from the front, setting clear expectations, and using structured systems (SOPs, mentorship frameworks, and daily practice plans) to help people grow with confidence and accountability."
     },
     "contact": {
@@ -88,7 +88,7 @@
       "preview": "docs/showcase/cv-page-1.png",
       "publicPath": "output/cv.pdf",
       "previewPath": "docs/showcase/cv-page-1.png",
-      "pages": 2,
+      "pages": 3,
       "exists": true
     },
     {

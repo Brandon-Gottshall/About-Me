@@ -40,6 +40,26 @@ def test_project_data_models_load_official_documents():
     assert data.documents.cover_letter.variant in {"default", "academic_music"}
 
 
+def test_current_career_profile_identifies_scrutable_not_moons_out():
+    data = ProjectData.load(PROJECT_ROOT)
+    experience_entries = data.core["experience"]["entries"]
+    current_roles = [
+        entry for entry in experience_entries if entry["end_date"] == "Present"
+    ]
+    assert len(current_roles) == 1
+    assert current_roles[0]["organization"] == "Scrutable"
+    assert current_roles[0]["title"] == "Founder & Principal Engineer"
+
+    moons_out_roles = [
+        entry
+        for entry in experience_entries
+        if "Moons Out" in entry["organization"]
+    ]
+    assert len(moons_out_roles) == 1
+    assert moons_out_roles[0]["end_date"] == "Mar 2026"
+    assert "moonsoutmedia.com" not in json.dumps(data.personal.model_dump())
+
+
 def test_document_type_aliases_are_normalized():
     assert normalize_doc_type("cover-letter") == "cover_letter"
     assert normalize_doc_type("leadership-resume") == "leadership_resume"
