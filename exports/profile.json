@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T04:14:12.748328+00:00",
+  "generatedAt": "2026-07-14T23:07:41.540787+00:00",
   "source": {
     "repository": "https://github.com/Brandon-Gottshall/About-Me",
     "contentRoot": "content",
@@ -8,12 +8,12 @@
   "profile": {
     "name": "Brandon Gottshall",
     "position": {
-      "resume": "Founder at Scrutable \u2022 Software Engineer \u2022 Marine Corps Veteran",
-      "cv": "Founder at Scrutable & Principal Engineer",
+      "resume": "Founder & Managing Alchemist at Scrutable \u2022 Marine Corps Veteran",
+      "cv": "Founder & Managing Alchemist at Scrutable",
       "leadership_resume": "Blazin' Brigade Section Leader Candidate \u2022 Low Brass \u2022 Marine Corps Veteran"
     },
     "summary": {
-      "text": "Founder and principal engineer of Scrutable, an independent software, research, and systems practice. Software engineer and technical leader with experience building web applications, internal tools, AI-enabled workflows, and cloud infrastructure. Marine Corps veteran and former technology instructor with a background in quality assurance, operational systems, mentoring, and cross-functional leadership.",
+      "text": "Founder and managing alchemist of Scrutable, an independent software product practice built from independently owned systems, research, and operational assets. Designs AI-enabled product factories that transform business data and operating context into cohesive applications, then directs the strategy, architecture, infrastructure, and delivery needed to ship them. Marine Corps veteran and former accredited technology instructor with a background in quality assurance, communication, mentoring, and cross-functional leadership.",
       "leadership_resume": "Marine Corps veteran, accredited technology instructor, and former low brass section leader with experience leading teams in high-pressure environments, training and mentoring learners from beginner to advanced, and building cohesive ensembles. Known for leading from the front, setting clear expectations, and using structured systems (SOPs, mentorship frameworks, and daily practice plans) to help people grow with confidence and accountability."
     },
     "contact": {

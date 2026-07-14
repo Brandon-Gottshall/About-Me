@@ -48,7 +48,7 @@ def test_current_career_profile_identifies_scrutable_not_moons_out():
     ]
     assert len(current_roles) == 1
     assert current_roles[0]["organization"] == "Scrutable"
-    assert current_roles[0]["title"] == "Founder & Principal Engineer"
+    assert current_roles[0]["title"] == "Founder & Managing Alchemist"
 
     moons_out_roles = [
         entry
@@ -57,7 +57,40 @@ def test_current_career_profile_identifies_scrutable_not_moons_out():
     ]
     assert len(moons_out_roles) == 1
     assert moons_out_roles[0]["end_date"] == "Mar 2026"
+    assert moons_out_roles[0]["title"] == "Lab Director & Systems Alchemist"
     assert "moonsoutmedia.com" not in json.dumps(data.personal.model_dump())
+
+
+def test_verified_timeline_and_credentials_are_preserved():
+    data = ProjectData.load(PROJECT_ROOT)
+
+    nebula = next(
+        entry
+        for entry in data.core["experience"]["entries"]
+        if entry["organization"] == "Nebula Academy"
+    )
+    assert nebula["start_date"] == "Sep 2022"
+    assert nebula["end_date"] == "Mar 2025"
+
+    education = data.core["education"]["entries"]
+    vsu = next(entry for entry in education if entry["institution"] == "Valdosta State University")
+    assert vsu["end_date"] == "Present"
+    aiu = next(
+        entry
+        for entry in education
+        if entry["institution"] == "American InterContinental University Online"
+    )
+    assert aiu["date_range"] == "2017"
+    assert "49 Credits Earned" in aiu["degree"]
+
+    certifications = data.optional["certifications"]["entries"]
+    instructor_badge = next(
+        entry
+        for entry in certifications
+        if entry["name"] == "Accredited Technology Instructor"
+    )
+    assert instructor_badge["date_range"] == "Issued 2023"
+    assert "end_date" not in instructor_badge
 
 
 def test_document_type_aliases_are_normalized():
