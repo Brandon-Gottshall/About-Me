@@ -50,16 +50,6 @@ categories:
 
   - name: "Business & Technical Leadership"
     entries:
-      - title: "Accredited Technology Instructor"
-        organization: "Nebula Academy"
-        location: "Remote — New York"
-        start_date: "Sep 2022"
-        end_date: "Mar 2025"
-        items:
-          - "Designed and delivered Power Platform, Python, and web curricula anchored in adult-learning frameworks."
-          - "Mentored cohorts of professionals and K–12 learners through project critiques and code reviews."
-          - "Built LMS- and sandbox-based practice environments with structured assessments."
-
       - title: "Founder & Managing Alchemist"
         organization: "Scrutable™"
         location: "Adel, GA / Remote"
@@ -79,6 +69,16 @@ categories:
           - "Ran Moons Out Labs as the infrastructure and systems arm of Moons Out Media."
           - "Set the technical roadmap and built web applications, infrastructure, and AI-enabled internal workflows."
           - "Developed the initial AI-completion systems concept later carried into the independent Scrutable™ product practice."
+
+      - title: "Accredited Technology Instructor"
+        organization: "Nebula Academy"
+        location: "Remote — New York"
+        start_date: "Sep 2022"
+        end_date: "Mar 2025"
+        items:
+          - "Designed and delivered Power Platform, Python, and web curricula anchored in adult-learning frameworks."
+          - "Mentored cohorts of professionals and K–12 learners through project critiques and code reviews."
+          - "Built LMS- and sandbox-based practice environments with structured assessments."
 
       - title: "Technical Lead & Co-Founder"
         organization: "Effortless Development"

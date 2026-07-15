@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T02:13:46.434095+00:00",
+  "generatedAt": "2026-07-15T04:43:50.587666+00:00",
   "source": {
     "repository": "https://github.com/Brandon-Gottshall/About-Me",
     "contentRoot": "content",
@@ -8,12 +8,12 @@
   "profile": {
     "name": "Brandon Gottshall",
     "position": {
-      "resume": "Software Engineer \u2022 Marine Corps Veteran",
+      "resume": "Founder & Managing Alchemist at Scrutable\u2122 \u2022 Marine Corps Veteran",
       "cv": "Software Engineer \u2022 Marine Corps Veteran",
       "leadership_resume": "Blazin' Brigade Section Leader Candidate \u2022 Low Brass \u2022 Marine Corps Veteran"
     },
     "summary": {
-      "text": "Front-end engineer with 5+ years of React and TypeScript experience, skilled at crafting reusable component-driven UIs for remote-first teams. I've translated Figma designs into responsive, accessible interfaces, implemented Stripe-based workflows, and tuned performance using Chrome DevTools and Next.js dynamic imports. As the first dedicated front-ender alongside full-stack engineers, I champion clean code hygiene (Git/PR reviews, linting), collaborate in two-week sprints, and bring a designer's eye to deliver polished client-facing features that drive user productivity.",
+      "text": "Founder and managing alchemist of Scrutable\u2122, an independent software product practice built from independently owned systems, research, and operational assets. Designs AI-enabled product factories that transform business data and operating context into cohesive applications, then directs the strategy, architecture, infrastructure, and delivery needed to ship them. Marine Corps veteran and former accredited technology instructor with a background in quality assurance, communication, mentoring, and cross-functional leadership.",
       "cv": "Software engineer with a record spanning full-stack web development, technical instruction, and Marine Corps utilities engineering. Builds learning systems, document pipelines, and interactive web experiences in TypeScript/Next.js and Python; previously delivered technology curricula as an accredited instructor and maintained life-sustaining critical utilities infrastructure \u2014 generators, power distribution, and refrigerant systems \u2014 for expeditionary sites, including micro-grids built from AMMPS-series generators. This curriculum vitae is the comprehensive record; a condensed resume is generated from the same source data.",
       "leadership_resume": "Marine Corps veteran, accredited technology instructor, and former low brass section leader with experience leading teams in high-pressure environments, training and mentoring learners from beginner to advanced, and building cohesive ensembles. Known for leading from the front, setting clear expectations, and using structured systems (SOPs, mentorship frameworks, and daily practice plans) to help people grow with confidence and accountability."
     },

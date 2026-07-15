@@ -6,6 +6,7 @@
   <title>Brandon Gottshall — Curriculum Vitae</title>
   <meta name="description" content="Expanded curriculum vitae covering experience, education, and skills." />
   <meta name="robots" content="index,follow" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%23111820'/%3E%3Crect x='20' y='20' width='8' height='8' fill='white'/%3E%3C/svg%3E" />
   <link rel="canonical" href="https://brandon-gottshall.github.io/About-Me/cv.html" />
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Brandon Gottshall — Curriculum Vitae" />
@@ -16,28 +17,29 @@
   
   <style>
 :root {
-  --rg-bg: #fdfcfa;
-  --rg-fg: #1f2933;
-  --rg-fg-muted: #4f5b66;
-  --rg-fg-soft: #738292;
-  --rg-rule: #d6d2c4;
-  --rg-accent: #0b3c5d;
-  --rg-accent-soft: rgba(11, 60, 93, 0.08);
+  --rg-bg: #ffffff;
+  --rg-fg: #111820;
+  --rg-fg-muted: #4a5057;
+  --rg-fg-soft: #69717a;
+  --rg-rule: #cfd3d6;
+  --rg-accent: #111820;
+  --rg-accent-soft: rgba(17, 24, 32, 0.08);
   --rg-line-height: 1.55;
   --rg-page-max: 56rem;
-  --rg-font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --rg-font-serif: "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --rg-font-display: "Inter Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --rg-font-human: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --rg-font-record: "Noto Sans Mono", "SFMono-Regular", Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --rg-bg: #131a23;
-    --rg-fg: #f5efe2;
+    --rg-bg: #111820;
+    --rg-fg: #ffffff;
     --rg-fg-muted: #c4cdd6;
     --rg-fg-soft: #97a2af;
-    --rg-rule: #2a3340;
-    --rg-accent: #8ec2e3;
-    --rg-accent-soft: rgba(142, 194, 227, 0.12);
+    --rg-rule: #4a5057;
+    --rg-accent: #ffffff;
+    --rg-accent-soft: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -54,7 +56,7 @@ body {
   padding: 0;
   background: var(--rg-bg);
   color: var(--rg-fg);
-  font-family: var(--rg-font-serif);
+  font-family: var(--rg-font-human);
   line-height: var(--rg-line-height);
   -webkit-font-smoothing: antialiased;
 }
@@ -69,6 +71,54 @@ main {
   padding: 3rem 1.5rem 4rem;
 }
 
+.rg-identity {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(22rem, auto);
+  gap: 2rem;
+  align-items: start;
+  border-bottom: 2px solid var(--rg-fg);
+  padding-bottom: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.rg-identity__wordmark {
+  font-family: var(--rg-font-display);
+  font-size: 1.2rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.rg-identity__promise {
+  color: var(--rg-fg-muted);
+  font-size: 0.78rem;
+  margin: 0.2rem 0 0;
+}
+
+.rg-record {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 0.8rem;
+  font-family: var(--rg-font-record);
+  font-size: 0.64rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.rg-record div { min-width: 0; }
+.rg-record dt { color: var(--rg-fg-soft); margin-bottom: 0.1rem; }
+.rg-record dd { color: var(--rg-fg); margin: 0; white-space: nowrap; }
+
+.rg-identity__appendage {
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: var(--rg-fg);
+}
+
 .rg-document__header {
   border-bottom: 1px solid var(--rg-rule);
   padding-bottom: 1.75rem;
@@ -76,7 +126,7 @@ main {
 }
 
 .rg-document__name {
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-display);
   font-size: 2.25rem;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -85,7 +135,7 @@ main {
 }
 
 .rg-document__position {
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-human);
   font-size: 1.05rem;
   color: var(--rg-fg-muted);
   margin: 0 0 0.9rem;
@@ -96,7 +146,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem 1rem;
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-human);
   font-size: 0.92rem;
   color: var(--rg-fg-soft);
   margin: 0;
@@ -132,7 +182,7 @@ main {
 }
 
 .rg-section h2 {
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-display);
   font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -154,7 +204,7 @@ main {
 }
 
 .rg-entry__headline {
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-human);
   font-size: 1.02rem;
   font-weight: 600;
   margin: 0;
@@ -164,13 +214,13 @@ main {
 .rg-entry__organization {
   margin: 0;
   color: var(--rg-fg-muted);
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-record);
   font-size: 0.95rem;
 }
 
 .rg-entry__meta {
   margin: 0.15rem 0 0;
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-human);
   font-size: 0.84rem;
   color: var(--rg-fg-soft);
   display: flex;
@@ -197,7 +247,7 @@ main {
 }
 
 .rg-skill-group__heading {
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-human);
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -220,7 +270,7 @@ main {
 }
 
 .rg-skill__category {
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-human);
   font-weight: 600;
   color: var(--rg-fg-muted);
 }
@@ -244,7 +294,7 @@ main {
 }
 
 .rg-language__name {
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-human);
   font-weight: 600;
   color: var(--rg-fg-muted);
 }
@@ -254,7 +304,7 @@ main {
 }
 
 .rg-leadership-group__heading {
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-record);
   font-size: 0.82rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -272,7 +322,7 @@ main {
   margin-top: 2.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--rg-rule);
-  font-family: var(--rg-font-sans);
+  font-family: var(--rg-font-record);
   font-size: 0.82rem;
   color: var(--rg-fg-soft);
   display: flex;
@@ -303,6 +353,14 @@ main {
   .rg-document__name {
     font-size: 1.7rem;
   }
+  .rg-identity {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .rg-record {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem 1rem;
+  }
   .rg-skill-list,
   .rg-language-list {
     grid-template-columns: 1fr;
@@ -318,6 +376,20 @@ main {
 </head>
 <body>
   <main class="rg-document rg-document--cv" lang="en">
+    <aside class="rg-identity" aria-label="Scrutable™ identity and record metadata">
+      <div class="rg-identity__brand">
+        <p class="rg-identity__wordmark">SCRUTABLE™</p>
+        <p class="rg-identity__promise">We show our work.™</p>
+      </div>
+      <dl class="rg-record">
+        <div><dt>Record</dt><dd>BG-CAREER-002</dd></div>
+        <div><dt>Class</dt><dd>PROFESSIONAL RECORD</dd></div>
+        <div><dt>Revision</dt><dd>01</dd></div>
+        <div><dt>Status</dt><dd>CURRENT</dd></div>
+        <div><dt>Effective</dt><dd>2026-07-14</dd></div>
+      </dl>
+      <span class="rg-identity__appendage" aria-hidden="true"></span>
+    </aside>
     <header class="rg-document__header">
       <h1 class="rg-document__name">Brandon Gottshall</h1>
       
@@ -330,7 +402,7 @@ main {
         
         <li><a href="mailto:bgottshall@valdosta.edu">bgottshall@valdosta.edu</a></li>
         
-        <li>+1 229-507-3499</li>
+        <li><a href="tel:+12295073499">+1 229-507-3499</a></li>
         
         <li><a href="https://github.com/Brandon-Gottshall">github.com/Brandon-Gottshall</a></li>
         
@@ -348,26 +420,40 @@ main {
       <h2 id="section-experience-title">Experience</h2>
       <article class="rg-entry">
         <header class="rg-entry__header">
-          <h3 class="rg-entry__headline">Software Alchemist • Technical Director (Architecture and Software Engineering)</h3>
-        <p class="rg-entry__organization">Moons Out Labs @ Moons Out</p>
-        <p class="rg-entry__meta"><span class="rg-entry__location">Remote — Ohio</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Mar 2025 – Present</time></p>
+          <h3 class="rg-entry__headline">Founder &amp; Managing Alchemist</h3>
+        <p class="rg-entry__organization">Scrutable™</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Adel, GA / Remote</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Mar 2026 – Present</time></p>
         </header>
         <ul class="rg-entry__items">
-          <li>Architected scalable web applications and internal tools using TypeScript, Next.js, Tailwind CSS, Python, and V0 on Vercel.</li>
-          <li>Developed AI-driven workflows and automations to streamline media production and client deliverables.</li>
-          <li>Designed and managed cloud-based and on-premise infrastructure for internal software and various sites. Utilized Docker, and cloud platforms (AWS/GCP/Vercel).</li>
+          <li>Converted independently owned software, research, and operational assets into Scrutable™, an independent sole proprietorship, beginning in Mar 2026.</li>
+          <li>Built an AI product factory designed to turn business data and operating context into cohesive, usable applications.</li>
+          <li>Shifted from a single-project focus to a repeatable system for selecting, building, and shipping a portfolio of software products.</li>
+          <li>Directs product strategy, technical architecture, infrastructure, and delivery across the Scrutable™ portfolio.</li>
         </ul>
       </article>
       <article class="rg-entry">
         <header class="rg-entry__header">
-          <h3 class="rg-entry__headline">Accredited Technology Instructor (Software Engineering)</h3>
-        <p class="rg-entry__organization">Nebula Academy</p>
-        <p class="rg-entry__meta"><span class="rg-entry__location">Remote — New York</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Oct 2023 – Mar 2025</time></p>
+          <h3 class="rg-entry__headline">Lab Director &amp; Systems Alchemist — Moons Out Labs</h3>
+        <p class="rg-entry__organization">Moons Out Media</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Remote — Ohio</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Mar 2025 – Mar 2026</time></p>
         </header>
         <ul class="rg-entry__items">
-          <li>Credential Scope: Authorized to design and deliver technology-focused training programs for software engineering learners</li>
-          <li>Instructional Expertise: Demonstrated proficiency in curriculum development, pedagogical best practices, and competency-based assessment</li>
-          <li>Quality Assurance: Maintained standards for course effectiveness through iterative feedback, learning analytics, and continuous improvement</li>
+          <li>Ran Moons Out Labs, an assumed business name of Moons Out Media, as its infrastructure and systems arm.</li>
+          <li>Architected scalable web applications and internal tools using TypeScript, Next.js, Tailwind CSS, Python, and V0 on Vercel.</li>
+          <li>Developed the initial AI-completion systems concept for turning business data into cohesive, usable applications.</li>
+          <li>Designed and managed cloud-based and on-premise infrastructure using Docker, AWS, Google Cloud, and Vercel.</li>
+        </ul>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Accredited Technology Instructor &amp; Software Engineer</h3>
+        <p class="rg-entry__organization">Nebula Academy</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Remote — New York</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Sep 2022 – Mar 2025</time></p>
+        </header>
+        <ul class="rg-entry__items">
+          <li>Joined as an Instructor-in-Training and advanced to Accredited Technology Instructor after establishing a record of effective technical instruction.</li>
+          <li>Designed and delivered software engineering instruction using curriculum development, competency-based assessment, and iterative learner feedback.</li>
+          <li>Reorganized curriculum and contributed full-stack improvements to the academy&#x27;s curriculum repository and learning-management system.</li>
         </ul>
       </article>
       <article class="rg-entry">
@@ -403,7 +489,7 @@ main {
         </header>
         <ul class="rg-entry__items">
           <li>Assumed the QC billet after turning the Assistant Maintenance Chief role over to an incoming sergeant; managed program turnover through end of service.</li>
-          <li>Conducted formal inspections and audits of aircraft electrical systems, enforcing Corps standards.</li>
+          <li>Conducted formal inspections and audits of electrical systems, enforcing Marine Corps standards.</li>
           <li>Developed and implemented SOPs that reduced rework rates and improved repair accuracy.</li>
           <li>Coached junior Marines in quality control techniques; compiled performance reports for command.</li>
         </ul>
@@ -494,6 +580,13 @@ main {
       <h2 id="section-education-title">Education</h2>
       <article class="rg-entry">
         <header class="rg-entry__header">
+          <h3 class="rg-entry__headline">Bachelor of Science in Data Science (In Progress)</h3>
+        <p class="rg-entry__organization">Valdosta State University</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Valdosta, GA</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">2025 – Present</time></p>
+        </header>
+      </article>
+      <article class="rg-entry">
+        <header class="rg-entry__header">
           <h3 class="rg-entry__headline">Software Engineering Immersive</h3>
         <p class="rg-entry__organization">General Assembly</p>
         <p class="rg-entry__meta"><span class="rg-entry__location">New York, NY</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">2019 – 2020</time></p>
@@ -501,16 +594,16 @@ main {
       </article>
       <article class="rg-entry">
         <header class="rg-entry__header">
-          <h3 class="rg-entry__headline">Computer Science (12 Credits)</h3>
+          <h3 class="rg-entry__headline">Computer Science (12 Credits Earned)</h3>
         <p class="rg-entry__organization">Brooklyn College, CUNY</p>
         <p class="rg-entry__meta"><span class="rg-entry__location">Brooklyn, NY</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">Fall 2021</time></p>
         </header>
       </article>
       <article class="rg-entry">
         <header class="rg-entry__header">
-          <h3 class="rg-entry__headline">General Studies</h3>
-        <p class="rg-entry__organization">American InterContinental University</p>
-        <p class="rg-entry__meta"><span class="rg-entry__location">Chandler, AZ</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">2016 – 2017</time></p>
+          <h3 class="rg-entry__headline">General Studies (49 Credits Earned)</h3>
+        <p class="rg-entry__organization">American InterContinental University Online</p>
+        <p class="rg-entry__meta"><span class="rg-entry__location">Online</span> <span aria-hidden="true">·</span> <time class="rg-entry__date">2017</time></p>
         </header>
       </article>
     </section>
@@ -573,22 +666,24 @@ main {
         <header class="rg-entry__header">
           <h3 class="rg-entry__headline">Accredited Technology Instructor</h3>
         <p class="rg-entry__organization">Nebula Academy</p>
-        <p class="rg-entry__meta"><time class="rg-entry__date">Oct 2023 – Mar 2025</time></p>
+        <p class="rg-entry__meta"><time class="rg-entry__date">Issued 2023</time></p>
         </header>
         <ul class="rg-entry__items">
-          <li>Trained to design and deliver technology-focused instruction in corporate, K-12, and adult-education settings through the Academy&#x27;s &quot;Educators&quot; program</li>
+          <li>Recognized after serving as an established instructor for demonstrated ability to design, communicate, and deliver technical instruction</li>
           <li>Applied adult-learning and cognitive-science principles to create engaging learning environments</li>
-          <li>Developed and sequenced curriculum for Microsoft Power Platform, Python, and Web Development</li>
-          <li>Leveraged educational technology platforms including LMS management and coding sandboxes</li>
           <li>Assessed learner outcomes through project-based evaluations and formative feedback</li>
         </ul>
       </article>
       <article class="rg-entry">
         <header class="rg-entry__header">
-          <h3 class="rg-entry__headline">Secret Security Clearance</h3>
+          <h3 class="rg-entry__headline">Secret Security Clearance (Inactive)</h3>
         <p class="rg-entry__organization">United States Department of Defense</p>
-        <p class="rg-entry__meta"><time class="rg-entry__date">Sep 2015 – Sep 2019</time></p>
+        <p class="rg-entry__meta"><time class="rg-entry__date">Sep 2015 – Aug 2019</time></p>
         </header>
+        <ul class="rg-entry__items">
+          <li>Historical clearance held during Marine Corps service; no current access or active eligibility claimed</li>
+          <li>Reflects prior adjudication and accountability for handling sensitive information</li>
+        </ul>
       </article>
       <article class="rg-entry">
         <header class="rg-entry__header">
@@ -597,7 +692,7 @@ main {
         <p class="rg-entry__meta"><time class="rg-entry__date">Jun 2018 – No expiration</time></p>
         </header>
         <ul class="rg-entry__items">
-          <li>Highest-tier (Universal) federal refrigerant license, earned while maintaining life-sustaining critical utilities infrastructure in the Marine Corps.</li>
+          <li>Highest-tier (Universal) federal refrigerant credential, earned while maintaining life-sustaining critical utilities infrastructure in the Marine Corps.</li>
         </ul>
       </article>
     </section>
@@ -627,7 +722,8 @@ main {
       <p class="rg-references">References available upon request.</p>
     </section>
     <footer class="rg-document__footer">
-      <span>Generated 2026-07-15 from <a href="https://github.com/Brandon-Gottshall/About-Me">About-Me</a>.</span>
+      <span>BG-CAREER-002 · CURRENT · 2026-07-14</span>
+      <span>Generated from <a href="https://github.com/Brandon-Gottshall/About-Me">About-Me</a>.</span>
       
       <span><a href="cv.pdf">Download PDF</a></span>
       

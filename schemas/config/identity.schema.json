@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Scrutable identity and record configuration",
+  "title": "Scrutable™ identity and record configuration",
   "type": "object",
   "additionalProperties": false,
   "required": ["marks", "palette", "typography", "records"],
