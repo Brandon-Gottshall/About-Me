@@ -360,6 +360,11 @@ def test_html_renderer_links_to_pdf_counterpart():
         assert f"{doc_type}.pdf" in text
 
 
+def test_html_renderer_makes_phone_actionable():
+    resume_html = (PROJECT_ROOT / "output" / "resume.html").read_text(encoding="utf-8")
+    assert 'href="tel:+12295073499"' in resume_html
+
+
 def test_documents_manifest_matches_portfolio_schema():
     manifest = build_documents_manifest()
     assert manifest["version"] == 1

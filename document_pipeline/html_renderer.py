@@ -78,7 +78,8 @@ def _contact_items(personal: dict[str, Any]) -> list[dict[str, str]]:
 
     mobile = contact.get("mobile")
     if mobile:
-        items.append({"label": mobile, "href": ""})
+        dialable = "".join(character for character in mobile if character.isdigit() or character == "+")
+        items.append({"label": mobile, "href": f"tel:{dialable}"})
 
     github = contact.get("github")
     if github:
