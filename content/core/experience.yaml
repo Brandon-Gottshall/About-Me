@@ -1,7 +1,7 @@
 entries:
   - title: "Software Alchemist • Technical Director (Architecture and Software Engineering)"
     organization: "Moons Out Labs @ Moons Out"
-    location: "Remote"
+    location: "Remote — Ohio"
     start_date: "Mar 2025"
     end_date: "Present"
     items:
@@ -11,7 +11,7 @@ entries:
 
   - title: "Accredited Technology Instructor (Software Engineering)"
     organization: "Nebula Academy"
-    location: "Remote"
+    location: "Remote — New York"
     start_date: "Oct 2023"
     end_date: "Mar 2025"
     items:
@@ -46,6 +46,7 @@ entries:
     start_date: "Feb 2019"
     end_date: "Aug 2019"
     items:
+      - "Assumed the QC billet after turning the Assistant Maintenance Chief role over to an incoming sergeant; managed program turnover through end of service."
       - "Conducted formal inspections and audits of aircraft electrical systems, enforcing Corps standards."
       - "Developed and implemented SOPs that reduced rework rates and improved repair accuracy."
       - "Coached junior Marines in quality control techniques; compiled performance reports for command."
@@ -56,17 +57,19 @@ entries:
     start_date: "Apr 2018"
     end_date: "Feb 2019"
     items:
-      - "Scheduled and prioritized maintenance tasks for life-support systems, optimizing equipment availability."
+      - "Filled this sergeant's (E-5) billet as a corporal (E-4), selected ahead of grade to meet the shop's needs."
+      - "Scheduled and prioritized maintenance tasks for life-sustaining critical utilities infrastructure, optimizing equipment availability."
       - "Coordinated parts requisitions and repair contracts to minimize downtime of >$7M in assets."
       - "Supervised and trained technicians; managed spare parts inventory and maintenance budgets."
 
-  - title: "Electrical Systems Technician"
+  - title: "Engineer Electrical Systems Technician"
     organization: "United States Marine Corps"
     location: "MCAS Cherry Point, NC"
     start_date: "Sep 2015"
     end_date: "Apr 2018"
     items:
       - "Performed preventive and corrective maintenance on generators, pumps, and power distribution systems."
+      - "Created micro-grids with AMMPS (Advanced Medium Mobile Power Sources) generators to power expeditionary sites."
       - "Diagnosed electrical and mechanical malfunctions; logged work orders per technical manuals."
       - "Assisted senior technicians and trained new Marines on maintenance procedures."
 

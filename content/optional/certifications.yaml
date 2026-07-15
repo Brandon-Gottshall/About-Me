@@ -21,7 +21,8 @@ entries:
   - name: "EPA 608 Universal Certification"
     organization: "U.S. Environmental Protection Agency"
     start_date: "Jun 2018"
-    end_date: "Present"
+    end_date: "No expiration"
     location: ""
-    items: []
+    items:
+      - "Highest-tier (Universal) federal refrigerant license, earned while maintaining life-sustaining critical utilities infrastructure in the Marine Corps."
 
