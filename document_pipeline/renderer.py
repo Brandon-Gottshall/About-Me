@@ -124,6 +124,7 @@ class DocumentRenderer:
                 ),
                 quote={"resume": quote_text},
                 sections=sections,
+                compact_layout=False,
                 **identity_context(self.data, doc_type),
                 **settings_context(spec),
             )
@@ -136,6 +137,7 @@ class DocumentRenderer:
             contact_line=personal.get("contact_line", {}).get("resume", ""),
             quote=personal["quote"],
             sections=sections,
+            compact_layout=True,
             **identity_context(self.data, doc_type),
             **settings_context(spec),
         )
