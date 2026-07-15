@@ -1,13 +1,35 @@
-entries: []
-# Add your project entries here when available
-# Example structure:
-# - name: "Project Name"
-#   technologies: "Technologies used"
-#   date: "Date"
-#   location: ""
-#   items:
-#     - "Brief description of the project and its purpose."
-#     - "Key achievements or outcomes of the project."
-#     - "Technologies used: List of main technologies, frameworks, and tools."
-#     - "Your role and contributions to the project."
+entries:
+  - name: "Review Game Core"
+    technologies: "TypeScript"
+    date: "2026 - Present"
+    location: ""
+    items:
+      - "Concept-layer toolkit for study products: concept primitives, guided repetition policy, session contracts, and persistence boundaries with docs and tests."
 
+  - name: "About-Me Document Pipeline"
+    technologies: "Python, LaTeX, YAML"
+    date: "2026 - Present"
+    location: ""
+    items:
+      - "YAML-to-LaTeX publishing system generating versioned resume, CV, and cover-letter artifacts with schema validation and privacy scanning."
+
+  - name: "Astronomy: Future Compute"
+    technologies: "Next.js"
+    date: "2026"
+    location: ""
+    items:
+      - "Interactive astronomy presentation rebuilt as a navigable web app with presentation modes and a deployed live site."
+
+  - name: "lfx — lf theme manager"
+    technologies: "Go"
+    date: "2026"
+    location: ""
+    items:
+      - "Terminal CLI for managing lf themes, icons, plugins, and registry files; installable via Homebrew."
+
+  - name: "brandongottshall.com"
+    technologies: "Next.js, Payload CMS"
+    date: "2026 - Present"
+    location: ""
+    items:
+      - "Portfolio and public project record: App Router implementation, CMS-backed content, and published document artifacts."

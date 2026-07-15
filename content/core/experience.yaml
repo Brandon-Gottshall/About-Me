@@ -10,20 +10,20 @@ entries:
       - "Shifted from a single-project focus to a repeatable system for selecting, building, and shipping a portfolio of software products."
       - "Directs product strategy, technical architecture, infrastructure, and delivery across the Scrutable™ portfolio."
 
-  - title: "Lab Director & Systems Alchemist"
-    organization: "Moons Out Labs (ABA of Moons Out Media)"
-    location: "Remote"
+  - title: "Lab Director & Systems Alchemist — Moons Out Labs"
+    organization: "Moons Out Media"
+    location: "Remote — Ohio"
     start_date: "Mar 2025"
     end_date: "Mar 2026"
     items:
-      - "Ran Moons Out Labs as the infrastructure and systems arm of Moons Out Media, separating technical operations from the media practice."
+      - "Ran Moons Out Labs, an assumed business name of Moons Out Media, as its infrastructure and systems arm."
       - "Architected scalable web applications and internal tools using TypeScript, Next.js, Tailwind CSS, Python, and V0 on Vercel."
       - "Developed the initial AI-completion systems concept for turning business data into cohesive, usable applications."
       - "Designed and managed cloud-based and on-premise infrastructure using Docker, AWS, Google Cloud, and Vercel."
 
   - title: "Accredited Technology Instructor & Software Engineer"
     organization: "Nebula Academy"
-    location: "Remote"
+    location: "Remote — New York"
     start_date: "Sep 2022"
     end_date: "Mar 2025"
     items:
@@ -58,7 +58,8 @@ entries:
     start_date: "Feb 2019"
     end_date: "Aug 2019"
     items:
-      - "Conducted formal inspections and audits of aircraft electrical systems, enforcing Corps standards."
+      - "Assumed the QC billet after turning the Assistant Maintenance Chief role over to an incoming sergeant; managed program turnover through end of service."
+      - "Conducted formal inspections and audits of electrical systems, enforcing Marine Corps standards."
       - "Developed and implemented SOPs that reduced rework rates and improved repair accuracy."
       - "Coached junior Marines in quality control techniques; compiled performance reports for command."
 
@@ -68,16 +69,20 @@ entries:
     start_date: "Apr 2018"
     end_date: "Feb 2019"
     items:
-      - "Scheduled and prioritized maintenance tasks for life-support systems, optimizing equipment availability."
+      - "Filled this sergeant's (E-5) billet as a corporal (E-4), selected ahead of grade to meet the shop's needs."
+      - "Scheduled and prioritized maintenance tasks for life-sustaining critical utilities infrastructure, optimizing equipment availability."
       - "Coordinated parts requisitions and repair contracts to minimize downtime of >$7M in assets."
       - "Supervised and trained technicians; managed spare parts inventory and maintenance budgets."
 
-  - title: "Electrical Systems Technician"
+  - title: "Engineer Electrical Systems Technician"
     organization: "United States Marine Corps"
     location: "MCAS Cherry Point, NC"
     start_date: "Sep 2015"
     end_date: "Apr 2018"
     items:
       - "Performed preventive and corrective maintenance on generators, pumps, and power distribution systems."
+      - "Created micro-grids with AMMPS (Advanced Medium Mobile Power Sources) generators to power expeditionary sites."
+      - "Deployed to Incirlik Air Base, Turkey (2017) supporting VMAQ-3's electronic-warfare operations against Da'esh under Operation Inherent Resolve."
+      - "As half of a two-Marine power team, kept the generator site, HVAC, and power distribution online — carrying communications through active grid outages on redundant generator power."
       - "Diagnosed electrical and mechanical malfunctions; logged work orders per technical manuals."
       - "Assisted senior technicians and trained new Marines on maintenance procedures."

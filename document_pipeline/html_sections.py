@@ -137,7 +137,8 @@ def _render_summary(data: ProjectData, doc_type: str) -> str:
         text = summary_data.get("leadership_resume") or summary_data["text"]
         body = _paragraph_block(text)
         return _section("summary", SECTION_TITLES["leadership_profile"], body)
-    return _section("summary", SECTION_TITLES["summary"], _paragraph_block(summary_data["text"]))
+    text = summary_data.get(doc_type) or summary_data["text"]
+    return _section("summary", SECTION_TITLES["summary"], _paragraph_block(text))
 
 
 def _render_experience(data: ProjectData) -> str:

@@ -34,40 +34,51 @@ categories:
         start_date: "Apr 2018"
         end_date: "Feb 2019"
         items:
-          - "Scheduled and prioritized life-support equipment repairs to keep expeditionary sites mission-ready."
+          - "Selected ahead of grade to fill this sergeant's (E-5) billet as a corporal (E-4)."
+          - "Scheduled and prioritized repairs to life-sustaining critical utilities infrastructure to keep expeditionary sites mission-ready."
           - "Coordinated parts requisitions and vendor contracts for $7M+ worth of gear."
           - "Led daily stand-ups and on-the-job coaching for technicians to close priority work orders."
 
       - title: "Deployment Leadership — Operation Inherent Resolve"
         organization: "United States Marine Corps"
-        location: "Deployed"
+        location: "Incirlik Air Base, Turkey"
         date_range: "2017"
         items:
-          - "Deployed to run redundant power for forward sustainment sites supporting Operation Inherent Resolve."
-          - "Kept shelter, climate-control, and mission systems online under austere, high-risk conditions."
+          - "Maintained redundant generator power at Incirlik Air Base for VMAQ-3's electronic-warfare operations against Da'esh under Operation Inherent Resolve."
+          - "With one fellow 1141, kept the generator site, HVAC, and power distribution online — carrying communications through active grid outages."
           - "Trained Marines on preventative maintenance and emergency recovery drills to preserve readiness."
 
   - name: "Business & Technical Leadership"
     entries:
-      - title: "Accredited Technology Instructor"
-        organization: "Nebula Academy"
-        location: "Remote"
-        start_date: "Sep 2022"
-        end_date: "Mar 2025"
-        items:
-          - "Designed and delivered Power Platform, Python, and web curricula anchored in adult-learning frameworks."
-          - "Mentored cohorts of professionals and K–12 learners through project critiques and code reviews."
-          - "Built LMS- and sandbox-based practice environments with structured assessments."
-
       - title: "Founder & Managing Alchemist"
         organization: "Scrutable™"
-        location: "Remote"
+        location: "Adel, GA / Remote"
         start_date: "Mar 2026"
         end_date: "Present"
         items:
           - "Directs product strategy, technical architecture, infrastructure, and delivery across an independent software product practice."
           - "Built an AI product factory that turns business data and operating context into cohesive, usable applications."
           - "Converted independently owned systems, research, and operational assets into a repeatable product portfolio."
+
+      - title: "Lab Director & Systems Alchemist — Moons Out Labs"
+        organization: "Moons Out Media"
+        location: "Remote — Ohio"
+        start_date: "Mar 2025"
+        end_date: "Mar 2026"
+        items:
+          - "Ran Moons Out Labs as the infrastructure and systems arm of Moons Out Media."
+          - "Set the technical roadmap and built web applications, infrastructure, and AI-enabled internal workflows."
+          - "Developed the initial AI-completion systems concept later carried into the independent Scrutable™ product practice."
+
+      - title: "Accredited Technology Instructor"
+        organization: "Nebula Academy"
+        location: "Remote — New York"
+        start_date: "Sep 2022"
+        end_date: "Mar 2025"
+        items:
+          - "Designed and delivered Power Platform, Python, and web curricula anchored in adult-learning frameworks."
+          - "Mentored cohorts of professionals and K–12 learners through project critiques and code reviews."
+          - "Built LMS- and sandbox-based practice environments with structured assessments."
 
       - title: "Technical Lead & Co-Founder"
         organization: "Effortless Development"

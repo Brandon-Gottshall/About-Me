@@ -4,7 +4,7 @@ name:
 
 position:
   resume: 'Founder \& Managing Alchemist at Scrutable™ • Marine~Corps Veteran'
-  cv: 'Founder \& Managing Alchemist at Scrutable™'
+  cv: 'Software Engineer • Marine~Corps Veteran'
   leadership_resume: "Blazin' Brigade Section Leader Candidate • Low Brass • Marine~Corps Veteran"
 
 address: "Adel, GA 31620"
@@ -22,5 +22,5 @@ contact_line:
 
 quote:
   resume: '"I turn business data and operational reality into software people can actually use."'
-  cv: "Results-driven software engineer with over 10 years of experience in full-stack development, cloud architecture, and technical leadership. Specialized in building scalable, maintainable applications with a focus on performance and user experience."
+  cv: ""
   leadership_resume: ""

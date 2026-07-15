@@ -106,10 +106,10 @@ def generate_sections(data: ProjectData, doc_type: str) -> str:
                 sections.append(render_leadership_profile(data.core["summary"]))
             else:
                 template = env.get_template("summary.tex")
+                summary_data = data.core["summary"]
+                summary_text = summary_data.get(doc_type) or summary_data["text"]
                 sections.append(
-                    template.render(
-                        summary_text=escape_latex(data.core["summary"]["text"])
-                    )
+                    template.render(summary_text=escape_latex(summary_text))
                 )
 
         elif section_name == "experience":

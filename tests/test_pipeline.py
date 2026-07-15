@@ -58,7 +58,11 @@ def test_current_career_profile_identifies_scrutable_not_moons_out():
     ]
     assert len(moons_out_roles) == 1
     assert moons_out_roles[0]["end_date"] == "Mar 2026"
-    assert moons_out_roles[0]["title"] == "Lab Director & Systems Alchemist"
+    assert moons_out_roles[0]["organization"] == "Moons Out Media"
+    assert (
+        moons_out_roles[0]["title"]
+        == "Lab Director & Systems Alchemist — Moons Out Labs"
+    )
     assert "moonsoutmedia.com" not in json.dumps(data.personal.model_dump())
 
 
@@ -92,6 +96,42 @@ def test_verified_timeline_and_credentials_are_preserved():
     )
     assert instructor_badge["date_range"] == "Issued 2023"
     assert "end_date" not in instructor_badge
+
+
+def test_service_record_and_document_scope_are_preserved():
+    data = ProjectData.load(PROJECT_ROOT)
+    experience = data.core["experience"]["entries"]
+
+    technician = next(
+        entry
+        for entry in experience
+        if entry["title"] == "Engineer Electrical Systems Technician"
+    )
+    technician_text = " ".join(technician["items"])
+    assert "AMMPS" in technician_text
+    assert "Incirlik Air Base" in technician_text
+    assert "VMAQ-3" in technician_text
+    assert "two-Marine power team" in technician_text
+
+    maintenance_chief = next(
+        entry for entry in experience if entry["title"] == "Assistant Maintenance Chief"
+    )
+    assert "sergeant's (E-5) billet as a corporal (E-4)" in maintenance_chief["items"][0]
+    assert "life-sustaining critical utilities infrastructure" in " ".join(
+        maintenance_chief["items"]
+    )
+
+    quality_control = next(
+        entry
+        for entry in experience
+        if entry["title"] == "Quality Control Non-Commissioned Officer"
+    )
+    assert "turning the Assistant Maintenance Chief role over" in quality_control["items"][0]
+
+    assert data.personal.position["cv"] == "Software Engineer • Marine~Corps Veteran"
+    assert "projects" not in data.documents.resume.sections
+    assert "projects" in data.documents.cv.sections
+    assert data.optional["projects"]["entries"]
 
 
 def test_scrutable_identity_registry_and_trademark_contract():

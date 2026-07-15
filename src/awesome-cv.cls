@@ -148,7 +148,7 @@
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
-% Scrutable identity palette (Visual Identity Specification v0.1)
+% Scrutable™ identity palette (Visual Identity Specification v0.1)
 \definecolor{scrutable-ink}{HTML}{111820}
 \definecolor{scrutable-body}{HTML}{4A5057}
 \definecolor{scrutable-labs}{HTML}{2F5C87}
