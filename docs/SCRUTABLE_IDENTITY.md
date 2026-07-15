@@ -4,7 +4,7 @@ This repository applies the direction established by the Scrutable™ Identity C
 
 ## Marks
 
-Use `™` on Scrutable-owned names and promises: Scrutable™, SCRUTABLE™, We show our work.™, Scrutable Labs™, Scrutable Media™, Scrutable Works™, Scrutable Commons™, and ExecOS™. Do not use `®` unless registration is confirmed. Generic terms and third-party names remain unmarked.
+Use `™` on Scrutable™-owned names and promises: Scrutable™, SCRUTABLE™, We show our work.™, Scrutable Labs™, Scrutable Media™, Scrutable Works™, Scrutable Commons™, and ExecOS™. Do not use `®` unless registration is confirmed. Generic terms and third-party names remain unmarked.
 
 ## Resume application
 

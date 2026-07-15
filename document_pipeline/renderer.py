@@ -56,7 +56,7 @@ def settings_context(spec: DocumentSpec | CoverLetterSpec) -> dict[str, Any]:
 
 
 def identity_context(data: ProjectData, doc_type: str) -> dict[str, Any]:
-    """Return the governed Scrutable identity and record for a document."""
+    """Return the governed Scrutable™ identity and record for a document."""
     return {
         "identity": data.identity,
         "record": data.identity.get("records", {}).get(doc_type, {}),
