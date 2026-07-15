@@ -125,7 +125,9 @@ def format_cventry(entry: dict[str, Any], entry_type: str = "experience") -> str
         "experience": ("title", "organization", "location", "__date_range__"),
         "education": ("degree", "institution", "location", "__date_range__"),
         "certification": ("name", "organization", "location", "__date_range__"),
-        "project": ("name", "technologies", "date", "location"),
+        # cventry arg 2 renders bold; put the project name there and let
+        # technologies take the small first slot, mirroring experience rows.
+        "project": ("technologies", "name", "location", "date"),
         "presentation": ("role", "event", "location", "date"),
         "teaching": ("role", "institution", "location", "date"),
         "volunteer": ("position", "organization", "location", "date_range"),
@@ -134,7 +136,7 @@ def format_cventry(entry: dict[str, Any], entry_type: str = "experience") -> str
         "experience": ("Job title", "Organization", "Location", "Date(s)"),
         "education": ("Degree", "Institution", "Location", "Date(s)"),
         "certification": ("Certification", "Organization", "Location", "Date(s)"),
-        "project": ("Project name", "Technologies used", "Date(s)", "Location"),
+        "project": ("Technologies used", "Project name", "Location", "Date(s)"),
         "presentation": ("Role", "Event", "Location", "Date(s)"),
         "teaching": ("Role", "Institution", "Location", "Date(s)"),
         "volunteer": ("Position", "Organization", "Location", "Date(s)"),

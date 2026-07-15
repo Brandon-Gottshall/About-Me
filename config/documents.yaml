@@ -24,6 +24,7 @@ cv:
   sections:
     - summary
     - experience
+    - projects
     - education
     - skills
     - certifications
