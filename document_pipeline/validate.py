@@ -29,6 +29,7 @@ class ValidationIssue:
 SCHEMA_MAP = {
     "config/cover_letter.yaml": "config/legacy-cover-letter.schema.json",
     "config/documents.yaml": "config/documents.schema.json",
+    "config/identity.yaml": "config/identity.schema.json",
     "content/core/education.yaml": "content/core/education.schema.json",
     "content/core/experience.yaml": "content/core/experience.schema.json",
     "content/core/personal.yaml": "content/core/personal.schema.json",

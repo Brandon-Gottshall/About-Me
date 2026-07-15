@@ -20,6 +20,20 @@
 </head>
 <body>
   <main class="rg-document rg-document--{{ doc_slug }}" lang="en">
+    <aside class="rg-identity" aria-label="Scrutable identity and record metadata">
+      <div class="rg-identity__brand">
+        <p class="rg-identity__wordmark">{{ identity.marks.wordmark }}</p>
+        <p class="rg-identity__promise">{{ identity.marks.promise }}</p>
+      </div>
+      <dl class="rg-record">
+        <div><dt>Record</dt><dd>{{ record.id }}</dd></div>
+        <div><dt>Class</dt><dd>{{ record["class"] }}</dd></div>
+        <div><dt>Revision</dt><dd>{{ record.revision }}</dd></div>
+        <div><dt>Status</dt><dd>{{ record.status }}</dd></div>
+        <div><dt>Effective</dt><dd>{{ record.effective_date }}</dd></div>
+      </dl>
+      <span class="rg-identity__appendage" aria-hidden="true"></span>
+    </aside>
     <header class="rg-document__header">
       <h1 class="rg-document__name">{{ full_name }}</h1>
       {% if position %}
@@ -38,7 +52,8 @@
     </header>
 {{ sections_html }}
     <footer class="rg-document__footer">
-      <span>Generated {{ generated_at }} from <a href="{{ source_repo }}">About-Me</a>.</span>
+      <span>{{ record.id }} · {{ record.status }} · {{ record.effective_date }}</span>
+      <span>Generated from <a href="{{ source_repo }}">About-Me</a>.</span>
       {% if pdf_filename %}
       <span><a href="{{ pdf_filename }}">Download PDF</a></span>
       {% endif %}

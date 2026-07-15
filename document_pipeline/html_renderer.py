@@ -149,6 +149,8 @@ class HtmlDocumentRenderer:
         quote = _quote_for(personal, normalized_type)
         contact_items = _contact_items(personal)
         sections_html = generate_html_sections(self.data, normalized_type)
+        identity = self.data.identity
+        record = identity["records"][normalized_type]
         canonical_url = f"{DEFAULT_DOCUMENTS_BASE_URL}/{HTML_OUTPUT_NAMES[normalized_type]}"
 
         page_title = f"{full_name} — {title_label}".strip(" —")
@@ -163,6 +165,8 @@ class HtmlDocumentRenderer:
             contact_items=contact_items,
             quote=quote,
             sections_html=sections_html,
+            identity=identity,
+            record=record,
             generated_at=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             source_repo=SOURCE_REPO,
             pdf_filename=pdf_filename,

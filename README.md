@@ -3,6 +3,10 @@
 YAML-driven LaTeX document-generation system for Brandon Gottshall's resume, CV,
 leadership resume, and cover letters.
 
+Scrutable™ identity and stable record metadata live in
+[`config/identity.yaml`](config/identity.yaml). The trademark and usage contract
+is documented in [`docs/SCRUTABLE_IDENTITY.md`](docs/SCRUTABLE_IDENTITY.md).
+
 This repository began as a fork of
 [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV), but it has been
 reworked into personal career infrastructure: structured YAML content feeds
