@@ -47,7 +47,7 @@ def test_current_career_profile_identifies_scrutable_not_moons_out():
         entry for entry in experience_entries if entry["end_date"] == "Present"
     ]
     assert len(current_roles) == 1
-    assert current_roles[0]["organization"] == "Scrutable"
+    assert current_roles[0]["organization"] == "Scrutable™"
     assert current_roles[0]["title"] == "Founder & Managing Alchemist"
 
     moons_out_roles = [
@@ -91,6 +91,45 @@ def test_verified_timeline_and_credentials_are_preserved():
     )
     assert instructor_badge["date_range"] == "Issued 2023"
     assert "end_date" not in instructor_badge
+
+
+def test_scrutable_identity_registry_and_trademark_contract():
+    data = ProjectData.load(PROJECT_ROOT)
+    marks = data.identity["marks"]
+    assert marks == {
+        "parent": "Scrutable™",
+        "wordmark": "SCRUTABLE™",
+        "promise": "We show our work.™",
+        "labs": "Scrutable Labs™",
+        "media": "Scrutable Media™",
+        "works": "Scrutable Works™",
+        "commons": "Scrutable Commons™",
+        "execos": "ExecOS™",
+    }
+    official_source = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in sorted((PROJECT_ROOT / "content" / "core").glob("*.yaml"))
+    )
+    assert "Scrutable™" in official_source
+    assert "Scrutable," not in official_source
+    assert "Scrutable " not in official_source
+    assert "®" not in official_source
+
+
+def test_leadership_resume_uses_current_scrutable_timeline():
+    data = ProjectData.load(PROJECT_ROOT)
+    business = next(
+        category
+        for category in data.optional["leadership"]["categories"]
+        if category["name"] == "Business & Technical Leadership"
+    )
+    current = [entry for entry in business["entries"] if entry["end_date"] == "Present"]
+    assert len(current) == 1
+    assert current[0]["organization"] == "Scrutable™"
+    assert current[0]["title"] == "Founder & Managing Alchemist"
+    assert current[0]["start_date"] == "Mar 2026"
+    nebula = next(entry for entry in business["entries"] if entry["organization"] == "Nebula Academy")
+    assert nebula["start_date"] == "Sep 2022"
 
 
 def test_document_type_aliases_are_normalized():
@@ -299,6 +338,18 @@ def test_html_renderer_emits_expected_files(tmp_path):
         assert "<main" in text
         assert "\\textbullet" not in text
         assert "~Corps" not in text  # `~` from YAML must be non-breaking space
+        assert "SCRUTABLE™" in text
+        assert "We show our work.™" in text
+        assert "PROFESSIONAL RECORD" in text
+        assert data_record_id_for(doc_type) in text
+
+
+def data_record_id_for(doc_type):
+    return {
+        "resume": "BG-CAREER-001",
+        "cv": "BG-CAREER-002",
+        "leadership_resume": "BG-CAREER-003",
+    }[doc_type]
 
 
 def test_html_renderer_links_to_pdf_counterpart():
@@ -307,6 +358,11 @@ def test_html_renderer_links_to_pdf_counterpart():
         html_path = output_dir / f"{doc_type}.html"
         text = html_path.read_text(encoding="utf-8")
         assert f"{doc_type}.pdf" in text
+
+
+def test_html_renderer_makes_phone_actionable():
+    resume_html = (PROJECT_ROOT / "output" / "resume.html").read_text(encoding="utf-8")
+    assert 'href="tel:+12295073499"' in resume_html
 
 
 def test_documents_manifest_matches_portfolio_schema():

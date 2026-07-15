@@ -20,6 +20,10 @@
 
 % Color for highlights (match with resume/cv)
 \colorlet{awesome}{<<color>>}
+\colorlet{text}{scrutable-body}
+\colorlet{darktext}{scrutable-ink}
+\colorlet{graytext}{scrutable-body}
+\colorlet{lighttext}{scrutable-body}
 
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{<<section_color_highlight>>}
@@ -38,7 +42,7 @@
 %-------------------------------------------------------------------------------
 \name{ <<name.first>> }{ <<name.last>> }
 <@ if variant_id == 'academic_music' @>
-\position{ Blazin' Brigade Section Leader Candidate • Low Brass • Marine~Corps Veteran }
+\position{ Blazin' Brigade Section Leader Candidate • Low Brass • Marine Corps Veteran }
 <@ else @>
 \position{ <<position.resume>> }
 <@ endif @>
@@ -130,4 +134,3 @@
 \makeletterclosing
 
 \end{document}
-

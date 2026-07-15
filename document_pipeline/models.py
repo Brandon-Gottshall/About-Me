@@ -94,6 +94,7 @@ class ProjectData:
 
     paths: ProjectPaths
     documents: DocumentsConfig
+    identity: dict[str, Any]
     personal: PersonalProfile
     core: dict[str, Any]
     optional: dict[str, dict[str, Any]]
@@ -102,6 +103,7 @@ class ProjectData:
     def load(cls, root: Path | str | None = None) -> "ProjectData":
         paths = ProjectPaths.from_root(root)
         documents_raw = load_yaml(paths.config_dir / "documents.yaml")
+        identity_raw = load_yaml(paths.config_dir / "identity.yaml")
         personal_raw = load_yaml(paths.content_core_dir / "personal.yaml")
         core = {
             "personal": personal_raw,
@@ -117,6 +119,7 @@ class ProjectData:
         return cls(
             paths=paths,
             documents=DocumentsConfig.model_validate(documents_raw),
+            identity=identity_raw,
             personal=PersonalProfile.model_validate(personal_raw),
             core=core,
             optional=optional,

@@ -55,6 +55,14 @@ def settings_context(spec: DocumentSpec | CoverLetterSpec) -> dict[str, Any]:
     }
 
 
+def identity_context(data: ProjectData, doc_type: str) -> dict[str, Any]:
+    """Return the governed Scrutable™ identity and record for a document."""
+    return {
+        "identity": data.identity,
+        "record": data.identity.get("records", {}).get(doc_type, {}),
+    }
+
+
 class DocumentRenderer:
     def __init__(self, data: ProjectData):
         self.data = data
@@ -93,6 +101,7 @@ class DocumentRenderer:
                 contact=personal["contact"],
                 quote=personal["quote"],
                 sections=sections,
+                **identity_context(self.data, doc_type),
                 **settings_context(spec),
             )
 
@@ -115,6 +124,7 @@ class DocumentRenderer:
                 ),
                 quote={"resume": quote_text},
                 sections=sections,
+                **identity_context(self.data, doc_type),
                 **settings_context(spec),
             )
 
@@ -126,6 +136,7 @@ class DocumentRenderer:
             contact_line=personal.get("contact_line", {}).get("resume", ""),
             quote=personal["quote"],
             sections=sections,
+            **identity_context(self.data, doc_type),
             **settings_context(spec),
         )
 

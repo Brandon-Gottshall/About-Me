@@ -16,7 +16,7 @@ resume:
       right: "1.8cm"
       bottom: "2.2cm"
       footskip: "1cm"
-    color: "awesome-skyblue"  # or uncomment to use custom color
+    color: "scrutable-ink"
     section_color_highlight: true
     header_alignment: "C"  # C=center, L=left, R=right
 
@@ -38,7 +38,7 @@ cv:
       right: "2cm"
       bottom: "2cm"
       footskip: "1cm"
-    color: "awesome-red"
+    color: "scrutable-ink"
     section_color_highlight: true
     header_alignment: ""  # empty = default
 
@@ -53,7 +53,7 @@ cover_letter:
       right: "1.8cm"  # Match resume margins
       bottom: "2.2cm"  # Match resume margins
       footskip: "1cm"  # Match resume footskip
-    color: "awesome-skyblue"  # Match leadership resume color
+    color: "scrutable-ink"
     section_color_highlight: true
     header_alignment: "C"  # Center-aligned like leadership resume
   defaults:
@@ -79,6 +79,6 @@ leadership_resume:
       right: "2.2cm"
       bottom: "2.2cm"
       footskip: "1cm"
-    color: "awesome-skyblue"
+    color: "scrutable-ink"
     section_color_highlight: true
     header_alignment: "C"
