@@ -38,6 +38,7 @@ def test_project_data_models_load_official_documents():
     assert data.personal.name.first == "Brandon"
     assert data.documents.resume.sections[0] == "summary"
     assert data.documents.cover_letter.variant in {"default", "academic_music"}
+    assert data.documents.resume.settings.font_size == "10pt"
 
 
 def test_current_career_profile_identifies_scrutable_not_moons_out():
