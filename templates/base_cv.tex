@@ -20,6 +20,10 @@
 
 % Color for highlights
 \colorlet{awesome}{<<color>>}
+\colorlet{text}{scrutable-body}
+\colorlet{darktext}{scrutable-ink}
+\colorlet{graytext}{scrutable-body}
+\colorlet{lighttext}{scrutable-body}
 
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{<<section_color_highlight>>}
@@ -29,6 +33,22 @@
 
 % Reduce spacing between first and last name in header (more reduction for tighter spacing)
 \renewcommand{\acvHeaderNameDelim}{\kern-0.15em\space}
+
+\newcommand{\scrutablerecordrail}{%
+  \noindent
+  \begin{minipage}[t]{0.56\textwidth}
+    {\fontsize{13pt}{14pt}\selectfont\bfseries\color{scrutable-ink} <<identity.marks.wordmark>>}\par
+    {\fontsize{7pt}{8pt}\selectfont\color{scrutable-body} <<identity.marks.promise>>}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.40\textwidth}
+    \raggedleft\ttfamily\fontsize{6.5pt}{8pt}\selectfont\color{scrutable-body}
+    <<record.id>> \textbullet{} REV <<record.revision>>\\
+    <<record.class>> \textbullet{} <<record.status>>\\
+    EFFECTIVE <<record.effective_date>>\quad{\color{scrutable-ink}\rule{5pt}{5pt}}
+  \end{minipage}
+  \par\vspace{3pt}{\color{scrutable-ink}\hrule}\vspace{7pt}
+}
 
 % Custom spacing adjustments for better readability
 \renewcommand{\acvSectionContentTopSkip}{3mm}
@@ -79,6 +99,8 @@
 %-------------------------------------------------------------------------------
 \begin{document}
 
+\scrutablerecordrail
+
 % Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
 <@ if header_alignment @>\makecvheader[<<header_alignment>>]
@@ -88,9 +110,9 @@
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
-  {\today}
-  { <<name.first>> <<name.last>> ~~~·~~~Curriculum Vitae }
-  {\thepage}
+  {<<record.id>> \textbullet{} <<record.status>>}
+  {<<record.effective_date>>}
+  {PAGE \thepage}
 
 
 %-------------------------------------------------------------------------------

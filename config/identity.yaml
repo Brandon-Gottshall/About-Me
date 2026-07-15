@@ -1,0 +1,42 @@
+marks:
+  parent: "Scrutable™"
+  wordmark: "SCRUTABLE™"
+  promise: "We show our work.™"
+  labs: "Scrutable Labs™"
+  media: "Scrutable Media™"
+  works: "Scrutable Works™"
+  commons: "Scrutable Commons™"
+  execos: "ExecOS™"
+
+palette:
+  ink: "#111820"
+  body: "#4A5057"
+  labs: "#2F5C87"
+  media: "#5A3A6E"
+  works: "#A84412"
+  commons: "#315B3C"
+
+typography:
+  display: "Inter Display"
+  human: "Inter"
+  record: "Noto Sans Mono"
+
+records:
+  resume:
+    id: "BG-CAREER-001"
+    class: "PROFESSIONAL RECORD"
+    revision: "01"
+    status: "CURRENT"
+    effective_date: "2026-07-14"
+  cv:
+    id: "BG-CAREER-002"
+    class: "PROFESSIONAL RECORD"
+    revision: "01"
+    status: "CURRENT"
+    effective_date: "2026-07-14"
+  leadership_resume:
+    id: "BG-CAREER-003"
+    class: "PROFESSIONAL RECORD"
+    revision: "01"
+    status: "CURRENT"
+    effective_date: "2026-07-14"

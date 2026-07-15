@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Scrutable identity and record configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["marks", "palette", "typography", "records"],
+  "properties": {
+    "marks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parent", "wordmark", "promise", "labs", "media", "works", "commons", "execos"],
+      "properties": {
+        "parent": {"const": "Scrutable™"},
+        "wordmark": {"const": "SCRUTABLE™"},
+        "promise": {"const": "We show our work.™"},
+        "labs": {"const": "Scrutable Labs™"},
+        "media": {"const": "Scrutable Media™"},
+        "works": {"const": "Scrutable Works™"},
+        "commons": {"const": "Scrutable Commons™"},
+        "execos": {"const": "ExecOS™"}
+      }
+    },
+    "palette": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ink", "body", "labs", "media", "works", "commons"],
+      "properties": {
+        "ink": {"const": "#111820"},
+        "body": {"const": "#4A5057"},
+        "labs": {"const": "#2F5C87"},
+        "media": {"const": "#5A3A6E"},
+        "works": {"const": "#A84412"},
+        "commons": {"const": "#315B3C"}
+      }
+    },
+    "typography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display", "human", "record"],
+      "properties": {
+        "display": {"const": "Inter Display"},
+        "human": {"const": "Inter"},
+        "record": {"const": "Noto Sans Mono"}
+      }
+    },
+    "records": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resume", "cv", "leadership_resume"],
+      "properties": {
+        "resume": {"$ref": "#/$defs/record"},
+        "cv": {"$ref": "#/$defs/record"},
+        "leadership_resume": {"$ref": "#/$defs/record"}
+      }
+    }
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "class", "revision", "status", "effective_date"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^BG-CAREER-[0-9]{3}$"},
+        "class": {"const": "PROFESSIONAL RECORD"},
+        "revision": {"type": "string", "pattern": "^[0-9]{2}$"},
+        "status": {"enum": ["CURRENT", "SUPERSEDED", "RETIRED"]},
+        "effective_date": {"type": "string", "format": "date"}
+      }
+    }
+  }
+}
