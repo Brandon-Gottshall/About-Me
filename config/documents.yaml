@@ -9,13 +9,13 @@ resume:
     - certifications
   settings:
     paper_size: "a4paper"
-    font_size: "11pt"
+    font_size: "10pt"
     margins:
       left: "1.8cm"
-      top: "1.5cm"
+      top: "1.25cm"
       right: "1.8cm"
-      bottom: "2.2cm"
-      footskip: "1cm"
+      bottom: "1.5cm"
+      footskip: "0.7cm"
     color: "scrutable-ink"
     section_color_highlight: true
     header_alignment: "C"  # C=center, L=left, R=right

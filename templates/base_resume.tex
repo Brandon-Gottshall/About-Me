@@ -36,7 +36,11 @@
   }
 }
 \makeatother
+<@ if compact_layout @>
+\renewcommand{\acvSectionContentTopSkip}{1mm}
+<@ else @>
 \renewcommand{\acvSectionContentTopSkip}{2mm}
+<@ endif @>
 
 % Custom spacing for cvitems (bullet points)
 \renewenvironment{cvitems}{%
@@ -48,7 +52,11 @@
 }{%
   \end{itemize}
   \end{justify}
+<@ if compact_layout @>
+  \vspace{4pt}%
+<@ else @>
   \vspace{8pt}%
+<@ endif @>
 }
 
 % Color the first word of section titles
@@ -99,7 +107,7 @@
     <<record.class>> \textbullet{} <<record.status>>\\
     EFFECTIVE <<record.effective_date>>\quad{\color{scrutable-ink}\rule{5pt}{5pt}}
   \end{minipage}
-  \par\vspace{3pt}{\color{scrutable-ink}\hrule}\vspace{7pt}
+  \par\vspace{3pt}{\color{scrutable-ink}\hrule}\vspace{<@ if compact_layout @>5<@ else @>7<@ endif @>pt}
 }
 
 

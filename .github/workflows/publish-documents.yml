@@ -70,6 +70,14 @@ jobs:
             test -s "output/$file" || { echo "missing output/$file" >&2; exit 1; }
           done
 
+      - name: Enforce two-page resume contract
+        run: |
+          pages="$(pdfinfo output/resume.pdf | awk '/^Pages:/ {print $2}')"
+          test "$pages" = "2" || {
+            echo "resume.pdf must be exactly 2 pages; got $pages" >&2
+            exit 1
+          }
+
       - name: Scan privacy surfaces
         run: make privacy-scan PYTHON=python
 
