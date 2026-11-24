@@ -49,7 +49,7 @@ def test_current_career_profile_identifies_scrutable_not_moons_out():
     ]
     assert len(current_roles) == 1
     assert current_roles[0]["organization"] == "Scrutable™"
-    assert current_roles[0]["title"] == "Founder & Managing Alchemist"
+    assert current_roles[0]["title"] == "Founder and Technical Lead (sole proprietor)"
 
     moons_out_roles = [
         entry
@@ -61,7 +61,7 @@ def test_current_career_profile_identifies_scrutable_not_moons_out():
     assert moons_out_roles[0]["organization"] == "Moons Out Media"
     assert (
         moons_out_roles[0]["title"]
-        == "Lab Director & Systems Alchemist — Moons Out Labs"
+        == "Lab Director and Software Systems Lead — Moons Out Labs"
     )
     assert "moonsoutmedia.com" not in json.dumps(data.personal.model_dump())
 
@@ -167,7 +167,7 @@ def test_leadership_resume_uses_current_scrutable_timeline():
     current = [entry for entry in business["entries"] if entry["end_date"] == "Present"]
     assert len(current) == 1
     assert current[0]["organization"] == "Scrutable™"
-    assert current[0]["title"] == "Founder & Managing Alchemist"
+    assert current[0]["title"] == "Founder and Technical Lead (sole proprietor)"
     assert current[0]["start_date"] == "Mar 2026"
     nebula = next(entry for entry in business["entries"] if entry["organization"] == "Nebula Academy")
     assert nebula["start_date"] == "Sep 2022"
