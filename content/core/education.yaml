@@ -4,6 +4,8 @@ entries:
     location: "Valdosta, GA"
     start_date: "2025"
     end_date: "Present"
+    items:
+      - "Computer Science second major (formal declaration pending)"
 
   - degree: "Software Engineering Immersive"
     institution: "General Assembly"
